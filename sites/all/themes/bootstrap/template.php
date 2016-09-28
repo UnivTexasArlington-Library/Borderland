@@ -66,11 +66,3 @@ drupal_static_reset('element_info');
  * they are properly detected when drupal_alter() is invoked.
  */
 bootstrap_include('bootstrap', 'includes/alter.inc');
-
-/**
-* Add javascript files for front-page google map.
-*/
-if (drupal_is_front_page()) {
-drupal_add_js(drupal_get_path('theme', 'bootstrap') . 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ9CDLTvQfHxx4YXv_VzuM5UNkRmrrmPc');
-}
-
