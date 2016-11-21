@@ -1,0 +1,133 @@
+/**
+ * Default Variables.
+ *
+ * Modify this file to provide default Bootstrap Framework variables. The
+ * Bootstrap Framework will not override any variables defined here because it
+ * uses the `!default` flag which will only set their default if not already
+ * defined here.
+ *
+ * You can copy existing variables directly from the following file:
+ * ./THEMENAME/bootstrap/assets/stylesheets/_variables.scss
+ */
+
+// Set the proper directory for the Bootstrap Glyphicon font.
+$icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
+
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         0px !default;
+
+//== Colors
+$brand-ltblue:					#a8bbca;
+$brand-dkblue:					#175586;
+$rollover:						#dde3e8;
+$blue-text:						#0d3f67;
+
+//** Background color for `<body>`.
+$body-bg:               #fff !default;
+//** Global text color on `<body>`.
+$text-color:            #000000 !default;
+
+//** Global textual link color.
+$link-color:            #195689 !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      $link-color;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          16px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~20px
+$font-size-small:         ceil(($font-size-base * 0.875)) !default; // ~14px
+$font-size-xs:			  ceil(($font-size-base * 0.8125)) !default; // ~13px
+
+$font-size-h1:            floor(($font-size-base * 1.6)) !default; // ~25.6px
+$font-size-h2:            floor(($font-size-base * 1.25)) !default; // ~20px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$navbar-height:                    100px !default;
+$navbar-margin-bottom:             0 !default;
+$navbar-border-radius:             0 !default;
+
+
+$navbar-default-color:             #FFF !default;
+$navbar-default-bg:                $brand-dkblue !default;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+
+// Navbar links
+$navbar-default-link-color:                #FFF !default;
+$navbar-default-link-hover-color:          #FFF !default;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         #555 !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+// Navbar brand label
+$navbar-default-brand-color:               $navbar-default-link-color !default;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-hover-bg:            transparent !default;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd !default;
+$navbar-default-toggle-icon-bar-bg:        #888 !default;
+$navbar-default-toggle-border-color:       #ddd !default;
+
+
+//== Type
+//
+//##
+
+//** Horizontal offset for forms and lists.
+// $component-offset-horizontal: 180px
+//** Text muted color
+// $text-muted:                  $gray-light
+//** Abbreviations and acronyms border color
+// $abbr-border-color:           $gray-light
+//** Headings small color
+// $headings-small-color:        $gray-light
+//** Blockquote small color
+// $blockquote-small-color:      $gray-light
+//** Blockquote font size
+// $blockquote-font-size:        ($font-size-base * 1.25)
+//** Blockquote border color
+// $blockquote-border-color:     $gray-lighter
+//** Page header border color
+$page-header-border-color:    #b3a596;
+//** Width of horizontal description list titles
+// $dl-horizontal-offset:        $component-offset-horizontal
+//** Point at which .dl-horizontal becomes horizontal
+// $dl-horizontal-breakpoint:    $grid-float-breakpoint
+//** Horizontal line color.
+// $hr-border:                   $gray-lighter

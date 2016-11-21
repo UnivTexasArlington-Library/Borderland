@@ -1,0 +1,268 @@
+
+// You can add these variables to your _base.scss
+$superfish-1-color: #000;
+$superfish-1-background-color-level-first: #f0f0f0;
+$superfish-1-background-color-level-second: #e0e0e0;
+$superfish-1-background-color-level-third: #d0d0d0;
+$superfish-1-background-color-level-fourth: #FFF;
+
+#block-superfish-2 {
+	margin-right:15px;
+	margin-top:15px;
+	.sf-style-none {
+		float: left;
+		margin: 25px 0 0 0;
+		padding: 0;
+		&.sf-navbar {
+			width: 100%;
+			/* background: $superfish-1-background-color-level-first; */
+		}
+		ul {
+			padding-left: 0;
+			&.sf-megamenu li {
+				&.sf-megamenu-wrapper {
+					background: transparent;
+					li {
+						background: transparent;
+						&:focus, &:hover {
+							color:$brand-dkblue;
+						}
+					li.active-trail {
+						background-color: $superfish-1-background-color-level-fourth;
+						color:$brand-dkblue;
+					}
+					}
+				}
+			}
+		}
+		a {
+			color: $superfish-1-color;
+			margin: 0.75em 0;
+			padding: 0 1em;
+			border-right: 1px solid #000;
+
+			&.sf-with-ul {
+				padding-right: 2.25em;
+			}
+			&:focus, &:hover, &:active {
+				color:$brand-dkblue;
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+			}
+			.active {
+				color:$brand-dkblue;
+				background: $superfish-1-background-color-level-fourth;
+			}
+		}
+		span {
+			&.nolink {
+				color: $superfish-1-color;
+				padding: 0.75em 1em;
+				&.sf-with-ul {
+					padding-right: 2.25em;
+				}
+				&:hover {
+					background: $superfish-1-background-color-level-fourth;
+					outline: 0;
+				}
+			}
+			&.sf-description {
+				color: $superfish-1-color;
+				display: block;
+				font-size: 0.833em;
+				line-height: 1.5;
+				margin: 5px 0 0 5px;
+				padding: 0;
+			}
+		}
+		&.rtl {
+			span {
+				&.sf-description {
+					margin: 5px 5px 0 0;
+				}
+				&.nolink.sf-with-ul {
+					padding-left: 2.25em;
+					padding-right: 1em;
+				}
+			}
+			a.sf-with-ul {
+				padding-left: 2.25em;
+				padding-right: 1em;
+			}
+		}
+		li {
+			background: transparent;
+			li {
+				background: $superfish-1-background-color-level-second;
+				li {
+					background: $superfish-1-background-color-level-third;
+				}
+			}
+			&:hover {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+				> ul {
+					top: 40px;
+				}
+			}
+			&.sfHover {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+				> ul {
+					top: 40px;
+				}
+			}
+
+			};
+		li.last {
+			a {
+				border-right: none;
+			}	
+		}
+		.sf-sub-indicator {
+			background-image: url('../images/dropdown-arrows.png');
+		}
+	}
+	div.sf-accordion-toggle {
+		&.sf-style-none a {
+			background: $superfish-1-background-color-level-first;
+			color: $superfish-1-color;
+			padding: 1em;
+			&.sf-expanded {
+				background-color: $superfish-1-background-color-level-fourth;
+				font-weight: bold;
+			}
+		}
+	}
+	.sf-menu.sf-style-none {
+		&.rtl {
+			&.sf-accordion li {
+				li {
+					a {
+						padding-left: auto;
+						padding-right: 2em;
+					}
+					li {
+						a {
+							padding-left: auto;
+							padding-right: 3em;
+						}
+						li {
+							a {
+								padding-left: auto;
+								padding-right: 4em;
+							}
+							li {
+								a {
+									padding-left: auto;
+									padding-right: 5em;
+								}
+								span.nolink {
+									padding-left: auto;
+									padding-right: 5em;
+								}
+							}
+							span.nolink {
+								padding-left: auto;
+								padding-right: 4em;
+							}
+						}
+						span.nolink {
+							padding-left: auto;
+							padding-right: 3em;
+						}
+					}
+					span.nolink {
+						padding-left: auto;
+						padding-right: 2em;
+					}
+				}
+			}
+			ul.sf-megamenu {
+				li.sf-megamenu-wrapper {
+					ol li {
+						&.sf-megamenu-column {
+							float: right;
+						}
+					}
+				}
+			}
+		}
+		&.sf-accordion li {
+			&.sf-expanded {
+				background-color: $superfish-1-background-color-level-fourth;
+				> {
+					a {
+						font-weight: bold;
+					}
+					span.nolink {
+						font-weight: bold;
+					}
+				}
+			}
+			li {
+				a {
+					padding-left: 2em;
+				}
+				li {
+					a {
+						padding-left: 3em;
+					}
+					li {
+						a {
+							padding-left: 4em;
+						}
+						li {
+							a {
+								padding-left: 5em;
+							}
+							span.nolink {
+								padding-left: 5em;
+							}
+						}
+						span.nolink {
+							padding-left: 4em;
+						}
+					}
+					span.nolink {
+						padding-left: 3em;
+					}
+				}
+				span.nolink {
+					padding-left: 2em;
+				}
+			}
+			a.sf-accordion-button {
+				font-weight: bold;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 499;
+			}
+		}
+		ul.sf-megamenu {
+			li.sf-megamenu-wrapper {
+				ol {
+					margin: 0;
+					padding: 0;
+					li {
+						margin: 0;
+						padding: 0;
+						&.sf-megamenu-column {
+							display: inline;
+							float: left;
+						}
+					}
+				}
+				a.menuparent {
+					font-weight: bold;
+				}
+				span.nolink {
+					&.menuparent {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}

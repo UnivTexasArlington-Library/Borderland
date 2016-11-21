@@ -1,0 +1,287 @@
+// Media query variables.
+$tablet:  "screen and (min-width: 768px)";
+$normal:  "screen and (min-width: 992px)";
+$wide:    "screen and (min-width: 1200px)";
+
+//font
+h1 {
+  color: $link-color;
+}
+h2 {
+  color: $text-color;
+  font-size: $font-size-large;
+  margin-top: 1em;
+}
+
+
+//Navbar
+
+.navbar.container-fluid {
+  margin-top: 0;
+}
+.container-fluid > .navbar-header {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.name {
+  font-size: 2.1875em;
+}
+.navbar-btn {
+  margin:1em 0;
+}
+.navbar-brand {
+  line-height: inherit;
+}
+.library, 
+.southwestern {
+  color:#fff;
+  font-size: 1em;
+  margin-bottom: 1em;
+    &:hover, &:focus {
+      color:#fff !important;
+    }
+}
+.library {
+  padding-left:10px;
+}
+.southwestern {
+  padding-right: 10px;
+  border-right: 1px solid #fff;
+}
+
+// Region Header or TOP Bar
+#top-bar {
+  background-color: $brand-ltblue;
+}
+.region-header, 
+.region-timeline, 
+.region-search {
+  padding:15px 15px 0 15px;
+}
+.region-timeline p {
+  font-size: $font-size-xs;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right:5px;
+}
+
+// TAXONOMY PAGEs
+.panel-1col {
+  padding: 0 1em 1em 1em;
+  border:1px solid $page-header-border-color;
+  margin:0 4em 2em 0;
+}
+
+// Footer
+.footer {
+  background-color: $brand-ltblue;
+  padding: 15px;
+}
+#block-block-1 {/* Footer block */
+  float:right;
+}
+
+// Event NODE 
+#content {
+  margin-left:125px;
+  margin-right: 125px;
+  margin-bottom: 125px;
+}
+h1.page-header {
+  margin-left:125px;
+  border-bottom-width:thin;
+  margin-right:40%;
+  border-color:$page-header-border-color;
+}
+.pane-title {
+  font-weight: bold;
+}
+.field {
+  margin-bottom: 1em;
+}
+.field-label {
+  padding-right: 1em;
+}
+
+// Slider
+#views-exposed-form-leaflet-panel-pane-1 {
+  .views-widget {
+    display:none;
+  }
+  .views-exposed-form .views-exposed-widget {
+    float:none;
+  }
+  .description {
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: $font-size-xs;
+  }
+  .views-exposed-form label {
+    display:none;
+  }
+}
+.ui-slider-horizontal .ui-slider-handle {
+  top:-0.5em;
+}
+.ui-slider-horizontal {
+  height: 0.25em;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background:$brand-dkblue url(images/ui-bg_glass_75_195689_1x400.png) 50% 50% repeat-x;
+  border-color:$brand-dkblue;
+  border-radius:0;
+  cursor:e-resize;
+}
+// Tribe or SHS display
+
+li.shs-parent, 
+li.shs-term-selected {
+  display:inline;
+  &::after {
+    content: none;
+  }
+}
+li.shs-parent {
+  &::after {
+    content: "> ";
+  }
+}
+li.shs-term-selected {
+  &::after {
+    content: none;
+  }
+}
+// SEARCH
+#edit-custom-search-blocks-form-1--2 {
+  margin-top:25px;
+  border-radius: 15px;
+}
+.form-control::-moz-placeholder {
+  color:$brand-dkblue;
+  opacity: 0.76;
+  font-size: $font-size-xs;
+}
+#edit-submit.custom-search-button {
+  float: right;
+  margin-top: -42px;
+  margin-right: 15px;
+  border-left: 1px solid $link-color;
+  padding-left: 10px;
+}
+
+// Event List
+#event-list, 
+#block-views-event-list-block-2 {
+  height: 70vh;
+  overflow-y:scroll;
+}
+#event-list {
+  .views-row {
+    padding: 15px;
+    border-bottom:1px solid $page-header-border-color;
+    &:hover {
+      background-color: $rollover;
+    }
+  }
+}
+
+/* Views Table format */
+tr.synced-marker-hover > td,
+tr.odd.synced-marker-hover > td,
+tr.even.synced-marker-hover > td,
+tr.synced-marker-hover > td.active,
+tr.odd.synced-marker-hover > td.active,
+tr.even.synced-marker-hover > td.active {
+  background-color: $rollover;
+}
+/* For Views Unformatted, HTML-list */
+.views-row.synced-marker-hover  {
+  background-color: $rollover;
+}
+/* For Views Grid */
+.views-view-grid td.synced-marker-hover {
+  background-color: $rollover;
+}
+
+
+// Leaflet Popup 
+.leaflet-popup-content {
+  a {
+    font-size: 1.15em;
+    color:$link-color;
+    font-weight: bold;
+  }
+  p {
+    font-size: 1.08em;
+    margin-top:0;
+  }
+}
+.leaflet-control-layers-base, 
+.leaflet-control-layers-separator {
+  display: none;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  top:6px;
+  right:6px;
+  padding:0px 17px 17px 4px;
+  border:1px solid $link-color;
+  border-radius:8px;
+  color:$link-color;
+  &:hover, &:focus {
+    color:$link-color;
+  }
+}
+
+// Legend
+.btn-legend {
+  border-radius: 8px;
+  border-color:#fff;
+  padding-top:10px;
+  background-color: #fff;
+  &:hover {
+    background-color:#fff;
+  }
+}
+.legend {
+  width: 10px;
+  height: 10px;
+  display:inline-block;
+  color:#000;
+  border:10px solid;
+  margin-right: 11.5px;
+}
+.legend-1 { /* Persimmon */
+  color:#e55d48;
+}
+.legend-2 { /* Teal */
+  color:#2dc5b7;
+}
+.legend-3 { /* Grasshopper */
+  color:#478f49;
+}
+.legend-4 { /* Tangerine */
+  color:#f48529;
+}
+.legend-marker {
+  img {
+    height:25px;
+    margin:-15px 10px 10px 10px;
+    display: inline-block;
+  }
+  p {
+    font-size: $font-size-xs;
+    display: inline-block;
+  }
+}
+.btn-group.open .dropdown-toggle {
+  box-shadow: none;
+  border-radius: 8px 8px 0 0;
+}
+.dropdown-menu {
+  box-shadow: none;
+  border:none;
+  border-radius: 0 0 8px 8px;
+  margin:0;
+}
