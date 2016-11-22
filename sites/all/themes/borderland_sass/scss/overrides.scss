@@ -116,7 +116,7 @@ h1.page-header {
   .description {
     text-align: center;
     margin-top: 0.5em;
-    font-size: $font-size-xs;
+    font-size: 0.9375em;
   }
   .views-exposed-form label {
     display:none;
@@ -128,8 +128,11 @@ h1.page-header {
 .ui-slider-horizontal {
   height: 0.25em;
 }
+.ui-slider .ui-slider-handle {
+  width:30px;
+}
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  background:$brand-dkblue url(images/ui-bg_glass_75_195689_1x400.png) 50% 50% repeat-x;
+  background:$brand-dkblue url(images/Slider.png) center no-repeat;
   border-color:$brand-dkblue;
   border-radius:0;
   cursor:e-resize;
@@ -155,13 +158,31 @@ li.shs-term-selected {
 }
 // SEARCH
 #edit-custom-search-blocks-form-1--2 {
-  margin-top:25px;
   border-radius: 15px;
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder { /* Firefox 18- */
   color:$brand-dkblue;
   opacity: 0.76;
-  font-size: $font-size-xs;
+  font-size: $font-size-small;
+}
+.form-control::-webkit-input-placeholder {
+  color:$brand-dkblue;
+  opacity: 0.76;
+  font-size: $font-size-small;
+}
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+  color:$brand-dkblue;
+  opacity: 0.76;
+  font-size: $font-size-small;
+}
+.form-control:-ms-input-placeholder {  
+  color:$brand-dkblue;
+  opacity: 0.76;
+  font-size: $font-size-small;
+}
+#edit-submitted-name{  
+    color: white;
+text-align:center;
 }
 #edit-submit.custom-search-button {
   float: right;
@@ -170,19 +191,24 @@ li.shs-term-selected {
   border-left: 1px solid $link-color;
   padding-left: 10px;
 }
+fieldset.custom_search-popup {
+  left:-9999px;
+}
 
 // Event List
 #event-list, 
 #block-views-event-list-block-2 {
-  height: 70vh;
+  height: 75vh;
   overflow-y:scroll;
 }
 #event-list {
   .views-row {
+    font-size:0.9375em;
     padding: 15px;
     border-bottom:1px solid $page-header-border-color;
     &:hover {
       background-color: $rollover;
+      cursor: pointer;
     }
   }
 }

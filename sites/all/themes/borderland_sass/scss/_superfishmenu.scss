@@ -11,7 +11,7 @@ $superfish-1-background-color-level-fourth: #FFF;
 	margin-top:15px;
 	.sf-style-none {
 		float: left;
-		margin: 25px 0 0 0;
+		margin: 0;
 		padding: 0;
 		&.sf-navbar {
 			width: 100%;
@@ -37,10 +37,10 @@ $superfish-1-background-color-level-fourth: #FFF;
 		}
 		a {
 			color: $superfish-1-color;
-			margin: 0.75em 0;
-			padding: 0 1em;
+			margin: 0.5em 0;
+			padding: 0 0.5em;
 			border-right: 1px solid #000;
-
+			font-size: 1.075em;
 			&.sf-with-ul {
 				padding-right: 2.25em;
 			}
