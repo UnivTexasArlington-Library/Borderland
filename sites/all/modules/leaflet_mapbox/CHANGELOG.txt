@@ -7,3 +7,7 @@ Leaflet MapBox 7.x-1.4, 2016-03-09
 - Add README.
 - Rename menu title to Leaflet Mapbox.
 - Fixed issue #2590357: How to connect with the current mapbox API.
+
+Customization Changelog 2016-11-22
+----------------------------------
+- Customized to add 2 personalized maps, on as an overlay map for UTA Libraries Borderland project.  KES

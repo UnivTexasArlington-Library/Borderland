@@ -30,3 +30,6 @@ To submit bug reports and feature suggestions, or to track changes:
 * Copy and paste your access token from mapbox.com
 * Add a zoom level and description and save.
 * You should now be able to use your new mapbox style when creating leaflet views.
+
+-- Customized --
+This module was customized for the UTA Libraries Borderland project.  11/22/2016 KES

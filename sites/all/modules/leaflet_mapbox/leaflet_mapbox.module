@@ -30,9 +30,9 @@ function leaflet_mapbox_leaflet_map_info() {
     'doubleClickZoom'    => TRUE,
     'dragging'           => TRUE,
     'fadeAnimation'      => TRUE,
-    'layerControl'       => FALSE,
-    'maxZoom'            => 19,
-    'minZoom'            => 0,
+    'layerControl'       => TRUE,
+    'maxZoom'            => 10,
+    'minZoom'            => 2,
     'scrollWheelZoom'    => TRUE,
     'touchZoom'          => TRUE,
     'trackResize'        => TRUE,
@@ -51,7 +51,7 @@ function leaflet_mapbox_leaflet_map_info() {
       $code = variable_get('leaflet_mapbox_code', '');
 
       // Build urlTemplate.
-      $url_template = "//{s}.tiles.mapbox.com/v4/$code/{z}/{x}/{y}.png?access_token=$token";
+      $url_template = "http://{s}.tiles.mapbox.com/v1/$code/{z}/{x}/{y}.png?access_token=$token";
       break;
 
     case '4':
@@ -64,7 +64,7 @@ function leaflet_mapbox_leaflet_map_info() {
       }
 
       // Build urlTemplate.
-      $url_template = "//api.mapbox.com/styles/v1/$username/$styleid/tiles/{z}/{x}/{y}?access_token=$token";
+      $url_template = "//api.mapbox.com/styles/v1/libraryweb/ciusnuc2j00ay2io44aohu44w/tiles/{z}/{x}/{y}?access_token=$token";
 
       // Mapbox v4 tiles are 512px by 512px and offset by 1 zoom level.
       $options += array(
@@ -79,9 +79,16 @@ function leaflet_mapbox_leaflet_map_info() {
     'description' => variable_get('leaflet_mapbox_description', ''),
     'settings' => $settings,
     'layers' => array(
-      'earth' => array(
+      'Modern Map' => array(
         'urlTemplate' => $url_template,
         'options' => $options,
+        'layer_type' => 'base',
+      ), 
+
+       '1833 Map' => array(
+        'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciuqyvzyg007n2js55rpjqm1y/tiles/{z}/{x}/{y}?access_token=$token",
+        'options' => $options,
+        'layer_type' => 'overlay',
       ),
     ),
   );
