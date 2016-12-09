@@ -126,7 +126,7 @@ h1.page-header {
   top:-0.5em;
 }
 .ui-slider-horizontal {
-  height: 0.25em;
+  height: 0.5em;
 }
 .ui-slider .ui-slider-handle {
   width:30px;
@@ -238,6 +238,8 @@ tr.even.synced-marker-hover > td.active {
     font-size: 1.15em;
     color:$link-color;
     font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
   p {
     font-size: 1.08em;
@@ -249,11 +251,6 @@ tr.even.synced-marker-hover > td.active {
   display: none;
 }
 .leaflet-container a.leaflet-popup-close-button {
-  top:6px;
-  right:6px;
-  padding:0px 17px 17px 4px;
-  border:1px solid $link-color;
-  border-radius:8px;
   color:$link-color;
   &:hover, &:focus {
     color:$link-color;
@@ -310,4 +307,93 @@ tr.even.synced-marker-hover > td.active {
   border:none;
   border-radius: 0 0 8px 8px;
   margin:0;
+}
+// Basic Page
+.node-page {
+  max-width: 1000px;
+  margin: auto;
+}
+
+// About Page 
+.about-image-left, 
+.about-image-right {
+  max-width: 300px;
+  margin-bottom:10px;
+}
+.about-image-left {
+  margin-right:20px;
+  float:left;
+}
+.about-image-right {
+  margin-left:20px;
+  float: right;
+}
+
+// Media Queries
+
+@media (max-width: 1400px) {
+  .library, .southwestern {
+    font-size: 0.75em;
+  }
+  .name {
+    font-size: 2em;
+  }
+}
+@media (min-width: $screen-lg) {
+  .southwestern, 
+  .name {
+    float: left;
+  }
+  .library, 
+  .logo, 
+  .owners {
+    float:right;
+  }
+}
+@media (min-width: $screen-md-min) {
+  /* Search Menu item only to display ONLY at mobile */
+  #menu-2756-2 {
+    display: none;
+  }
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .name {
+    padding: 0;
+    height: 50px;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .name {
+    font-size:1.2em;
+    height: inherit;
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+  .logo {
+    margin:0.5em 0;
+    img { 
+      max-width:75%;
+      float:left;
+    }
+  }
+  .name {
+    clear:left;
+    margin-top: 0.5em;
+  }
+  .navbar {
+    min-height: 0;
+  }
+  #block-superfish-2 .sf-style-none a {
+    border-right:none;
+  }
+}
+@media (max-width: $screen-xs-max) {
+  #content {
+    margin:0 50px 50px 50px;
+  }
+  h1.page-header {
+    margin-right:50px;
+    margin-left:50px;
+  }
 }

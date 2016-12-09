@@ -7,8 +7,8 @@ $superfish-1-background-color-level-third: #d0d0d0;
 $superfish-1-background-color-level-fourth: #FFF;
 
 #block-superfish-2 {
-	margin-right:15px;
-	margin-top:15px;
+	margin:15px;
+	float:right;
 	.sf-style-none {
 		float: left;
 		margin: 0;
@@ -35,23 +35,27 @@ $superfish-1-background-color-level-fourth: #FFF;
 				}
 			}
 		}
+		li.active-trail {
+						background-color: $superfish-1-background-color-level-fourth;
+						color:$brand-dkblue;
+					}
 		a {
 			color: $superfish-1-color;
 			margin: 0.5em 0;
 			padding: 0 0.5em;
 			border-right: 1px solid #000;
 			font-size: 1.075em;
+
 			&.sf-with-ul {
 				padding-right: 2.25em;
 			}
-			&:focus, &:hover, &:active {
+			&:focus, &:hover {
 				color:$brand-dkblue;
-				background: $superfish-1-background-color-level-fourth;
 				outline: 0;
 			}
 			.active {
 				color:$brand-dkblue;
-				background: $superfish-1-background-color-level-fourth;
+				/*background: $superfish-1-background-color-level-fourth;*/
 			}
 		}
 		span {
@@ -112,7 +116,6 @@ $superfish-1-background-color-level-fourth: #FFF;
 					top: 40px;
 				}
 			}
-
 			};
 		li.last {
 			a {
@@ -124,14 +127,17 @@ $superfish-1-background-color-level-fourth: #FFF;
 		}
 	}
 	div.sf-accordion-toggle {
+		float:right;
+		margin: 0.7em 0;
 		&.sf-style-none a {
-			background: $superfish-1-background-color-level-first;
+			background: $brand-ltblue;
 			color: $superfish-1-color;
 			padding: 1em;
-			&.sf-expanded {
+			border: 1px solid #FFF;
+			/*&.sf-expanded {
 				background-color: $superfish-1-background-color-level-fourth;
 				font-weight: bold;
-			}
+			}*/
 		}
 	}
 	.sf-menu.sf-style-none {
@@ -190,7 +196,8 @@ $superfish-1-background-color-level-fourth: #FFF;
 		}
 		&.sf-accordion li {
 			&.sf-expanded {
-				background-color: $superfish-1-background-color-level-fourth;
+				background-color: $brand-ltblue;
+				border:1px solid #fff;
 				> {
 					a {
 						font-weight: bold;
