@@ -1,0 +1,9 @@
+Leaflet MapBox 7.x-1.5, 2016-03-09
+----------------------------
+- Fix wrong README file.
+
+Leaflet MapBox 7.x-1.4, 2016-03-09
+----------------------------
+- Add README.
+- Rename menu title to Leaflet Mapbox.
+- Fixed issue #2590357: How to connect with the current mapbox API.
