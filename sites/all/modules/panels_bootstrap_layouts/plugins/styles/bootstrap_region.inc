@@ -26,6 +26,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
 
   $layouts = array(
     'bootstrap_twocol_stacked',
+    'bootstrap_twocol_stacked_front',
     'bootstrap_threecol_stacked',
   );
 
