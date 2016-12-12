@@ -85,7 +85,7 @@ function leaflet_mapbox_leaflet_map_info() {
         'layer_type' => 'base',
       ), 
 
-       '1833 Map' => array(
+       '1838 Map' => array(
         'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciuqyvzyg007n2js55rpjqm1y/tiles/{z}/{x}/{y}?access_token=$token",
         'options' => $options,
         'layer_type' => 'overlay',
