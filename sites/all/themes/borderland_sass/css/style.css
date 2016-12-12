@@ -6229,7 +6229,8 @@ tr.even.synced-marker-hover > td.active {
     float: right; } }
 @media (min-width: 992px) {
   /* Search Menu item only to display ONLY at mobile */
-  #menu-2756-2 {
+  #menu-2756-2,
+  #menu-1517-2 {
     display: none; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .name {
@@ -6246,7 +6247,8 @@ tr.even.synced-marker-hover > td.active {
     margin: 0.5em 0; }
     .logo img {
       max-width: 75%;
-      float: left; }
+      float: left;
+      margin-top: 0.75em; }
 
   .name {
     clear: left;

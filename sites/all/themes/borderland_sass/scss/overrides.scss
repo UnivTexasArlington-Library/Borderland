@@ -352,7 +352,8 @@ tr.even.synced-marker-hover > td.active {
 }
 @media (min-width: $screen-md-min) {
   /* Search Menu item only to display ONLY at mobile */
-  #menu-2756-2 {
+  #menu-2756-2, /* dev */
+  #menu-1517-2 /* test */{
     display: none;
   }
 }
@@ -375,6 +376,7 @@ tr.even.synced-marker-hover > td.active {
     img { 
       max-width:75%;
       float:left;
+      margin-top:0.75em;
     }
   }
   .name {
