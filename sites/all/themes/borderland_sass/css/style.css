@@ -6087,7 +6087,7 @@ li.shs-term-selected::after {
   border-top-left-radius: 15px;
   border-width: 0; }
 #views-exposed-form-search-page #edit-search-api-views-fulltext-wrapper,
-#views-exposed-form-search-page .views-exposed-widget .views-submit-button {
+#views-exposed-form-search-page .views-exposed-form .views-exposed-widget {
   padding: 0; }
 #views-exposed-form-search-page #edit-submit-search {
   margin-top: 0;
@@ -6098,9 +6098,6 @@ li.shs-term-selected::after {
   color: #175586;
   background-color: #fff;
   height: 36px; }
-
-.views-exposed-widget .views-submit-button {
-  padding: 0; }
 
 .form-control::-moz-placeholder {
   /* Firefox 18- */

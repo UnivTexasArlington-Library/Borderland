@@ -188,7 +188,7 @@ li.shs-term-selected {
     border-width: 0;
   }
   #edit-search-api-views-fulltext-wrapper, 
-  .views-exposed-widget .views-submit-button {
+  .views-exposed-form .views-exposed-widget {
     padding: 0;
   }
   #edit-submit-search {
@@ -202,9 +202,7 @@ li.shs-term-selected {
     height: 36px;
   }
 }
-.views-exposed-widget .views-submit-button {
- padding:0;
-}
+
 .form-control::-moz-placeholder { /* Firefox 18- */
   color:$brand-dkblue;
   opacity: 0.76;
