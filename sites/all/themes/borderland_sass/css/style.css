@@ -6076,6 +6076,9 @@ li.shs-parent::after {
 li.shs-term-selected::after {
   content: none; }
 
+.current-search-item > h1.page-header {
+  margin-left: 0; }
+
 .well {
   padding-left: 75px; }
 
@@ -6305,4 +6308,5 @@ tr.even.synced-marker-hover > td.active {
   h1.page-header {
     margin-right: 50px;
     margin-left: 50px; } }
+
 /*# sourceMappingURL=style.css.map */

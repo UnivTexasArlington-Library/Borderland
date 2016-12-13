@@ -175,6 +175,9 @@ li.shs-term-selected {
   }
 }
 // SEARCH
+.current-search-item > h1.page-header {
+  margin-left:0;
+}
 .well {
   padding-left:75px;
 }
