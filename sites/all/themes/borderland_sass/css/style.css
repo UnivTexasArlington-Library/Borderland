@@ -6099,6 +6099,9 @@ li.shs-term-selected::after {
   background-color: #fff;
   height: 36px; }
 
+.views-exposed-widget .views-submit-button {
+  padding: 0; }
+
 .form-control::-moz-placeholder {
   /* Firefox 18- */
   color: #175586;
