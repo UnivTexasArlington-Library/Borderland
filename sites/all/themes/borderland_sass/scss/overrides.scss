@@ -33,9 +33,12 @@ h2 {
 .navbar-brand {
   line-height: inherit;
 }
+.navbar-default .navbar-brand {
+  color:$white;
+}
 .library, 
 .southwestern {
-  color:#fff;
+  color:$white;
   font-size: 1em;
   margin-bottom: 1em;
     &:hover, &:focus {
@@ -55,8 +58,10 @@ h2 {
   background-color: $brand-ltblue;
 }
 .region-header, 
-.region-timeline, 
 .region-search {
+  padding:15px 15px 0 15px;
+}
+.region-timeline {
   padding:15px 15px 0 15px;
 }
 .region-timeline p {
@@ -66,6 +71,14 @@ h2 {
 input[type="radio"], input[type="checkbox"] {
   margin-right:5px;
 }
+// TIMELINE
+.ui-widget-content {
+  background:#fff url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+}
+.ui-widget-header {
+  background:#fff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+}
+
 
 // TAXONOMY PAGEs
 .panel-1col {
@@ -112,11 +125,12 @@ h1.page-header {
   }
   .views-exposed-form .views-exposed-widget {
     float:none;
+    padding:0 1em;
   }
   .description {
     text-align: center;
     margin-top: 0.5em;
-    font-size: 0.9375em;
+    font-size: 0.86em;
   }
   .views-exposed-form label {
     display:none;
@@ -243,7 +257,10 @@ tr.even.synced-marker-hover > td.active {
   }
   p {
     font-size: 1.08em;
-    margin-top:0;
+    margin:0;
+  }
+  > p:nth-child(3) {
+    margin-top:0.75em;
   }
 }
 .leaflet-control-layers-base, 
@@ -256,6 +273,12 @@ tr.even.synced-marker-hover > td.active {
     color:$link-color;
   }
 }
+// Leaflet Zoom 
+  .leaflet-bar a:hover, 
+  .leaflet-bar a:focus {
+    background-color: $brand-ltblue;
+  }
+
 
 // Legend
 .btn-legend {
@@ -307,6 +330,7 @@ tr.even.synced-marker-hover > td.active {
   border:none;
   border-radius: 0 0 8px 8px;
   margin:0;
+  min-width:168px;
 }
 // Basic Page
 .node-page {

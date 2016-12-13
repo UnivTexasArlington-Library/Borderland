@@ -4,7 +4,8 @@ $superfish-1-color: #000;
 $superfish-1-background-color-level-first: #f0f0f0;
 $superfish-1-background-color-level-second: #e0e0e0;
 $superfish-1-background-color-level-third: #d0d0d0;
-$superfish-1-background-color-level-fourth: #FFF;
+$superfish-1-white: #FFF;
+$superfish-1-rollover: #537187;
 
 #block-superfish-2 {
 	margin:15px;
@@ -25,19 +26,26 @@ $superfish-1-background-color-level-fourth: #FFF;
 					li {
 						background: transparent;
 						&:focus, &:hover {
-							color:$brand-dkblue;
+							background-color: $superfish-1-rollover;
 						}
 					li.active-trail {
-						background-color: $superfish-1-background-color-level-fourth;
-						color:$brand-dkblue;
+						color:$superfish-1-white;
 					}
 					}
 				}
 			}
 		}
-		li.active-trail {
-						background-color: $superfish-1-background-color-level-fourth;
-						color:$brand-dkblue;
+		li {
+			&:focus, &:hover {
+				background-color: $superfish-1-rollover;
+			}
+		}
+		li.active-trail:hover, 
+		li.active-trail:focus {
+			background-color: $superfish-1-rollover;
+			a {
+				color:$superfish-1-white;
+			}
 					}
 		a {
 			color: $superfish-1-color;
@@ -50,14 +58,14 @@ $superfish-1-background-color-level-fourth: #FFF;
 				padding-right: 2.25em;
 			}
 			&:focus, &:hover {
-				color:$brand-dkblue;
+				color:$superfish-1-white;
 				outline: 0;
 			}
-			.active {
-				color:$brand-dkblue;
-				/*background: $superfish-1-background-color-level-fourth;*/
-			}
 		}
+		a.active {
+				color:$superfish-1-white;
+				
+			}
 		span {
 			&.nolink {
 				color: $superfish-1-color;
@@ -66,7 +74,7 @@ $superfish-1-background-color-level-fourth: #FFF;
 					padding-right: 2.25em;
 				}
 				&:hover {
-					background: $superfish-1-background-color-level-fourth;
+					
 					outline: 0;
 				}
 			}
@@ -103,14 +111,16 @@ $superfish-1-background-color-level-fourth: #FFF;
 				}
 			}
 			&:hover {
-				background: $superfish-1-background-color-level-fourth;
+				> a {
+					color:$superfish-1-white;
+				}
 				outline: 0;
 				> ul {
 					top: 40px;
 				}
 			}
 			&.sfHover {
-				background: $superfish-1-background-color-level-fourth;
+				
 				outline: 0;
 				> ul {
 					top: 40px;

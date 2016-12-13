@@ -27,13 +27,17 @@
         #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li {
           background: transparent; }
           #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li:focus, #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li:hover {
-            color: #175586; }
+            background-color: #537187; }
           #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li li.active-trail {
-            background-color: #FFF;
-            color: #175586; }
-    #block-superfish-2 .sf-style-none li.active-trail {
-      background-color: #FFF;
-      color: #175586; }
+            color: #FFF; }
+    #block-superfish-2 .sf-style-none li:focus, #block-superfish-2 .sf-style-none li:hover {
+      background-color: #537187; }
+    #block-superfish-2 .sf-style-none li.active-trail:hover,
+    #block-superfish-2 .sf-style-none li.active-trail:focus {
+      background-color: #537187; }
+      #block-superfish-2 .sf-style-none li.active-trail:hover a,
+      #block-superfish-2 .sf-style-none li.active-trail:focus a {
+        color: #FFF; }
     #block-superfish-2 .sf-style-none a {
       color: #000;
       margin: 0.5em 0;
@@ -43,18 +47,16 @@
       #block-superfish-2 .sf-style-none a.sf-with-ul {
         padding-right: 2.25em; }
       #block-superfish-2 .sf-style-none a:focus, #block-superfish-2 .sf-style-none a:hover {
-        color: #175586;
+        color: #FFF;
         outline: 0; }
-      #block-superfish-2 .sf-style-none a .active {
-        color: #175586
-        /*background: $superfish-1-background-color-level-fourth;*/ }
+    #block-superfish-2 .sf-style-none a.active {
+      color: #FFF; }
     #block-superfish-2 .sf-style-none span.nolink {
       color: #000;
       padding: 0.75em 1em; }
       #block-superfish-2 .sf-style-none span.nolink.sf-with-ul {
         padding-right: 2.25em; }
       #block-superfish-2 .sf-style-none span.nolink:hover {
-        background: #FFF;
         outline: 0; }
     #block-superfish-2 .sf-style-none span.sf-description {
       color: #000;
@@ -78,12 +80,12 @@
         #block-superfish-2 .sf-style-none li li li {
           background: #d0d0d0; }
       #block-superfish-2 .sf-style-none li:hover {
-        background: #FFF;
         outline: 0; }
+        #block-superfish-2 .sf-style-none li:hover > a {
+          color: #FFF; }
         #block-superfish-2 .sf-style-none li:hover > ul {
           top: 40px; }
       #block-superfish-2 .sf-style-none li.sfHover {
-        background: #FFF;
         outline: 0; }
         #block-superfish-2 .sf-style-none li.sfHover > ul {
           top: 40px; }
@@ -5954,9 +5956,12 @@ h2 {
 .navbar-brand {
   line-height: inherit; }
 
+.navbar-default .navbar-brand {
+  color: #ebebeb; }
+
 .library,
 .southwestern {
-  color: #fff;
+  color: #ebebeb;
   font-size: 1em;
   margin-bottom: 1em; }
   .library:hover, .library:focus,
@@ -5975,8 +5980,10 @@ h2 {
   background-color: #a8bbca; }
 
 .region-header,
-.region-timeline,
 .region-search {
+  padding: 15px 15px 0 15px; }
+
+.region-timeline {
   padding: 15px 15px 0 15px; }
 
 .region-timeline p {
@@ -5984,6 +5991,12 @@ h2 {
 
 input[type="radio"], input[type="checkbox"] {
   margin-right: 5px; }
+
+.ui-widget-content {
+  background: #fff url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x; }
+
+.ui-widget-header {
+  background: #fff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; }
 
 .panel-1col {
   padding: 0 1em 1em 1em;
@@ -6021,11 +6034,12 @@ h1.page-header {
 #views-exposed-form-leaflet-panel-pane-1 .views-widget {
   display: none; }
 #views-exposed-form-leaflet-panel-pane-1 .views-exposed-form .views-exposed-widget {
-  float: none; }
+  float: none;
+  padding: 0 1em; }
 #views-exposed-form-leaflet-panel-pane-1 .description {
   text-align: center;
   margin-top: 0.5em;
-  font-size: 0.9375em; }
+  font-size: 0.86em; }
 #views-exposed-form-leaflet-panel-pane-1 .views-exposed-form label {
   display: none; }
 
@@ -6134,7 +6148,9 @@ tr.even.synced-marker-hover > td.active {
   text-decoration: underline; }
 .leaflet-popup-content p {
   font-size: 1.08em;
-  margin-top: 0; }
+  margin: 0; }
+.leaflet-popup-content > p:nth-child(3) {
+  margin-top: 0.75em; }
 
 .leaflet-control-layers-base,
 .leaflet-control-layers-separator {
@@ -6144,6 +6160,10 @@ tr.even.synced-marker-hover > td.active {
   color: #195689; }
   .leaflet-container a.leaflet-popup-close-button:hover, .leaflet-container a.leaflet-popup-close-button:focus {
     color: #195689; }
+
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  background-color: #a8bbca; }
 
 .btn-legend {
   border-radius: 8px;
@@ -6193,7 +6213,8 @@ tr.even.synced-marker-hover > td.active {
   box-shadow: none;
   border: none;
   border-radius: 0 0 8px 8px;
-  margin: 0; }
+  margin: 0;
+  min-width: 168px; }
 
 .node-page {
   max-width: 1000px;
