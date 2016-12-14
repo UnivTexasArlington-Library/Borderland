@@ -28,9 +28,7 @@ $superfish-1-rollover: #537187;
 						&:focus, &:hover {
 							background-color: $superfish-1-rollover;
 						}
-					li.active-trail {
-						color:$superfish-1-white;
-					}
+					
 					}
 				}
 			}
@@ -40,20 +38,15 @@ $superfish-1-rollover: #537187;
 				background-color: $superfish-1-rollover;
 			}
 		}
-		li.active-trail:hover, 
-		li.active-trail:focus {
-			background-color: $superfish-1-rollover;
-			a {
-				color:$superfish-1-white;
-			}
-					}
+
 		a {
 			color: $superfish-1-color;
 			margin: 0.5em 0;
-			padding: 0 0.5em;
+			padding: 0 1em;
 			border-right: 1px solid #000;
 			font-size: 1.075em;
-
+			line-height: 1.075em;
+			text-decoration: none;
 			&.sf-with-ul {
 				padding-right: 2.25em;
 			}
@@ -62,10 +55,6 @@ $superfish-1-rollover: #537187;
 				outline: 0;
 			}
 		}
-		a.active {
-				color:$superfish-1-white;
-				
-			}
 		span {
 			&.nolink {
 				color: $superfish-1-color;

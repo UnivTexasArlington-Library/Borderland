@@ -28,29 +28,21 @@
           background: transparent; }
           #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li:focus, #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li:hover {
             background-color: #537187; }
-          #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li li.active-trail {
-            color: #FFF; }
     #block-superfish-2 .sf-style-none li:focus, #block-superfish-2 .sf-style-none li:hover {
       background-color: #537187; }
-    #block-superfish-2 .sf-style-none li.active-trail:hover,
-    #block-superfish-2 .sf-style-none li.active-trail:focus {
-      background-color: #537187; }
-      #block-superfish-2 .sf-style-none li.active-trail:hover a,
-      #block-superfish-2 .sf-style-none li.active-trail:focus a {
-        color: #FFF; }
     #block-superfish-2 .sf-style-none a {
       color: #000;
       margin: 0.5em 0;
-      padding: 0 0.5em;
+      padding: 0 1em;
       border-right: 1px solid #000;
-      font-size: 1.075em; }
+      font-size: 1.075em;
+      line-height: 1.075em;
+      text-decoration: none; }
       #block-superfish-2 .sf-style-none a.sf-with-ul {
         padding-right: 2.25em; }
       #block-superfish-2 .sf-style-none a:focus, #block-superfish-2 .sf-style-none a:hover {
         color: #FFF;
         outline: 0; }
-    #block-superfish-2 .sf-style-none a.active {
-      color: #FFF; }
     #block-superfish-2 .sf-style-none span.nolink {
       color: #000;
       padding: 0.75em 1em; }
@@ -5931,9 +5923,6 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-h1 {
-  color: #195689; }
-
 h2 {
   color: #000000;
   font-size: 20px;
@@ -5948,7 +5937,7 @@ h2 {
   padding-right: 15px; }
 
 .name {
-  font-size: 2.1875em; }
+  font-size: 2em; }
 
 .navbar-btn {
   margin: 1em 0; }
@@ -5963,7 +5952,8 @@ h2 {
 .southwestern {
   color: #ebebeb;
   font-size: 1em;
-  margin-bottom: 1em; }
+  margin-top: -5px;
+  line-height: 1em; }
   .library:hover, .library:focus,
   .southwestern:hover,
   .southwestern:focus {
@@ -6005,15 +5995,16 @@ input[type="radio"], input[type="checkbox"] {
 
 .footer {
   background-color: #a8bbca;
-  padding: 15px; }
+  padding: 15px;
+  font-size: 0.9375em; }
 
 #block-block-1 {
   /* Footer block */
   float: right; }
 
 #content {
-  margin-left: 125px;
-  margin-right: 125px;
+  margin-left: 75px;
+  margin-right: 75px;
   margin-bottom: 125px; }
 
 .col-sm-9 > #content {
@@ -6036,6 +6027,9 @@ h1.page-header {
 .field-label {
   padding-right: 1em; }
 
+.field-name-field-geocoords {
+  font-size: 13px; }
+
 #views-exposed-form-leaflet-panel-pane-1 .views-widget {
   display: none; }
 #views-exposed-form-leaflet-panel-pane-1 .views-exposed-form .views-exposed-widget {
@@ -6052,7 +6046,8 @@ h1.page-header {
   top: -0.5em; }
 
 .ui-slider-horizontal {
-  height: 0.5em; }
+  height: 0.5em;
+  border-radius: 0; }
 
 .ui-slider .ui-slider-handle {
   width: 30px; }
@@ -6082,25 +6077,34 @@ li.shs-term-selected::after {
 .well {
   padding-left: 75px; }
 
+#facetapi-facet-search-apievents-block-field-ethnic-group {
+  list-style-type: none;
+  padding-left: 1em; }
+
+#views-exposed-form-search-page #edit-search-api-views-fulltext,
+#views-exposed-form-search-page #edit-submit-search {
+  max-height: 30px;
+  border-color: #b3a596; }
 #views-exposed-form-search-page #edit-search-api-views-fulltext {
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
-  border-width: 0;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-width: 1px 0 1px 1px;
   color: rgba(23, 85, 134, 0.76);
-  font-size: 13px; }
+  font-size: 13px;
+  box-shadow: none; }
+#views-exposed-form-search-page #edit-submit-search {
+  margin-top: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-width: 1px 1px 1px 0;
+  color: #175586;
+  background-color: #fff;
+  padding-top: 4px; }
 #views-exposed-form-search-page .views-exposed-widgets {
   margin-bottom: 10px; }
 #views-exposed-form-search-page #edit-search-api-views-fulltext-wrapper,
 #views-exposed-form-search-page .views-exposed-form .views-exposed-widget {
   padding: 0; }
-#views-exposed-form-search-page #edit-submit-search {
-  margin-top: 0;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-width: 0;
-  color: #175586;
-  background-color: #fff;
-  height: 36px; }
 
 .glyphicon-search::before {
   padding-left: 10px;
@@ -6116,7 +6120,8 @@ fieldset.custom_search-popup {
 #event-list,
 #block-views-event-list-block-2 {
   height: 75vh;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  cursor: default; }
 
 #event-list .views-row {
   font-size: 0.9375em;
@@ -6171,7 +6176,8 @@ tr.even.synced-marker-hover > td.active {
 .btn-legend {
   border-radius: 8px;
   border-color: #fff;
-  padding-top: 10px;
+  padding-top: 6px;
+  padding-bottom: 2px;
   background-color: #fff; }
   .btn-legend:hover {
     background-color: #fff; }
@@ -6181,7 +6187,7 @@ tr.even.synced-marker-hover > td.active {
   height: 10px;
   display: inline-block;
   color: #000;
-  border: 10px solid;
+  border: 8px solid;
   margin-right: 11.5px; }
 
 .legend-1 {
@@ -6222,7 +6228,7 @@ tr.even.synced-marker-hover > td.active {
   border: none;
   border-radius: 0 0 8px 8px;
   margin: 0;
-  min-width: 162px; }
+  min-width: 146px; }
 
 .node-page {
   max-width: 1000px;

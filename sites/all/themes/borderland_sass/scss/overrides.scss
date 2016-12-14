@@ -4,9 +4,6 @@ $normal:  "screen and (min-width: 992px)";
 $wide:    "screen and (min-width: 1200px)";
 
 //font
-h1 {
-  color: $link-color;
-}
 h2 {
   color: $text-color;
   font-size: $font-size-large;
@@ -25,7 +22,7 @@ h2 {
   padding-right: 15px;
 }
 .name {
-  font-size: 2.1875em;
+  font-size: 2em;
 }
 .navbar-btn {
   margin:1em 0;
@@ -40,7 +37,8 @@ h2 {
 .southwestern {
   color:$white;
   font-size: 1em;
-  margin-bottom: 1em;
+  margin-top: -5px;
+  line-height: 1em;
     &:hover, &:focus {
       color:#fff !important;
     }
@@ -79,7 +77,6 @@ input[type="radio"], input[type="checkbox"] {
   background:#fff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
 }
 
-
 // TAXONOMY PAGEs
 .panel-1col {
   padding: 0 1em 1em 1em;
@@ -91,6 +88,7 @@ input[type="radio"], input[type="checkbox"] {
 .footer {
   background-color: $brand-ltblue;
   padding: 15px;
+  font-size: 0.9375em;
 }
 #block-block-1 {/* Footer block */
   float:right;
@@ -98,8 +96,8 @@ input[type="radio"], input[type="checkbox"] {
 
 // Event NODE 
 #content {
-  margin-left:125px;
-  margin-right: 125px;
+  margin-left:75px;
+  margin-right: 75px;
   margin-bottom: 125px;
 }
 .col-sm-9 > #content { /*for pages like search page */
@@ -120,6 +118,9 @@ h1.page-header {
 }
 .field-label {
   padding-right: 1em;
+}
+.field-name-field-geocoords {
+  font-size: $font-size-xs;
 }
 
 // Slider
@@ -145,6 +146,7 @@ h1.page-header {
 }
 .ui-slider-horizontal {
   height: 0.5em;
+  border-radius:0;
 }
 .ui-slider .ui-slider-handle {
   width:30px;
@@ -181,14 +183,34 @@ li.shs-term-selected {
 .well {
   padding-left:75px;
 }
+#facetapi-facet-search-apievents-block-field-ethnic-group, {
+  list-style-type: none;
+  padding-left: 1em;
+}
+
 #views-exposed-form-search-page {
+  #edit-search-api-views-fulltext,
+  #edit-submit-search {
+    max-height: 30px;
+    border-color:$page-header-border-color;
+  }
   #edit-search-api-views-fulltext {
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-    border-width: 0;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-width: 1px 0 1px 1px;
     color:rgba(23,85,134,0.76);
     font-size: $font-size-xs;
+    box-shadow:none;
   }
+  #edit-submit-search {
+    margin-top:0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-width:1px 1px 1px 0;
+    color:$brand-dkblue;
+    background-color:#fff;
+    padding-top:4px;
+  }  
   .views-exposed-widgets {
     margin-bottom:10px;
   }
@@ -196,16 +218,6 @@ li.shs-term-selected {
   .views-exposed-form .views-exposed-widget {
     padding: 0;
   }
-
-  #edit-submit-search {
-    margin-top:0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius:15px;
-    border-width:0;
-    color:$brand-dkblue;
-    background-color:#fff;
-    height: 36px;
-  }  
 }
 .glyphicon-search::before {
   padding-left:10px;
@@ -225,6 +237,7 @@ fieldset.custom_search-popup {
 #block-views-event-list-block-2 {
   height: 75vh;
   overflow-y:scroll;
+  cursor: default;
 }
 #event-list {
   .views-row {
@@ -295,7 +308,8 @@ tr.even.synced-marker-hover > td.active {
 .btn-legend {
   border-radius: 8px;
   border-color:#fff;
-  padding-top:10px;
+  padding-top:6px;
+  padding-bottom: 2px;
   background-color: #fff;
   &:hover {
     background-color:#fff;
@@ -306,7 +320,7 @@ tr.even.synced-marker-hover > td.active {
   height: 10px;
   display:inline-block;
   color:#000;
-  border:10px solid;
+  border:8px solid;
   margin-right: 11.5px;
 }
 .legend-1 { /* Persimmon */
@@ -346,7 +360,7 @@ tr.even.synced-marker-hover > td.active {
   border:none;
   border-radius: 0 0 8px 8px;
   margin:0;
-  min-width:162px;
+  min-width:146px;
 }
 // Basic Page
 .node-page {
