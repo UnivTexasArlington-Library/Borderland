@@ -201,14 +201,16 @@ li.shs-term-selected {
     margin-top:0;
     border-top-right-radius: 15px;
     border-bottom-right-radius:15px;
-    border-width:0 0 0 1px;
-    border-color:$link-color;
+    border-width:0;
     color:$brand-dkblue;
     background-color:#fff;
     height: 36px;
-  }
+  }  
 }
-
+.glyphicon-search::before {
+  padding-left:10px;
+  border-left:1px solid $brand-dkblue;
+}
 #edit-submitted-name{  
     color: white;
 text-align:center;

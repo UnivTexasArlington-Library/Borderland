@@ -6097,11 +6097,14 @@ li.shs-term-selected::after {
   margin-top: 0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  border-width: 0 0 0 1px;
-  border-color: #195689;
+  border-width: 0;
   color: #175586;
   background-color: #fff;
   height: 36px; }
+
+.glyphicon-search::before {
+  padding-left: 10px;
+  border-left: 1px solid #175586; }
 
 #edit-submitted-name {
   color: white;
