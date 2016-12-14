@@ -6259,12 +6259,16 @@ tr.even.synced-marker-hover > td.active {
 @media (min-width: 992px) {
   /* Search Menu item only to display ONLY at mobile */
   #menu-2756-2,
-  #menu-1517-2 {
+  #menu-1517-2,
+  #menu-1245-2 {
     display: none; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .name {
     padding: 0;
-    height: 50px; } }
+    height: 50px; }
+
+  #edit-search-api-views-fulltext-wrapper > .form-item-search-api-views-fulltext {
+    max-width: 228px; } }
 @media (max-width: 991px) {
   .name {
     font-size: 1.2em;

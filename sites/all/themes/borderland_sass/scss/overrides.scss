@@ -393,7 +393,8 @@ tr.even.synced-marker-hover > td.active {
 @media (min-width: $screen-md-min) {
   /* Search Menu item only to display ONLY at mobile */
   #menu-2756-2, /* dev */
-  #menu-1517-2 /* test */{
+  #menu-1517-2, /* test */
+  #menu-1245-2 /* production */{
     display: none;
   }
 }
@@ -401,6 +402,9 @@ tr.even.synced-marker-hover > td.active {
   .name {
     padding: 0;
     height: 50px;
+  }
+  #edit-search-api-views-fulltext-wrapper > .form-item-search-api-views-fulltext {
+    max-width: 228px;
   }
 }
 
