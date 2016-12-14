@@ -6086,7 +6086,7 @@ li.shs-term-selected::after {
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   border-width: 0;
-  color: #3a95dd;
+  color: rgba(23, 85, 134, 0.76);
   font-size: 13px; }
 #views-exposed-form-search-page .views-exposed-widgets {
   margin-bottom: 10px; }
