@@ -187,20 +187,23 @@ li.shs-term-selected {
     border-top-left-radius: 15px;
     border-width: 0;
     color:$brand-dkblue;
-    opacity: 0.76;
-    font-size: $font-size-small;
+    font-size: $font-size-xs;
+  }
+  .views-exposed-widgets {
+    margin-bottom:10px;
   }
   #edit-search-api-views-fulltext-wrapper, 
   .views-exposed-form .views-exposed-widget {
     padding: 0;
   }
+
   #edit-submit-search {
     margin-top:0;
     border-top-right-radius: 15px;
     border-bottom-right-radius:15px;
     border-width:0 0 0 1px;
     border-color:$link-color;
-    color:$brand-dkblue;
+    color:$brand-dkblue -24%;
     background-color:#fff;
     height: 36px;
   }

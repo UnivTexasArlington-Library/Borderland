@@ -6087,8 +6087,9 @@ li.shs-term-selected::after {
   border-top-left-radius: 15px;
   border-width: 0;
   color: #175586;
-  opacity: 0.76;
-  font-size: 14px; }
+  font-size: 13px; }
+#views-exposed-form-search-page .views-exposed-widgets {
+  margin-bottom: 10px; }
 #views-exposed-form-search-page #edit-search-api-views-fulltext-wrapper,
 #views-exposed-form-search-page .views-exposed-form .views-exposed-widget {
   padding: 0; }
@@ -6098,7 +6099,7 @@ li.shs-term-selected::after {
   border-bottom-right-radius: 15px;
   border-width: 0 0 0 1px;
   border-color: #195689;
-  color: #175586;
+  color: #175586 -24%;
   background-color: #fff;
   height: 36px; }
 
