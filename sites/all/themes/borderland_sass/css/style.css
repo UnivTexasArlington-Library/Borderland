@@ -6086,7 +6086,7 @@ li.shs-term-selected::after {
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   border-width: 0;
-  color: #175586;
+  color: #3a95dd;
   font-size: 13px; }
 #views-exposed-form-search-page .views-exposed-widgets {
   margin-bottom: 10px; }
@@ -6099,7 +6099,7 @@ li.shs-term-selected::after {
   border-bottom-right-radius: 15px;
   border-width: 0 0 0 1px;
   border-color: #195689;
-  color: #175586 -24%;
+  color: #175586;
   background-color: #fff;
   height: 36px; }
 

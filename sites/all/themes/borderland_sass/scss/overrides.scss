@@ -186,7 +186,7 @@ li.shs-term-selected {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     border-width: 0;
-    color:$brand-dkblue;
+    color:$placeholder-text;
     font-size: $font-size-xs;
   }
   .views-exposed-widgets {
@@ -203,7 +203,7 @@ li.shs-term-selected {
     border-bottom-right-radius:15px;
     border-width:0 0 0 1px;
     border-color:$link-color;
-    color:$brand-dkblue -24%;
+    color:$brand-dkblue;
     background-color:#fff;
     height: 36px;
   }
