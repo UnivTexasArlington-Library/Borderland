@@ -527,4 +527,11 @@ tr.even.synced-marker-hover > td.active {
   #block-block-1 {
     font-size: 0.75em
   }
+  h2.block-title {
+    font-weight: bold;
+    font-size: $font-size-small;
+  }
+  .facetapi-checkbox {
+    font-size: $font-size-xs;
+  }
 }
