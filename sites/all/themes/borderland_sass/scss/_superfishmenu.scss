@@ -131,8 +131,9 @@ $superfish-1-rollover: #537187;
 		&.sf-style-none a {
 			background: $brand-ltblue;
 			color: $superfish-1-color;
-			padding: 1em;
+			padding: 0.75em 1.5em;
 			border: 1px solid #FFF;
+			background: url(images/menu_icon.png) no-repeat center;
 			/*&.sf-expanded {
 				background-color: $superfish-1-background-color-level-fourth;
 				font-weight: bold;

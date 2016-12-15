@@ -78,15 +78,17 @@
     <div class="navbar-header">
       <div class="owners">
         <?php if ($logo): ?>
+          <div>
           <a class="logo navbar-btn" href="http://uta.edu" title="<?php print t('University of Texas at Arlington'); ?>">
             <img src="<?php print $logo; ?>" alt="<?php print t('University of Texas at Arlington'); ?>" />
-          </a>
+          </a></div>
+          <div class="clear">
           <p class="hidden-sm hidden-xs">
             <a class="southwestern" href="http://library.uta.edu" title="<?php print t('UTA Center for Greater Southwestern Studies'); ?>">CENTER FOR GREATER SOUTHWESTERN STUDIES</a>
             
             <a class="library" href="http://library.uta.edu" title="<?php print t('UTA Libraries'); ?>">UTA LIBRARIES</a>
           </p>
-
+        </div>
         <?php endif; ?>
       </div>
 
@@ -104,10 +106,10 @@
       <p class="lead"><?php print $site_slogan; ?></p>
     <?php endif; ?>
     <div class="row">
-      <div class="col-md-3 hidden-sm hidden-xs">
+      <div class="col-md-3 col-sm-9 col-xs-9">
         <?php print render($page['search']); ?>
       </div>
-      <div class="col-md-9 col-xs-12 pull-right">
+      <div class="col-md-9 col-sm-3 col-xs-3 pull-right">
         <?php print render($page['menu']); ?>
       </div>
     </div>

@@ -39,9 +39,15 @@ h2 {
   font-size: 1em;
   margin-top: -5px;
   line-height: 1em;
+  float:left;
     &:hover, &:focus {
       color:#fff !important;
     }
+}
+.library, 
+.logo, 
+.owners {
+  float:right;
 }
 .library {
   padding-left:10px;
@@ -88,10 +94,10 @@ input[type="radio"], input[type="checkbox"] {
 .footer {
   background-color: $brand-ltblue;
   padding: 15px;
-  font-size: 0.9375em;
 }
 #block-block-1 {/* Footer block */
   float:right;
+  font-size: 0.9375em;
 }
 
 // Event NODE 
@@ -105,7 +111,7 @@ input[type="radio"], input[type="checkbox"] {
   margin-right:50px;
 }
 h1.page-header {
-  margin-left:125px;
+  margin-left:75px;
   border-bottom-width:thin;
   margin-right:40%;
   border-color:$page-header-border-color;
@@ -180,19 +186,20 @@ li.shs-term-selected {
 .current-search-item > h1.page-header {
   margin-left:0;
 }
-.well {
-  padding-left:75px;
-}
-#facetapi-facet-search-apievents-block-field-ethnic-group, {
+
+.facetapi-facetapi-checkbox-links {
   list-style-type: none;
   padding-left: 1em;
 }
-
+.view-search {
+  margin-top:2.5em;
+}
 #views-exposed-form-search-page {
   #edit-search-api-views-fulltext,
   #edit-submit-search {
     max-height: 30px;
     border-color:$page-header-border-color;
+
   }
   #edit-search-api-views-fulltext {
     border-bottom-left-radius: 10px;
@@ -210,6 +217,7 @@ li.shs-term-selected {
     color:$brand-dkblue;
     background-color:#fff;
     padding-top:4px;
+    padding-left:0;
   }  
   .views-exposed-widgets {
     margin-bottom:10px;
@@ -246,7 +254,6 @@ fieldset.custom_search-popup {
     border-bottom:1px solid $page-header-border-color;
     &:hover {
       background-color: $rollover;
-      cursor: pointer;
     }
   }
 }
@@ -382,7 +389,9 @@ tr.even.synced-marker-hover > td.active {
   margin-left:20px;
   float: right;
 }
-
+.clear {
+  clear:both;
+}
 // Media Queries
 
 @media (max-width: 1400px) {
@@ -393,8 +402,14 @@ tr.even.synced-marker-hover > td.active {
     font-size: 2em;
   }
 }
+@media (min-width: $screen-lg) and (max-width: 1308px) {
+  #views-exposed-form-search-page #edit-search-api-views-fulltext {
+    max-width:230px;
+  }
+}
+
 @media (min-width: $screen-lg) {
-  .southwestern, 
+/*  .southwestern, 
   .name {
     float: left;
   }
@@ -402,32 +417,55 @@ tr.even.synced-marker-hover > td.active {
   .logo, 
   .owners {
     float:right;
+  } */
+  .well {
+    padding-left:75px;
   }
 }
 @media (min-width: $screen-md-min) {
   /* Search Menu item only to display ONLY at mobile */
-  #menu-2756-2, /* dev */
+  #menu-1523-2, /* dev */
   #menu-1517-2, /* test */
   #menu-1245-2 /* production */{
     display: none;
   }
 }
+
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   .name {
     padding: 0;
     height: 50px;
   }
-  #edit-search-api-views-fulltext-wrapper > .form-item-search-api-views-fulltext {
-    max-width: 228px;
+}
+@media (max-width: $screen-md-max) {
+  .owners, 
+  .logo {
+    float:left;
+  }
+  .name {
+    font-size: 1.5em;
+    float:left;
+    clear:both;
+  }
+  .library, 
+  .southwestern {
+    margin-bottom: 1em
+  }
+  #block-block-1 {
+    font-size: $font-size-xs;
+  }
+  #views-exposed-form-search-page #edit-search-api-views-fulltext {
+    max-width:175px;
   }
 }
-
 @media (max-width: $screen-sm-max) {
   .name {
-    font-size:1.2em;
+    font-size:1em;
     height: inherit;
     padding-top: 0;
     padding-bottom: 10px;
+    clear:left;
+    margin-top: 0.5em;
   }
   .logo {
     margin:0.5em 0;
@@ -437,23 +475,56 @@ tr.even.synced-marker-hover > td.active {
       margin-top:0.75em;
     }
   }
-  .name {
-    clear:left;
-    margin-top: 0.5em;
-  }
   .navbar {
     min-height: 0;
   }
   #block-superfish-2 .sf-style-none a {
     border-right:none;
   }
+  #block-block-1 {
+    float:left;
+  }
+  .owners-footer {
+    font-size: $font-size-small;
+  }
 }
 @media (max-width: $screen-xs-max) {
+  .name {
+    font-size: 1em;
+  }
   #content {
-    margin:0 50px 50px 50px;
+    margin:0 20px 20px 20px;
+  }
+  .col-sm-9 > #content {
+    margin: 20px;
   }
   h1.page-header {
-    margin-right:50px;
-    margin-left:50px;
+    margin-right:20px;
+    margin-left:20px;
+    font-size: 1.35em;
+  }
+  ul.sf-menu.sf-accordion li {
+    font-size: 0.9em;
+  }
+    .description {
+    font-size: 0.8em;
+  }
+  .legend-marker p {
+    font-size: 0.75em
+  }
+  .leaflet-popup-content {
+    p {
+      font-size: 1.0em;
+    }
+    a {
+      font-size: 1.08em;
+    }
+  }
+  body {
+    font-size: $font-size-small;
+  }
+  .owners-footer,
+  #block-block-1 {
+    font-size: 0.75em
   }
 }
