@@ -535,3 +535,8 @@ tr.even.synced-marker-hover > td.active {
     font-size: $font-size-xs;
   }
 }
+@media (max-width: 326px) {
+    #views-exposed-form-search-page #edit-search-api-views-fulltext {
+    max-width:170px;
+  }
+}
