@@ -3,8 +3,8 @@
     <?php print $content['top']; ?>
   </div>
   <div class="row">
-    <?php print $content['left col-md-3']; ?>
-    <?php print $content['right col-md-9']; ?>
+    <?php print $content['left']; ?>
+    <?php print $content['right']; ?>
   </div>
   <div class="row">
     <?php print $content['bottom']; ?>
