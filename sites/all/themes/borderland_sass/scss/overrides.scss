@@ -280,11 +280,13 @@ tr.even.synced-marker-hover > td.active {
 // Leaflet Popup 
 .leaflet-popup-content {
   a {
-    font-size: 1.15em;
     color:$link-color;
+    text-decoration: underline;
+  }
+  a:first {
+    font-size: 1.15em;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: underline;
   }
   p {
     font-size: 1.08em;

@@ -6205,11 +6205,12 @@ tr.even.synced-marker-hover > td.active {
   background-color: #dde3e8; }
 
 .leaflet-popup-content a {
-  font-size: 1.15em;
   color: #195689;
-  font-weight: bold;
-  text-transform: uppercase;
   text-decoration: underline; }
+.leaflet-popup-content a:first {
+  font-size: 1.15em;
+  font-weight: bold;
+  text-transform: uppercase; }
 .leaflet-popup-content p {
   font-size: 1.08em;
   margin: 0; }
