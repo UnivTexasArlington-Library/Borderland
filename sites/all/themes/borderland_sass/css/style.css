@@ -6205,9 +6205,8 @@ tr.even.synced-marker-hover > td.active {
   background-color: #dde3e8; }
 
 .leaflet-popup-content a {
-  color: #195689;
-  text-decoration: underline; }
-.leaflet-popup-content a:first {
+  color: #195689; }
+.leaflet-popup-content a:nth-child(1) {
   font-size: 1.15em;
   font-weight: bold;
   text-transform: uppercase; }

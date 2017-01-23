@@ -281,9 +281,8 @@ tr.even.synced-marker-hover > td.active {
 .leaflet-popup-content {
   a {
     color:$link-color;
-    text-decoration: underline;
   }
-  a:first {
+  a:nth-child(1) {
     font-size: 1.15em;
     font-weight: bold;
     text-transform: uppercase;
