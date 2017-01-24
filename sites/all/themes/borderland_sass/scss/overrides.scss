@@ -43,11 +43,9 @@ a.name {
   margin-top: -5px;
   line-height: 1em;
   float:left;
+  text-decoration: none;
     &:hover, &:focus {
       color:#fff !important;
-    }
-    a {
-      text-decoration: none;
     }
 }
 .library, 

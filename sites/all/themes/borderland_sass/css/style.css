@@ -6008,14 +6008,12 @@ a.name {
   font-size: 1em;
   margin-top: -5px;
   line-height: 1em;
-  float: left; }
+  float: left;
+  text-decoration: none; }
   .library:hover, .library:focus,
   .southwestern:hover,
   .southwestern:focus {
     color: #fff !important; }
-  .library a,
-  .southwestern a {
-    text-decoration: none; }
 
 .library,
 .logo,
