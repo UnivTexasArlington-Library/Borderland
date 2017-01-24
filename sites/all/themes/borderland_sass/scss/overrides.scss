@@ -469,12 +469,14 @@ tr.even.synced-marker-hover > td.active {
 }
 @media (max-width: $screen-sm-max) {
   .name {
-    font-size:1em;
     height: inherit;
     padding-top: 0;
     padding-bottom: 10px;
     clear:left;
     margin-top: 0.5em;
+  }
+  a.name {
+    font-size:1em;
   }
   .logo {
     margin:0.5em 0;
@@ -493,11 +495,13 @@ tr.even.synced-marker-hover > td.active {
   #block-block-1 {
     float:left;
   }
+  #event-list {
+    .views-row {
+      font-size:0.75em;
+    }
+  }
   .owners-footer {
     font-size: $font-size-small;
-  }
-  #event-list.views-row {
-    font-size: 0.75em;
   }
 }
 @media (max-width: $screen-xs-max) {
