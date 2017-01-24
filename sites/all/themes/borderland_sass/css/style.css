@@ -6391,7 +6391,10 @@ tr.even.synced-marker-hover > td.active {
     float: left; }
 
   .owners-footer {
-    font-size: 14px; } }
+    font-size: 14px; }
+
+  #event-list .views-row {
+    font-size: 0.75em; } }
 @media (max-width: 767px) {
   .name {
     font-size: 1em; }
