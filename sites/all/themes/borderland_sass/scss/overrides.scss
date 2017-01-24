@@ -9,7 +9,9 @@ h2 {
   font-size: $font-size-large;
   margin-top: 1em;
 }
-
+a {
+  text-decoration: underline;
+}
 
 //Navbar
 
@@ -21,8 +23,9 @@ h2 {
   padding-left: 15px;
   padding-right: 15px;
 }
-.name {
+a.name {
   font-size: 2em;
+  text-decoration: none;
 }
 .navbar-btn {
   margin:1em 0;
@@ -42,6 +45,9 @@ h2 {
   float:left;
     &:hover, &:focus {
       color:#fff !important;
+    }
+    a {
+      text-decoration: none;
     }
 }
 .library, 
@@ -294,6 +300,9 @@ tr.even.synced-marker-hover > td.active {
   > p:nth-child(3) {
     margin-top:0.75em;
   }
+}
+.leaflet-control {
+  z-index: 0;
 }
 .leaflet-control-layers-base, 
 .leaflet-control-layers-separator {

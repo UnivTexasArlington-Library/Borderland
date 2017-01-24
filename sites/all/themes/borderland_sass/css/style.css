@@ -5978,6 +5978,9 @@ h2 {
   font-size: 20px;
   margin-top: 1em; }
 
+a {
+  text-decoration: underline; }
+
 .navbar.container-fluid {
   margin-top: 0; }
 
@@ -5986,8 +5989,9 @@ h2 {
   padding-left: 15px;
   padding-right: 15px; }
 
-.name {
-  font-size: 2em; }
+a.name {
+  font-size: 2em;
+  text-decoration: none; }
 
 .navbar-btn {
   margin: 1em 0; }
@@ -6009,6 +6013,9 @@ h2 {
   .southwestern:hover,
   .southwestern:focus {
     color: #fff !important; }
+  .library a,
+  .southwestern a {
+    text-decoration: none; }
 
 .library,
 .logo,
@@ -6215,6 +6222,9 @@ tr.even.synced-marker-hover > td.active {
   margin: 0; }
 .leaflet-popup-content > p:nth-child(3) {
   margin-top: 0.75em; }
+
+.leaflet-control {
+  z-index: 0; }
 
 .leaflet-control-layers-base,
 .leaflet-control-layers-separator {
