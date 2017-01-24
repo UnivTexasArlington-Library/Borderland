@@ -496,10 +496,8 @@ tr.even.synced-marker-hover > td.active {
   .owners-footer {
     font-size: $font-size-small;
   }
-    #event-list {
-    .views-row {
-      font-size: 0.75em;
-    }
+  #event-list.views-row {
+    font-size: 0.75em;
   }
 }
 @media (max-width: $screen-xs-max) {
