@@ -6138,6 +6138,8 @@ li.shs-term-selected::after {
 .facetapi-facetapi-checkbox-links {
   list-style-type: none;
   padding-left: 1em; }
+  .facetapi-facetapi-checkbox-links a {
+    text-decoration: none; }
 
 .view-search {
   margin-top: 2.5em; }
@@ -6442,5 +6444,3 @@ tr.even.synced-marker-hover > td.active {
 @media (max-width: 326px) {
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width: 170px; } }
-
-/*# sourceMappingURL=style.css.map */
