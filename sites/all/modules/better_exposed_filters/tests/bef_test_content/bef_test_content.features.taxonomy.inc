@@ -9,9 +9,9 @@
  */
 function bef_test_content_taxonomy_default_vocabularies() {
   return array(
-    'taxonomy-bef_test-location' => array(
+    'location' => array(
       'name' => 'Location',
-      'machine_name' => 'taxonomy-bef_test-location',
+      'machine_name' => 'location',
       'description' => '',
       'hierarchy' => 1,
       'module' => 'taxonomy',
