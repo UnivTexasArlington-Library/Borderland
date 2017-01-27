@@ -6001,6 +6001,8 @@ a.name {
 
 .navbar-default .navbar-brand {
   color: #ebebeb; }
+  .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    text-decoration: underline; }
 
 .library,
 .southwestern {
@@ -6350,8 +6352,8 @@ tr.even.synced-marker-hover > td.active {
   #menu-1245-2 {
     display: none; }
 
-  #block-current-search-standard {
-    min-height: 34em; } }
+  #region-center {
+    min-height: 35em; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .name {
     padding: 0;
@@ -6409,7 +6411,7 @@ tr.even.synced-marker-hover > td.active {
   .owners-footer {
     font-size: 14px; }
 
-  #block-current-search-standard {
+  .region-center {
     min-height: 22em; } }
 @media (max-width: 767px) {
   .name {

@@ -35,6 +35,10 @@ a.name {
 }
 .navbar-default .navbar-brand {
   color:$white;
+  &:hover, 
+  &:focus {
+    text-decoration:underline;
+  }
 }
 .library, 
 .southwestern {
@@ -445,8 +449,8 @@ tr.even.synced-marker-hover > td.active {
   #menu-1245-2 /* production */{
     display: none;
   }
-  #block-current-search-standard {
-    min-height: 34em;
+  #region-center {
+    min-height: 35em;
   }
 }
 
@@ -513,7 +517,7 @@ tr.even.synced-marker-hover > td.active {
   .owners-footer {
     font-size: $font-size-small;
   }
-  #block-current-search-standard {
+  .region-center {
     min-height: 22em;
   }
 }
