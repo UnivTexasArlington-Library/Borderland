@@ -104,7 +104,7 @@ input[type="radio"], input[type="checkbox"] {
   float:right;
   font-size: 0.9375em;
 }
-#bloock-block-3 { /* CC License block */
+#block-block-3 { /* CC License block */
   float:left;
 }
 
@@ -512,6 +512,9 @@ tr.even.synced-marker-hover > td.active {
   }
   .owners-footer {
     font-size: $font-size-small;
+  }
+  #block-current-search-standard {
+    min-height: 22em;
   }
 }
 @media (max-width: $screen-xs-max) {
