@@ -6058,10 +6058,15 @@ input[type="radio"], input[type="checkbox"] {
   background-color: #a8bbca;
   padding: 15px; }
 
-#block-block-1 {
-  /* Footer block */
+#block-block-1,
+#block-block-3 {
+  /* CC License block */
   float: right;
   font-size: 0.9375em; }
+
+#bloock-block-3 {
+  /* CC License block */
+  float: left; }
 
 #content {
   margin-left: 75px;
@@ -6343,7 +6348,10 @@ tr.even.synced-marker-hover > td.active {
   #menu-1523-2,
   #menu-1517-2,
   #menu-1245-2 {
-    display: none; } }
+    display: none; }
+
+  #block-current-search-standard {
+    min-height: 34em; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .name {
     padding: 0;
@@ -6362,8 +6370,9 @@ tr.even.synced-marker-hover > td.active {
   .southwestern {
     margin-bottom: 1em; }
 
-  #block-block-1 {
-    font-size: 13px; }
+  #block-block-1,
+  #block-block-3 {
+    /* CC License block */ }
 
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width: 175px; } }
@@ -6432,7 +6441,9 @@ tr.even.synced-marker-hover > td.active {
     font-size: 14px; }
 
   .owners-footer,
-  #block-block-1 {
+  #block-block-1,
+  #block-block-3 {
+    /* CC License block */
     font-size: 0.75em; }
 
   h2.block-title {
