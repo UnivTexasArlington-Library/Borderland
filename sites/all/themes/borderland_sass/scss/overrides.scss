@@ -35,6 +35,10 @@ a.name {
 }
 .navbar-default .navbar-brand {
   color:$white;
+  &:hover, 
+  &:focus {
+    text-decoration:underline;
+  }
 }
 .library, 
 .southwestern {
@@ -445,8 +449,13 @@ tr.even.synced-marker-hover > td.active {
   #menu-1245-2 /* production */{
     display: none;
   }
+<<<<<<< HEAD
   #block-current-search-standard {
     min-height: 34em;
+=======
+  #region-center {
+    min-height: 35em;
+>>>>>>> refs/remotes/origin/clean
   }
 }
 
@@ -472,7 +481,10 @@ tr.even.synced-marker-hover > td.active {
   }
   #block-block-1, /* Footer block */
   #block-block-3 {/* CC License block */
+<<<<<<< HEAD
     font-size: $font-size-xs;
+=======
+>>>>>>> refs/remotes/origin/clean
   }
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width:175px;
@@ -514,7 +526,11 @@ tr.even.synced-marker-hover > td.active {
   .owners-footer {
     font-size: $font-size-small;
   }
+<<<<<<< HEAD
   #block-current-search-standard {
+=======
+  .region-center {
+>>>>>>> refs/remotes/origin/clean
     min-height: 22em;
   }
 }
