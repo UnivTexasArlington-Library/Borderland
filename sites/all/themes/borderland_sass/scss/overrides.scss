@@ -294,6 +294,8 @@ tr.even.synced-marker-hover > td.active {
 
 // Leaflet Popup 
 .leaflet-popup-content {
+  max-height: 28em;
+  overflow-y:scroll;
   a {
     color:$link-color;
   }

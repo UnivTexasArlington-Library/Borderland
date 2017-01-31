@@ -6218,17 +6218,20 @@ tr.even.synced-marker-hover > td.active {
 .views-view-grid td.synced-marker-hover {
   background-color: #dde3e8; }
 
-.leaflet-popup-content a {
-  color: #195689; }
-.leaflet-popup-content a:nth-child(1) {
-  font-size: 1.15em;
-  font-weight: bold;
-  text-transform: uppercase; }
-.leaflet-popup-content p {
-  font-size: 1.08em;
-  margin: 0; }
-.leaflet-popup-content > p:nth-child(3) {
-  margin-top: 0.75em; }
+.leaflet-popup-content {
+  max-height: 28em;
+  overflow-y: scroll; }
+  .leaflet-popup-content a {
+    color: #195689; }
+  .leaflet-popup-content a:nth-child(1) {
+    font-size: 1.15em;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .leaflet-popup-content p {
+    font-size: 1.08em;
+    margin: 0; }
+  .leaflet-popup-content > p:nth-child(3) {
+    margin-top: 0.75em; }
 
 .leaflet-control {
   z-index: 0; }
