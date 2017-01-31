@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * The core Facetapi Select API. See http://drupal.org/project/facetapi_select for more details.
+ */
+
+/**
  * Implements hook_forms().
  */
 function facetapi_select_forms($form_id) {
@@ -13,6 +18,9 @@ function facetapi_select_forms($form_id) {
   return $forms;
 }
 
+/**
+ * Facet form function.
+ */
 function facetapi_select_facet_form($form, &$form_state, $variables) {
   if (!empty($variables['options'])) {
     $form['facets'] = array(
@@ -24,7 +32,7 @@ function facetapi_select_facet_form($form, &$form_state, $variables) {
       ),
       '#attached' => array(
         'js' => array(
-          drupal_get_path('module', 'facetapi_select') .'/js/facetapi_select.js',
+          drupal_get_path('module', 'facetapi_select') . '/js/facetapi_select.js',
         ),
       ),
     );
@@ -105,10 +113,34 @@ function facetapi_select_i18n_string_info() {
   $groups['facetapi_select'] = array(
     'title' => t('FacetAPI Select'),
     'description' => t('Translatable FacetAPI- Select default labels.'),
-    'format' => FALSE, // This group doesn't have strings with format.
-    'list' => TRUE, // This group can list all strings.
+  // This group doesn't have strings with format.
+    'format' => FALSE,
+  // This group can list all strings.
+    'list' => TRUE,
   );
   return $groups;
+}
+
+/**
+ * Implements hook_i18n_string_list().
+ */
+function facetapi_select_i18n_string_list($group) {
+  $strings = array();
+
+  if ($group == 'facetapi_select') {
+    foreach (facetapi_get_searcher_info() as $searcher => $searcher_info) {
+      $adapter = facetapi_adapter_load($searcher);
+      foreach (facetapi_get_realm_info() as $realm_name => $realm) {
+        $realm = facetapi_realm_load($realm_name);
+        foreach (facetapi_get_facet_info($searcher) as $facet) {
+          $settings = $adapter->getFacetSettings($facet, $realm);
+          FacetapiSelectDropdowns::appendTranslatableOption($settings, $strings);
+        }
+      }
+    }
+  }
+
+  return $strings;
 }
 
 /**

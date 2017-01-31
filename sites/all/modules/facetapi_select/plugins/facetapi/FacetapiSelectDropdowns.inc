@@ -26,20 +26,40 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
     $element = drupal_get_form("facetapi_select_facet_form_$count", $variables);
 
     if ($this->isActive()) {
-      $this->build['#attributes']['class'][] = 'form-select selected';
+      $this->build['#attributes']['class'][] = self::getFormSelectedClass();
     }
 
     $element['#attributes'] = array_merge($element['#attributes'], $this->build['#attributes']);
   }
 
   /**
+   * Sets the facetapi select form selected class.
+   *
+   * @param string $class
+   *   The class in which to set the facetapi select form selected class.
+   */
+  public static function setFormSelectedClass($class) {
+    variable_set('facetapi_select_form_selected_class', $class);
+  }
+
+  /**
+   * Gets the facetapi select form selected class.
+   *
+   * @return string
+   *   A string that represents the class for the facetapi selected form.
+   */
+  public static function getFormSelectedClass() {
+    return variable_get('facetapi_select_form_selected_class', 'selected');
+  }
+
+  /**
    * Determine if the Facet is active.
    *
-   * @return boolean
+   * @return bool
    *   Returns TRUE if the Facet is active.
    */
   public function isActive() {
-   return (boolean) count($this->build['#adapter']->getActiveItems($this->facet->getFacet()));
+    return (boolean) count($this->build['#adapter']->getActiveItems($this->facet->getFacet()));
   }
 
   /**
@@ -51,7 +71,7 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    * @return array
    *   An array that contains the options and active items arrays.
    */
-  protected function buildItems($element, $depth = 0) {
+  protected function buildItems(array $element, $depth = 0) {
     $settings = $this->settings;
     $variables = array('options' => array());
     $facet_settings = $this->facet->getSettings();
@@ -89,7 +109,7 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    * @return array
    *   The modified variables array.
    */
-  protected function appendDefaultOrResetOptions(&$variables) {
+  protected function appendDefaultOrResetOptions(array &$variables) {
     if (!empty($variables['options'])) {
       if (!empty($variables['facet_reset_url'])) {
         $variables['options'] = array_merge(
@@ -100,7 +120,7 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
       else {
         $variables['default_option_label'] = theme('facetapi_select_select_option', array(
           'facet_text' => $this->getDefaultOptionLabel(),
-          'show_count' => FALSE
+          'show_count' => FALSE,
         ));
       }
     }
@@ -114,14 +134,8 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    * @return string
    *   The reset option label.
    */
-  protected function getResetOptionLabel() {
-    $reset_option_label = t('--Reset--');
-
-    if (!empty($this->settings->settings['reset_option_label'])) {
-      $reset_option_label = self::translateLabel('reset_option_label', $this->settings->settings['reset_option_label'], $this->key);
-    }
-
-    return $reset_option_label;
+  protected function getResetOptionLabel($translatable = TRUE) {
+    return $this->getOptionLabel('reset_option_label', t('--Reset--'), $translatable);
   }
 
   /**
@@ -130,14 +144,31 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    * @return string
    *   The default option label.
    */
-  protected function getDefaultOptionLabel() {
-    $default_option_label = t('--Choose--');
+  protected function getDefaultOptionLabel($translatable = TRUE) {
+    return $this->getOptionLabel('default_option_label', t('--Choose--'), $translatable);
+  }
 
-    if (!empty($this->settings->settings['default_option_label'])) {
-      $default_option_label = self::translateLabel('default_option_label', $this->settings->settings['default_option_label'], $this->key);
+  /**
+   * Retrieve the facet option label for the specified option.
+   *
+   * @param string $label_key
+   *   The label key for which to retrieve the option label.
+   * @param string $default
+   *   The default string to set the option label when it is not set.
+   * @param bool $translatable
+   *   TRUE if the option label should be translated and FALSE if not.
+   *
+   * @return string
+   *   The specified option label.
+   */
+  protected function getOptionLabel($label_key, $default, $translatable = TRUE) {
+    $option_label = !empty($this->settings->settings[$label_key]) ? $this->settings->settings[$label_key] : $default;
+
+    if ($translatable) {
+      $option_label = self::translateLabel($label_key, $option_label, $this->key);
     }
 
-    return $default_option_label;
+    return $option_label;
   }
 
   /**
@@ -149,10 +180,6 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    *   The facet item to use for retrieving the children.
    * @param int $depth
    *   The current depth of the childen.
-   * @param array $is_active
-   *   Dictates if the current item is active.
-   *
-   * @return void
    */
   protected function appendChildren(array &$variables, array $item, $depth = 0) {
     $tmpItems = $this->buildItems($item['#item_children'], ++$depth);
@@ -188,8 +215,8 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    *
    * @param array $item
    *   The facet item to use for retrieving the url.
-   * @param boolean $append_query (optional)
-   *   Determines if the query should be appended to the return url.
+   * @param bool $append_query
+   *   Determines if the query should be appended to the return url - (optional).
    */
   protected function getUrl(array $item, $append_query = TRUE) {
     if (!isset($this->urls_cache[$item['#path']])) {
@@ -217,13 +244,13 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
     $form['widget']['widget_settings']['links'][$this->id]['default_option_label'] = array(
       '#title' => t('Default option label'),
       '#type' => 'textfield',
-      '#default_value' => !empty($this->settings->settings['default_option_label']) ? $this->settings->settings['default_option_label'] : '',
+      '#default_value' => $this->getDefaultOptionLabel(FALSE),
       '#states' => $states,
     );
     $form['widget']['widget_settings']['links'][$this->id]['reset_option_label'] = array(
       '#title' => t('Reset option label'),
       '#type' => 'textfield',
-      '#default_value' => !empty($this->settings->settings['reset_option_label']) ? $this->settings->settings['reset_option_label'] : '',
+      '#default_value' => $this->getResetOptionLabel(FALSE),
       '#states' => $states,
     );
     $form['widget']['widget_settings']['links'][$this->id]['submit_page'] = array(
@@ -261,8 +288,7 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
       return $string;
     }
 
-    $i18n_name = array('facetapi_select', $name, str_replace(':', '_', $key), 'label');
-    return i18n_string_translate($i18n_name, $string);
+    return i18n_string_translate(self::getI18nName($name, $key), $string);
   }
 
   /**
@@ -272,14 +298,62 @@ class FacetapiSelectDropdowns extends FacetapiWidgetLinks {
    *   Translation context.
    * @param string $string
    *   The raw db value for the given property.
-   *
-   * @return void
    */
   public static function updateLabelTranslation($name, $string, $key) {
     if (function_exists('i18n_string_update')) {
-      $i18n_name = array('facetapi_select', $name, str_replace(':', '_', $key), 'label');
-      i18n_string_update($i18n_name, $string);
+      i18n_string_update(self::getI18nName($name, $key), $string);
     }
+  }
+
+  /**
+   * Helper function to integrate with the facetapi_select_i18n_string_list function.
+   *
+   * Appends options to an array to send to i18n for translation.
+   *
+   * @param StdClass $settings
+   *   The settings from the active facets.
+   * @param array $strings
+   *   The referenced array of strings to return to i18n for translation.
+   */
+  public static function appendTranslatableOption($settings, array &$strings = array()) {
+    if (!empty($settings->settings['widget']) && $settings->settings['widget'] == 'facetapi_select_dropdowns') {
+      $field_name = self::getI18nStringKey($settings->facet);
+      $strings['facetapi_select']['default_option_label'][$field_name]['label'] = $settings->settings['default_option_label'];
+      $strings['facetapi_select']['reset_option_label'][$field_name]['label'] = $settings->settings['reset_option_label'];
+    }
+  }
+
+  /**
+   * Retrieve the i18n string key.
+   *
+   * @param string $key
+   *   The facetapi field name for which to retrieve the i18n string key.
+   *
+   * @return string
+   *   The i18n string key to be used with building the i18n name.
+   */
+  public static function getI18nStringKey($key) {
+    return str_replace(':', '_', $key);
+  }
+
+  /**
+   * Retrieve the i18n name.
+   *
+   * @param string $name
+   *   Translation context.
+   * @param string $key
+   *   The facetapi field name for which to retrieve the i18n string key.
+   *
+   * @return array
+   *   An array that contains textgroup and string context for i18n.
+   */
+  public static function getI18nName($name, $key) {
+    return array(
+      'facetapi_select',
+      $name,
+      self::getI18nStringKey($key),
+      'label'
+    );
   }
 
 }
