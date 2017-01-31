@@ -6,7 +6,7 @@
       $(settings.leaflet).each(function () {
         // skip to the next iteration if the map already exists
         var container = L.DomUtil.get(this.mapId);
-        if (!container || container._leaflet_id) {
+        if (!container || container._leaflet) {
           return;
         }
 
@@ -26,24 +26,25 @@
         for (var key in this.map.layers) {
           var layer = this.map.layers[key];
           var map_layer = Drupal.leaflet.create_layer(layer, key);
-          //layers[key] = map_layer;
 
-          // Distinguish between "base layers" and "overlays".
-          // Fall back to "base" in case "layer_type" has not been defined in
-          // hook_leaflet_map_info()
+          layers[key] = map_layer;
+
+          // keep the reference of first layer
+          // Distinguish between "base layers" and "overlays", fallback to "base"
+          // in case "layer_type" has not been defined in hook_leaflet_map_info()
           layer.layer_type = (typeof layer.layer_type === 'undefined') ? 'base' : layer.layer_type;
-          // As stated in http://leafletjs.com/examples/layers-control,
-          // when using multiple base layers, only one of them should be added
-          // to the map at instantiation, but all of them should be present in
-          // the base layers object when creating the layers control.
-          // See statement L.control.layers(layers, overlays) much further below.
+          // as written in the doc (http://leafletjs.com/examples/layers-control.html)
+          // Always add overlays layers when instantiate, and keep track of
+          // them for Control.Layers.
+          // Only add the very first "base layer" when instantiating the map
+          // if we have map controls enabled
           switch (layer.layer_type) {
             case 'overlay':
-              //lMap.addLayer(map_layer);
+              lMap.addLayer(map_layer);
               overlays[key] = map_layer;
               break;
             default:
-              if (i === 0 /*|| !this.map.settings.layerControl*/) {
+              if (i === 0 || !this.map.settings.layerControl) {
                 lMap.addLayer(map_layer);
                 i++;
               }
@@ -52,7 +53,7 @@
           }
           i++;
         }
-
+        // We loop through the layers once they have all been created to connect them to their switchlayer if necessary.
         var switchEnable = false;
         for (var key in layers) {
           if (layers[key].options.switchLayer) {
@@ -111,7 +112,7 @@
 
         // add layer switcher
         if (this.map.settings.layerControl) {
-          L.control.layers(layers, overlays).addTo(lMap);
+          lMap.addControl(new L.Control.Layers(layers, overlays));
         }
 
         // center the map
