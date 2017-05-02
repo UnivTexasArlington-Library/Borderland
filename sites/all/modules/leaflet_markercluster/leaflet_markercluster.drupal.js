@@ -84,7 +84,7 @@
         if (typeof L.MarkerClusterGroup !== 'undefined') {
 
           // If we specified a custom cluster icon, use that.
-          if (this.map.markercluster_icon) {
+          if (typeof settings.maxClusterRadius !== 'undefined' && settings.maxClusterRadius > 0 && this.map.markercluster_icon) {
             var icon_settings = this.map.markercluster_icon;
 
             settings['iconCreateFunction'] = function(cluster) {
@@ -121,8 +121,7 @@
          
           var cluster = (feature.type === 'point' || feature.type === 'json') &&
             (!feature.flags || !(feature.flags & LEAFLET_MARKERCLUSTER_EXCLUDE_FROM_CLUSTER));
-
-          if (cluster) {
+          if (typeof settings.maxClusterRadius !== 'undefined' && settings.maxClusterRadius > 0 && cluster) {
             var clusterGroup = feature.clusterGroup ? feature.clusterGroup : 'global';
             if (!clusterLayers[clusterGroup]) {
               // Note: only applicable settings will be used, remainder are ignored
