@@ -1,0 +1,47 @@
+<?php
+
+
+/**
+ * Implements hook_leaflet_map_info().
+ */
+function leaflet_borderland_leaflet_map_info() {
+  $settings = array(
+    'attributionControl' => TRUE,
+    'closePopupOnClick'  => TRUE,
+    'doubleClickZoom'    => TRUE,
+    'dragging'           => TRUE,
+    'fadeAnimation'      => TRUE,
+    'layerControl'       => TRUE,
+    'maxZoom'            => 14,
+    'minZoom'            => 2,
+    'scrollWheelZoom'    => TRUE,
+    'touchZoom'          => TRUE,
+    'trackResize'        => TRUE,
+    'zoomAnimation'      => TRUE,
+    'zoomControl'        => TRUE,
+  );
+
+  $options = array('attribution' => '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a>');
+
+  $map_info['leaflet-borderland'] = array(
+    'label' => "Borderland Mapbox",
+    'settings' => $settings,
+    'layers' => array(
+      'Modern Map' => array(
+        'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciusnuc2j00ay2io44aohu44w/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlicmFyeXdlYiIsImEiOiJjaXVweGMzZHgwMjFvMnpwazh6OGF6YmZvIn0.b_cHKB3X2t8W3jGEape0ng",
+        'options' => $options,
+        'layer_type' => 'base',
+      ), 
+
+       '1838 Map' => array(
+        'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciuqyvzyg007n2js55rpjqm1y/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlicmFyeXdlYiIsImEiOiJjaXVweGMzZHgwMjFvMnpwazh6OGF6YmZvIn0.b_cHKB3X2t8W3jGEape0ng",
+        'options' => $options,
+        'layer_type' => 'overlay',
+      ),
+    ),
+  );
+
+  return $map_info;
+
+}
+

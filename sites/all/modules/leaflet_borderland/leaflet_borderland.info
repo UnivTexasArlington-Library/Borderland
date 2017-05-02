@@ -1,0 +1,8 @@
+name = Leaflet Borderland
+description = Provides Custom Borderland maps integration with leaflet
+core = 7.x
+package = Leaflet
+version = 7.x-0.1
+project = leaflet_borderland
+
+dependencies[] = leaflet
