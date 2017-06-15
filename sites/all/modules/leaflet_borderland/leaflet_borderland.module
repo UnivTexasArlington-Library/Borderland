@@ -19,6 +19,7 @@ function leaflet_borderland_leaflet_map_info() {
     'trackResize'        => TRUE,
     'zoomAnimation'      => TRUE,
     'zoomControl'        => TRUE,
+    'logo'               => FALSE,
   );
 
   $options = array('attribution' => '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a>');
@@ -36,12 +37,12 @@ function leaflet_borderland_leaflet_map_info() {
       'Modern Map' => array(
         'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciuqyvzyg007n2js55rpjqm1y/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlicmFyeXdlYiIsImEiOiJjaXVweGMzZHgwMjFvMnpwazh6OGF6YmZvIn0.b_cHKB3X2t8W3jGEape0ng",
         'options' => $options,
-        'layer_type' => 'overlay',
+        'layer_type' => 'base',
       ), 
 
 
     ),
-  );
+
 
   return $map_info;
 
