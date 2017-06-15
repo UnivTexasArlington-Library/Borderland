@@ -6311,6 +6311,46 @@ tr.even.synced-marker-hover > td.active {
   max-width: 1000px;
   margin: auto; }
 
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  padding: 25px 15px;
+  max-width: 250px; }
+
+.front .map-overlay {
+  margin-top: -700px;
+  margin-right: 8px; }
+
+#legend-heatmap h2 {
+  margin-top: 0;
+  text-align: center; }
+#legend-heatmap p {
+  font-size: 12px; }
+#legend-heatmap img {
+  display: block;
+  margin: 20px auto; }
+
+.map-overlay-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ebebeb;
+  background: #3e3e3e;
+  margin: 10px 30px 10px 10px;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  width: 150px; }
+  .map-overlay-nav p {
+    font-size: 12px; }
+  .map-overlay-nav a {
+    text-decoration: none;
+    color: #fff; }
+
 .about-image-left,
 .about-image-right {
   max-width: 300px;
@@ -6464,3 +6504,5 @@ tr.even.synced-marker-hover > td.active {
 @media (max-width: 326px) {
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width: 170px; } }
+
+/*# sourceMappingURL=style.css.map */
