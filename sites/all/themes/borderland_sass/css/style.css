@@ -6322,10 +6322,6 @@ tr.even.synced-marker-hover > td.active {
   padding: 25px 15px;
   max-width: 250px; }
 
-.front .map-overlay {
-  margin-top: -700px;
-  margin-right: 8px; }
-
 #legend-heatmap h2 {
   margin-top: 0;
   text-align: center; }
@@ -6350,6 +6346,9 @@ tr.even.synced-marker-hover > td.active {
   .map-overlay-nav a {
     text-decoration: none;
     color: #fff; }
+
+.front .map-overlay-nav {
+  margin: 55px 10px 10px 10px; }
 
 .about-image-left,
 .about-image-right {
