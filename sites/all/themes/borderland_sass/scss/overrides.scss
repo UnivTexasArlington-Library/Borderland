@@ -9,7 +9,9 @@ h2 {
   font-size: $font-size-large;
   margin-top: 1em;
 }
-
+a {
+  text-decoration: underline;
+}
 
 //Navbar
 
@@ -21,8 +23,9 @@ h2 {
   padding-left: 15px;
   padding-right: 15px;
 }
-.name {
+a.name {
   font-size: 2em;
+  text-decoration: none;
 }
 .navbar-btn {
   margin:1em 0;
@@ -32,6 +35,10 @@ h2 {
 }
 .navbar-default .navbar-brand {
   color:$white;
+  &:hover, 
+  &:focus {
+    text-decoration:underline;
+  }
 }
 .library, 
 .southwestern {
@@ -40,6 +47,7 @@ h2 {
   margin-top: -5px;
   line-height: 1em;
   float:left;
+  text-decoration: none;
     &:hover, &:focus {
       color:#fff !important;
     }
@@ -95,9 +103,13 @@ input[type="radio"], input[type="checkbox"] {
   background-color: $brand-ltblue;
   padding: 15px;
 }
-#block-block-1 {/* Footer block */
+#block-block-1, /* Footer block */
+#block-block-3 {/* CC License block */
   float:right;
   font-size: 0.9375em;
+}
+#block-block-3 { /* CC License block */
+  float:left;
 }
 
 // Event NODE 
@@ -190,6 +202,9 @@ li.shs-term-selected {
 .facetapi-facetapi-checkbox-links {
   list-style-type: none;
   padding-left: 1em;
+  a {
+    text-decoration: none;
+  }
 }
 .view-search {
   margin-top:2.5em;
@@ -279,12 +294,15 @@ tr.even.synced-marker-hover > td.active {
 
 // Leaflet Popup 
 .leaflet-popup-content {
+  max-height: 28em;
+  overflow-y:scroll;
   a {
-    font-size: 1.15em;
     color:$link-color;
+  }
+  a:nth-child(1) {
+    font-size: 1.15em;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: underline;
   }
   p {
     font-size: 1.08em;
@@ -293,6 +311,9 @@ tr.even.synced-marker-hover > td.active {
   > p:nth-child(3) {
     margin-top:0.75em;
   }
+}
+.leaflet-control {
+  z-index: 0;
 }
 .leaflet-control-layers-base, 
 .leaflet-control-layers-separator {
@@ -330,17 +351,17 @@ tr.even.synced-marker-hover > td.active {
   border:8px solid;
   margin-right: 11.5px;
 }
-.legend-1 { /* Persimmon */
-  color:#e55d48;
+.legend-1 { /* Mexican/Dk. Blue */
+  color:#256f92;
 }
-.legend-2 { /* Teal */
-  color:#2dc5b7;
+.legend-2 { /* Revolution/Lt. Blue */
+  color:#a6cee3;
 }
-.legend-3 { /* Grasshopper */
-  color:#478f49;
+.legend-3 { /* Republic/Green */
+  color:#9ec2a0;
 }
-.legend-4 { /* Tangerine */
-  color:#f48529;
+.legend-4 { /* Statehood/Turquoise */
+  color:#55999c;
 }
 .legend-marker {
   img {
@@ -361,61 +382,19 @@ tr.even.synced-marker-hover > td.active {
 .btn-group.open .dropdown-toggle {
   box-shadow: none;
   border-radius: 8px 8px 0 0;
+  min-width: 200px;
 }
 .dropdown-menu {
   box-shadow: none;
   border:none;
   border-radius: 0 0 8px 8px;
   margin:0;
-  min-width:146px;
+  min-width:200px;
 }
 // Basic Page
 .node-page {
   max-width: 1000px;
   margin: auto;
-}
-// Map Basic page
-.map-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 1);
-  margin-right: 20px;
-  font-family: Arial, sans-serif;
-  overflow: auto;
-  padding: 25px 15px;
-  max-width: 250px;
-}
-#legend-heatmap {
-  h2 {
-    margin-top:0;
-    text-align:center;
-  }
-  p {
-    font-size: 12px;
-  }
-  img {
-    display:block; 
-    margin: 20px auto;
-  }
-}
-.map-overlay-nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: $white;
-  background: rgba(62, 62, 62, 1);
-  margin: 10px 30px 10px 10px;
-  font-family: Arial, sans-serif;
-  padding: 10px;
-  width: 150px;
-  p {
-    font-size: 12px;
-  }
-  a {
-    text-decoration:none; 
-    color:#fff;
-  }
 }
 
 // About Page 
@@ -472,6 +451,9 @@ tr.even.synced-marker-hover > td.active {
   #menu-1245-2 /* production */{
     display: none;
   }
+  #region-center {
+    min-height: 35em;
+  }
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
@@ -494,7 +476,8 @@ tr.even.synced-marker-hover > td.active {
   .southwestern {
     margin-bottom: 1em
   }
-  #block-block-1 {
+  #block-block-1, /* Footer block */
+  #block-block-3 {/* CC License block */
     font-size: $font-size-xs;
   }
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
@@ -503,12 +486,14 @@ tr.even.synced-marker-hover > td.active {
 }
 @media (max-width: $screen-sm-max) {
   .name {
-    font-size:1em;
     height: inherit;
     padding-top: 0;
     padding-bottom: 10px;
     clear:left;
     margin-top: 0.5em;
+  }
+  a.name {
+    font-size:1em;
   }
   .logo {
     margin:0.5em 0;
@@ -527,8 +512,16 @@ tr.even.synced-marker-hover > td.active {
   #block-block-1 {
     float:left;
   }
+  #event-list {
+    .views-row {
+      font-size:0.75em;
+    }
+  }
   .owners-footer {
     font-size: $font-size-small;
+  }
+  .region-center {
+    min-height: 22em;
   }
 }
 @media (max-width: $screen-xs-max) {
@@ -567,7 +560,8 @@ tr.even.synced-marker-hover > td.active {
     font-size: $font-size-small;
   }
   .owners-footer,
-  #block-block-1 {
+  #block-block-1, /* Footer block */
+  #block-block-3 {/* CC License block */
     font-size: 0.75em
   }
   h2.block-title {
@@ -577,8 +571,9 @@ tr.even.synced-marker-hover > td.active {
   .facetapi-checkbox {
     font-size: $font-size-xs;
   }
-  .map-overlay, 
-  .map-overlay-nav {
-    position:static;
+}
+@media (max-width: 326px) {
+    #views-exposed-form-search-page #edit-search-api-views-fulltext {
+    max-width:170px;
   }
 }
