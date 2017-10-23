@@ -142,7 +142,7 @@ L.Control.SliderControl = L.Control.extend({
                                map.addLayer(_options.markers[i]);
                                featuregroup.addLayer(_options.markers[i]);
                                ///update event list                    
-                               $('#event-list').append('<div class="panel-body"><a href="#">'+_options.markers[i].feature.properties.name+' ('+_options.markers[i].feature.properties.time.substr(0,4)+')'+'</a></div');
+                               $('#event-list').append('<div class="views-row views-row-1 views-row-odd views-row-first"><div class="panel-flexible panels-flexible-list_results clearfix">'+_options.markers[i].feature.properties.name+'<br>'+_options.markers[i].feature.properties.time.substr(0,4)+'</div></div');
                            }
                     else{
                         for (i = _options.minValue; i <= ui.value ; i++) {
