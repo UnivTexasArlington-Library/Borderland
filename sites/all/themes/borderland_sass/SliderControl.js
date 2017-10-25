@@ -1,6 +1,5 @@
 L.Control.SliderControl = L.Control.extend({
     options: {
-        position: 'topleft',
         layers: null,
         timeAttribute: 'time',
         startTimeIdx: 0,    // start looking for timestring at index[0]
@@ -45,8 +44,10 @@ L.Control.SliderControl = L.Control.extend({
 
         // control sliderContainer using jquery ui slider
         var sliderContainer = L.DomUtil.create('div', 'slider', this._container);
-        $(sliderContainer).append('<div id="leaflet-slider" style="width:600px"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range" style="color: red;"><h3>1820 - 1839 (slide to change time range)</h3></div>')
+        $(sliderContainer).append('<div id="leaflet-slider" style="width:400px;"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
+        $(sliderContainer).append('<div id ="time_range" style="color: white;"><strong>1820 - 1839 (slide to change time range)</strong></div>')
+        
+
         //Prevent map panning/zooming while using the slider
         $(sliderContainer).mousedown(function () {
             map.dragging.disable();
@@ -57,8 +58,9 @@ L.Control.SliderControl = L.Control.extend({
 
         var options = this.options;
         this.options.markers = [];
+		
 
-        //calculate the min and max values for the slider
+		//calculate the min and max values for the slider
         if (this._layer) {
             var index_temp = 0;
             this._layer.eachLayer(function (layer) {
@@ -68,7 +70,7 @@ L.Control.SliderControl = L.Control.extend({
             options.maxValue = index_temp - 1;
             this.options = options;
         } else {
-            console.log("Error: You have to specify a layer via new SliderControl({layer: your_layer});");
+            console.log("Error");
         }
         return sliderContainer;
     },
@@ -79,7 +81,7 @@ L.Control.SliderControl = L.Control.extend({
             map.removeLayer(this.options.markers[i]);
         }
         $('#leaflet-slider').remove();
-        $('#event-list').remove(); //remove side panel
+        $('#event-list').remove(); //remove event-list
         // unbind listeners to prevent memory leaks
         $(document).off("mouseup");
         $(".slider").off("mousedown");
@@ -122,36 +124,72 @@ L.Control.SliderControl = L.Control.extend({
                             console.error("Time property "+ _options.timeAttribute +" not found in data");
                         }
                     }
+                    
+
+
                     var i;
+                    
+
                     // clear markers
                     for (i = _options.minValue; i <= _options.maxValue; i++) {
                         if(_options.markers[i]) map.removeLayer(_options.markers[i]);
                     }
+                    
+
                     // clear event list
                     $('#event-list').html('');
+                    
+
                     if(_options.range){
                         // jquery ui using range
-                        $('#time_range').html('<h3>'+_extractTimestamp(_options.markers[ui.values[0]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' - '+_extractTimestamp(_options.markers[ui.values[1]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' (slide to change time range)</div>')
+                        $('#time_range').html('<strong>'+_extractTimestamp(_options.markers[ui.values[0]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' - '+_extractTimestamp(_options.markers[ui.values[1]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' (slide to change time range)</strong>')
                         for (i = ui.values[0]; i <= ui.values[1]; i++){
                            if(_options.markers[i]) {
-                           		//adding popups to markers
-                           	   _options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.time.substr(0,10)+'<br>'+
-                           	   _options.markers[i].feature.properties.description+'<br><br>'+'Time Period: '+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'Location:'+'<br>'+'Latitude: '+
-                           	   _options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]);
-                              
+                                
+                                //updating markers and event-list
+                                var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2",
+                                						  iconSize: [24,38],
+                                						  iconAnchor: [20, 51],
+    													  popupAnchor: [0,-51]
+                            							});
+    							var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8',
+    													     iconSize: [24,38],
+    													     iconAnchor: [20, 51],
+    													     popupAnchor: [0,-51]
+    													   });
+    							var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH',
+    													   iconSize: [24,38],
+    													   iconAnchor: [20, 51],
+    													   popupAnchor: [0,-51]
+    													 });
+    							
+    							    _options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
+                               		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
+                               		'<strong>Ethnic Group: </strong>'+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
+                               		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+
+                               		'<strong>Citation:</strong>'+_options.markers[i].feature.properties.Citation);
+
+    							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
+    							{
+                               		_options.markers[i].setIcon(mexicanIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+                              	}
+                              	else if (_options.markers[i].feature.properties.timePeriod == 'Texas Revolution 1835-36')
+        						{
+                               		_options.markers[i].setIcon(revolutionIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+        						}
+        						else if (_options.markers[i].feature.properties.timePeriod == 'Texas Republic 1836-45')
+        						{
+                               		_options.markers[i].setIcon(republicIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+        						}
                                map.addLayer(_options.markers[i]);
                                featuregroup.addLayer(_options.markers[i]);
-                               ///update event list                    
-                               $('#event-list').append('<div class="views-row views-row-1 views-row-odd views-row-first"><div class="panel-flexible panels-flexible-list_results clearfix">'+_options.markers[i].feature.properties.name+'<br>'+_options.markers[i].feature.properties.time.substr(0,4)+'</div></div');
                            }
-                    else{
-                        for (i = _options.minValue; i <= ui.value ; i++) {
-                            if(_options.markers[i]) {
-                                map.addLayer(_options.markers[i]);
-                                featuregroup.addLayer(_options.markers[i]);
-                            }
-                        }
-                    }
                 }
                 };
             }
@@ -161,6 +199,46 @@ L.Control.SliderControl = L.Control.extend({
             $('#slider-timestamp').html(_extractTimeStamp(_options.markers[index_start].feature.properties[_options.timeAttribute], _options));
         }
         for (i = _options.minValue; i <= index_start; i++) {
+        	var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2",
+                                						  iconSize: [24,38],
+                                						  iconAnchor: [20, 51],
+    													  popupAnchor: [0,-51]
+                            							});
+    		var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8',
+    													     iconSize: [24,38],
+    													     iconAnchor: [20, 51],
+    													     popupAnchor: [0,-51]
+    													   });
+    		var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH',
+    													   iconSize: [24,38],
+    													   iconAnchor: [20, 51],
+    													   popupAnchor: [0,-51]
+    													 });
+    							// intially add all the markers and add all the points to the evet list
+    							_options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'Time Period: '+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+'<br>'+
+                               	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
+                               	+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+'<strong>Citation:</strong>'+
+                               	_options.markers[i].feature.properties.Citation);
+
+    							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
+    							{
+                               		_options.markers[i].setIcon(mexicanIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+                              	}
+                              	else if (_options.markers[i].feature.properties.timePeriod == 'Texas Revolution 1835-36')
+        						{
+                               		_options.markers[i].setIcon(revolutionIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+        						}
+        						else if (_options.markers[i].feature.properties.timePeriod == 'Texas Republic 1836-45')
+        						{
+                               		_options.markers[i].setIcon(republicIcon);
+                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
+                					_options.markers[i].feature.properties.Date+'</div>')
+        						}
             _options.map.addLayer(_options.markers[i]);
         }
     }
