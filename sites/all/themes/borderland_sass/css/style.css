@@ -6236,10 +6236,6 @@ tr.even.synced-marker-hover > td.active {
 .leaflet-control {
   z-index: 0; }
 
-.leaflet-control-layers-base,
-.leaflet-control-layers-separator {
-  display: none; }
-
 .leaflet-container a.leaflet-popup-close-button {
   color: #195689; }
   .leaflet-container a.leaflet-popup-close-button:hover, .leaflet-container a.leaflet-popup-close-button:focus {
@@ -6503,5 +6499,3 @@ tr.even.synced-marker-hover > td.active {
 @media (max-width: 326px) {
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width: 170px; } }
-
-/*# sourceMappingURL=style.css.map */
