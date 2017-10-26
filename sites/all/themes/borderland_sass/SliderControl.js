@@ -149,18 +149,18 @@ L.Control.SliderControl = L.Control.extend({
                                 //updating markers and event-list
                                 var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2",
                                 						  iconSize: [24,38],
-                                						  iconAnchor: [20, 51],
-    													  popupAnchor: [0,-51]
+                                						  iconAnchor: [12, 38],
+    													  popupAnchor: [0,-38]
                             							});
     							var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8',
     													     iconSize: [24,38],
-    													     iconAnchor: [20, 51],
-    													     popupAnchor: [0,-51]
+    													     iconAnchor: [12, 38],
+    													     popupAnchor: [0,-38]
     													   });
     							var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH',
     													   iconSize: [24,38],
     													   iconAnchor: [20, 51],
-    													   popupAnchor: [0,-51]
+    													   popupAnchor: [0,-38]
     													 });
     							
     							    _options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
@@ -172,20 +172,17 @@ L.Control.SliderControl = L.Control.extend({
     							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
     							{
                                		_options.markers[i].setIcon(mexicanIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
                               	}
                               	else if (_options.markers[i].feature.properties.timePeriod == 'Texas Revolution 1835-36')
         						{
                                		_options.markers[i].setIcon(revolutionIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
         						}
         						else if (_options.markers[i].feature.properties.timePeriod == 'Texas Republic 1836-45')
         						{
                                		_options.markers[i].setIcon(republicIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
         						}
                                map.addLayer(_options.markers[i]);
                                featuregroup.addLayer(_options.markers[i]);
@@ -201,22 +198,22 @@ L.Control.SliderControl = L.Control.extend({
         for (i = _options.minValue; i <= index_start; i++) {
         	var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2",
                                 						  iconSize: [24,38],
-                                						  iconAnchor: [20, 51],
-    													  popupAnchor: [0,-51]
+                                						  iconAnchor: [12, 38],
+    													  popupAnchor: [0,-38]
                             							});
     		var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8',
     													     iconSize: [24,38],
-    													     iconAnchor: [20, 51],
-    													     popupAnchor: [0,-51]
+    													     iconAnchor: [12, 38],
+    													     popupAnchor: [0,-38]
     													   });
     		var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH',
     													   iconSize: [24,38],
-    													   iconAnchor: [20, 51],
-    													   popupAnchor: [0,-51]
+    													   iconAnchor: [12, 38],
+    													   popupAnchor: [0,-38]
     													 });
     							// intially add all the markers and add all the points to the evet list
     							_options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               	_options.markers[i].feature.properties.description+'<br><br>'+'Time Period: '+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+'<br>'+
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
                                	+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+'<strong>Citation:</strong>'+
                                	_options.markers[i].feature.properties.Citation);
@@ -224,20 +221,18 @@ L.Control.SliderControl = L.Control.extend({
     							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
     							{
                                		_options.markers[i].setIcon(mexicanIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		_options.markers[i].setIcon(mexicanIcon);
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png?itok=gvK38pp2" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
                               	}
                               	else if (_options.markers[i].feature.properties.timePeriod == 'Texas Revolution 1835-36')
         						{
                                		_options.markers[i].setIcon(revolutionIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png?itok=nyUoBPZ8" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
         						}
         						else if (_options.markers[i].feature.properties.timePeriod == 'Texas Republic 1836-45')
         						{
                                		_options.markers[i].setIcon(republicIcon);
-                               		$('#event-list').append('<div><img src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33">'+_options.markers[i].feature.properties.name+'</div><div>'+
-                					_options.markers[i].feature.properties.Date+'</div>')
+                               		$('#event-list').append('<div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png?itok=3KiuoytH" width="21" height="33" alt="Mexican Era Marker" /></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].features.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].features.properties.Date+'</div></div></div></div></div>')
         						}
             _options.map.addLayer(_options.markers[i]);
         }
