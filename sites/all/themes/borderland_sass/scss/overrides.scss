@@ -336,6 +336,9 @@ tr.even.synced-marker-hover > td.active {
   padding-top:6px;
   padding-bottom: 2px;
   background-color: #fff;
+  &:after {
+    content:none;
+  }
   &:hover {
     background-color:#fff;
   }
@@ -375,9 +378,6 @@ tr.even.synced-marker-hover > td.active {
   background-image:url(images/down-arrow1.png);
   border:none;
   margin-right:0;
-  &:after {
-    content:none;
-  }
 }
 .btn-group.open .dropdown-toggle {
   box-shadow: none;
