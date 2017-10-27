@@ -375,6 +375,9 @@ tr.even.synced-marker-hover > td.active {
   background-image:url(images/down-arrow1.png);
   border:none;
   margin-right:0;
+  &:after {
+    content:none;
+  }
 }
 .btn-group.open .dropdown-toggle {
   box-shadow: none;
