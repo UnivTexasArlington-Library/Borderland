@@ -44,7 +44,7 @@ L.Control.SliderControl = L.Control.extend({
 
         // control sliderContainer using jquery ui slider
         var sliderContainer = L.DomUtil.create('div', 'slider', this._container);
-        $(sliderContainer).append('<div id="leaflet-slider" style="width:400px;"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
+        $(sliderContainer).append('<div id="leaflet-slider" style="width:400px; margin-right: 15px;"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
         $(sliderContainer).append('<div id ="time_range" style="color: white;"><strong>1820 - 1839 (slide to change time range)</strong></div>')
         
 
@@ -164,7 +164,7 @@ L.Control.SliderControl = L.Control.extend({
     													   popupAnchor: [0,-38]
     													 });
     							
-    							    _options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
+    							    _options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
                                		'<strong>Ethnic Group: </strong>'+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
                                		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+
@@ -212,8 +212,9 @@ L.Control.SliderControl = L.Control.extend({
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
+    							
     							// intially add all the markers and add all the points to the evet list
-    							_options.markers[i].bindPopup('<a href="#">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
+    							_options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
                                	+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+'<strong>Citation:</strong>'+
