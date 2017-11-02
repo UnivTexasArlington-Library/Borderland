@@ -44,8 +44,8 @@ L.Control.SliderControl = L.Control.extend({
 
         // control sliderContainer using jquery ui slider
         var sliderContainer = L.DomUtil.create('div', 'slider', this._container);
-        $(sliderContainer).append('<div id="leaflet-slider" style="width:400px; margin-right: 15px;"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range" style="color: white;"><strong>1820 - 1839 (slide to change time range)</strong></div>');
+        $(sliderContainer).append('<div id="leaflet-slider"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
+        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1839 (slide to change time range)</strong></div>');
         
 
         //Prevent map panning/zooming while using the slider
@@ -58,7 +58,6 @@ L.Control.SliderControl = L.Control.extend({
 
         var options = this.options;
         this.options.markers = [];
-		
 
 		//calculate the min and max values for the slider
         if (this._layer) {
@@ -166,7 +165,7 @@ L.Control.SliderControl = L.Control.extend({
     							
     							    _options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-                               		'<strong>Ethnic Group: </strong>'+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
+                               		'<strong>Ethnic Group: </strong>'+_options.feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
                                		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+
                                		'<strong>Citation:</strong>'+_options.markers[i].feature.properties.Citation);
 
@@ -215,7 +214,7 @@ L.Control.SliderControl = L.Control.extend({
     							
     							// intially add all the markers and add all the points to the evet list
     							_options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+'<br>'+
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.feature.properties.EthnicGroup+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
                                	+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+'<strong>Citation:</strong>'+
                                	_options.markers[i].feature.properties.Citation);
@@ -237,10 +236,7 @@ L.Control.SliderControl = L.Control.extend({
                                		_options.markers[i].setIcon(republicIcon);
                                		$('#event-list').append('<div class="views-row" onmouseover="focusOn('+_options.markers[i].feature.properties.Nid+')"><div class="panel-flexible panels-flexible-list_results clearfix"><div class="panel-flexible-inside panels-flexible-list_results-inside"><div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png" width="21" height="33" alt="Republic Era Marker"/></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].feature.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].feature.properties.Date+'</div></div></div></div></div></div></div>');
         						}
-                    _options.map.addLayer(_options.markers[i]);
-                    function focusOn(Nid) {
-                    _options.markers.feature.properties.Nid.openPopup();
-                    }
+            _options.map.addLayer(_options.markers[i]);
         }
     }
 });
