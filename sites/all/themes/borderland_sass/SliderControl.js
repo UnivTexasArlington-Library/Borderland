@@ -44,8 +44,9 @@ L.Control.SliderControl = L.Control.extend({
 
         // control sliderContainer using jquery ui slider
         var sliderContainer = L.DomUtil.create('div', 'slider', this._container);
+        $(sliderContainer).append('<div><strong>Timeline</strong></div>')
         $(sliderContainer).append('<div id="leaflet-slider"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1839 (slide to change time range)</strong></div>');
+        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1839</strong></div>');
         
 
         //Prevent map panning/zooming while using the slider
