@@ -6367,6 +6367,9 @@ tr.even.synced-marker-hover > td.active {
 .clear {
   clear: both; }
 
+.panels-flexible-region-24-center {
+  width: 100%; }
+
 @media (max-width: 1400px) {
   .library, .southwestern {
     font-size: 0.75em; }
