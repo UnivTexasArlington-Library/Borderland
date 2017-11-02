@@ -165,7 +165,7 @@ L.Control.SliderControl = L.Control.extend({
     							
     							    _options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-                               		'<strong>Ethnic Group: </strong>'+_options.feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
+                               		'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
                                		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+
                                		'<strong>Citation:</strong>'+_options.markers[i].feature.properties.Citation);
 
@@ -214,7 +214,7 @@ L.Control.SliderControl = L.Control.extend({
     							
     							// intially add all the markers and add all the points to the evet list
     							_options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.feature.properties.EthnicGroup+'<br>'+
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
                                	+_options.markers[i].feature.geometry.coordinates[0]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br><br><br>'+'<strong>Citation:</strong>'+
                                	_options.markers[i].feature.properties.Citation);
