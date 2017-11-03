@@ -6107,16 +6107,23 @@ h1.page-header {
 #views-exposed-form-leaflet-panel-pane-1 .views-exposed-form label {
   display: none; }
 
+.ui-slider {
+  background: #ccc; }
+
 .ui-slider-horizontal .ui-slider-handle {
-  top: -0.5em; }
+  top: -0.125em; }
 
 .ui-slider-horizontal {
-  height: 0.5em;
-  border-radius: 0; }
+  height: 1em;
+  border-radius: 0;
+  background: #CCC; }
+
+.ui-slider-horizontal .ui-slider-range {
+  background: #FFF; }
 
 .ui-slider .ui-slider-handle {
-  height: 32px;
-  width: 32px;
+  height: 1.125em;
+  width: 1.125em;
   border-radius: 16px; }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
