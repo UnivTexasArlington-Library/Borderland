@@ -84,12 +84,15 @@ input[type="radio"], input[type="checkbox"] {
   margin-right:5px;
 }
 // TIMELINE
-.ui-widget-content {
-  background:#fff url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+.ui-slider-handle {
+  background:#2784CD;
+  height:32px;
+  width:32px;
+  border-radius:16px;
 }
-.ui-widget-header {
+/*.ui-widget-header {
   background:#fff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
-}
+}*/
 
 // TAXONOMY PAGEs
 .panel-1col {
