@@ -6129,7 +6129,7 @@ h1.page-header {
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
   background: #2784CD;
   border-color: #175586;
-  cursor: e-resize; }
+  cursor: pointer; }
 
 li.shs-parent,
 li.shs-term-selected {
