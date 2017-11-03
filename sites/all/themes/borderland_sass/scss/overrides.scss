@@ -83,13 +83,7 @@ a.name {
 input[type="radio"], input[type="checkbox"] {
   margin-right:5px;
 }
-// TIMELINE
-.ui-slider-handle .ui-state-default .ui-corner-all {
-  background:#2784CD !important;
-  height:32px !important;
-  width:32px !important;
-  border-radius:16px !important;
-}
+
 
 // TAXONOMY PAGEs
 .panel-1col {
@@ -144,7 +138,7 @@ h1.page-header {
   font-size: $font-size-xs;
 }
 
-// Slider
+// Slider & TIMELINE
 #views-exposed-form-leaflet-panel-pane-1 {
   .views-widget {
     display:none;
@@ -172,11 +166,12 @@ h1.page-header {
 .ui-slider .ui-slider-handle {
   width:30px;
 }
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  background:$brand-dkblue url(images/Slider.png) center no-repeat;
-  border-color:$brand-dkblue;
-  border-radius:0;
-  cursor:e-resize;
+
+.ui-slider-handle .ui-state-default .ui-corner-all {
+  background:#2784CD;
+  height:32px;
+  width:32px;
+  border-radius:16px;
 }
 // Tribe or SHS display
 

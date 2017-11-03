@@ -6045,12 +6045,6 @@ a.name {
 input[type="radio"], input[type="checkbox"] {
   margin-right: 5px; }
 
-.ui-slider-handle .ui-state-default .ui-corner-all {
-  background: #2784CD !important;
-  height: 32px !important;
-  width: 32px !important;
-  border-radius: 16px !important; }
-
 .panel-1col {
   padding: 0 1em 1em 1em;
   border: 1px solid #b3a596;
@@ -6123,11 +6117,11 @@ h1.page-header {
 .ui-slider .ui-slider-handle {
   width: 30px; }
 
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  background: #175586 url(images/Slider.png) center no-repeat;
-  border-color: #175586;
-  border-radius: 0;
-  cursor: e-resize; }
+.ui-slider-handle .ui-state-default .ui-corner-all {
+  background: #2784CD;
+  height: 32px;
+  width: 32px;
+  border-radius: 16px; }
 
 li.shs-parent,
 li.shs-term-selected {
