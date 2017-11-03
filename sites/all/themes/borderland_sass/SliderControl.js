@@ -143,7 +143,7 @@ L.Control.SliderControl = L.Control.extend({
 
                     if(_options.range){
                         // jquery ui using range
-                        $('#time_range').html('<strong>'+_extractTimestamp(_options.markers[ui.values[0]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' - '+_extractTimestamp(_options.markers[ui.values[1]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' (slide to change time range)</strong>')
+                        $('#time_range').html('<strong>'+_extractTimestamp(_options.markers[ui.values[0]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' - '+_extractTimestamp(_options.markers[ui.values[1]].feature.properties[_options.timeAttribute],_options).substr(0,4)+'</strong>')
                         for (i = ui.values[0]; i <= ui.values[1]; i++){
                            if(_options.markers[i]) {
                                 
