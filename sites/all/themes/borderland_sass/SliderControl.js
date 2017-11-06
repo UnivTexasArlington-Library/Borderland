@@ -148,24 +148,24 @@ L.Control.SliderControl = L.Control.extend({
                            if(_options.markers[i]) {
                                 
                                 //updating markers and event-list
-                                var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png",
+                                var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
                                 						  iconSize: [24,38],
                                 						  iconAnchor: [12, 38],
     													  popupAnchor: [0,-38]
                             							});
-    							var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png',
+    							var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/marker/1835-Revolution.png',
     													     iconSize: [24,38],
     													     iconAnchor: [12, 38],
     													     popupAnchor: [0,-38]
     													   });
-    							var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png',
+    							var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
     													   iconSize: [24,38],
     													   iconAnchor: [20, 38],
     													   popupAnchor: [0,-38]
     													 });
     							
     							    _options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
+                               		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="https://library.uta.edu/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
                                		'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
                                		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '+_options.markers[i].feature.geometry.coordinates[1]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br><br><br>'+
                                		'<strong>Citation:</strong>'+_options.markers[i].feature.properties.Citation);
@@ -212,10 +212,11 @@ L.Control.SliderControl = L.Control.extend({
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
-    							
+    							var timeString = _options.markers[i].feature.properties.timePeriod.toLowerCase();
+    							timeString = timeString.replace(" ","-");
     							// intially add all the markers and add all the points to the evet list
     							_options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="#">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="https://library.uta.edu/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Location:</strong>'+'<br>'+'Latitude: '
                                	+_options.markers[i].feature.geometry.coordinates[1]+'<br>'+'Longitude: '+_options.markers[i].feature.geometry.coordinates[0]+'<br><br><br>'+'<strong>Citation:</strong>'+
                                	_options.markers[i].feature.properties.Citation);
