@@ -165,6 +165,7 @@ L.Control.SliderControl = L.Control.extend({
     													 });
     								var timeString = _options.markers[i].feature.properties.timePeriod.toLowerCase();
     								timeString = timeString.replace(/ /g,"-");
+    							    
     							    _options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="https://library.uta.edu/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
                                		'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
@@ -198,17 +199,17 @@ L.Control.SliderControl = L.Control.extend({
             $('#slider-timestamp').html(_extractTimeStamp(_options.markers[index_start].feature.properties[_options.timeAttribute], _options));
         }
         for (i = _options.minValue; i <= index_start; i++) {
-        	var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1821-Mexican.png",
+        	var mexicanIcon = L.icon({iconUrl: "https://library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
                                 						  iconSize: [24,38],
                                 						  iconAnchor: [12, 38],
     													  popupAnchor: [0,-38]
                             							});
-    		var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1835-Revolution.png',
+    		var revolutionIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/marker/1835-Revolution.png',
     													     iconSize: [24,38],
     													     iconAnchor: [12, 38],
     													     popupAnchor: [0,-38]
     													   });
-    		var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png',
+    		var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
     													   iconSize: [24,38],
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
