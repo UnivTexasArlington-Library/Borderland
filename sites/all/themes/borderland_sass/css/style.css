@@ -6324,8 +6324,7 @@ tr.even.synced-marker-hover > td.active {
   font-family: Arial, sans-serif;
   overflow: auto;
   padding: 25px 15px;
-  max-width: 20%;
-  min-width: 140px;}
+  max-width: 250px; }
 
 #legend-heatmap h2 {
   margin-top: 0;
@@ -6334,10 +6333,7 @@ tr.even.synced-marker-hover > td.active {
   font-size: 12px; }
 #legend-heatmap img {
   display: block;
-  margin: 20px auto;
-  width: 100%;
-  max-width: 250px;
-  min-width: 120px;  }
+  margin: 20px auto; }
 
 .map-overlay-nav {
   position: absolute;
@@ -6531,3 +6527,5 @@ tr.even.synced-marker-hover > td.active {
 @media (max-width: 326px) {
   #views-exposed-form-search-page #edit-search-api-views-fulltext {
     max-width: 170px; } }
+
+/*# sourceMappingURL=style.css.map */
