@@ -6324,7 +6324,8 @@ tr.even.synced-marker-hover > td.active {
   font-family: Arial, sans-serif;
   overflow: auto;
   padding: 25px 15px;
-  max-width: 250px; }
+  max-width: 20%;
+  min-width: 140px; }
 
 #legend-heatmap h2 {
   margin-top: 0;
@@ -6333,7 +6334,10 @@ tr.even.synced-marker-hover > td.active {
   font-size: 12px; }
 #legend-heatmap img {
   display: block;
-  margin: 20px auto; }
+  margin: 20px auto;
+  width: 100%;
+  max-width: 250px;
+  min-width: 120px; }
 
 .map-overlay-nav {
   position: absolute;
