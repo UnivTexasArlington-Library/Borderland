@@ -6375,10 +6375,12 @@ tr.even.synced-marker-hover > td.active {
 .modal-content {
   background-color: #175586; }
 
-.modal-header .close {
-  font-size: 2em;
-  font-weight: normal;
-  color: #ebebeb; }
+.modal-header {
+  border-bottom: 0; }
+  .modal-header .close {
+    font-size: 2em;
+    font-weight: normal;
+    color: #ebebeb; }
 
 .modal-body a {
   color: #ebebeb; }

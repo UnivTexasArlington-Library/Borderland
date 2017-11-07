@@ -472,10 +472,13 @@ tr.even.synced-marker-hover > td.active {
 .modal-content {
   background-color: $brand-dkblue;
 }
-.modal-header .close {
-  font-size: 2em;
-  font-weight: normal;
-  color:$white;
+.modal-header {
+  border-bottom: 0;
+    .close {
+    font-size: 2em;
+    font-weight: normal;
+    color:$white;
+  }
 }
 .modal-body a {
   color:$white;
