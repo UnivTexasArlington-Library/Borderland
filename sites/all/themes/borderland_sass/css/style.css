@@ -37,9 +37,10 @@
       border-right: 1px solid #000;
       font-size: 1.075em;
       line-height: 1.075em;
-      text-decoration: none; }
-      #block-superfish-2 .sf-style-none a.sf-with-ul {
-        padding-right: 2.25em; }
+      text-decoration: none;
+      /*&.sf-with-ul {
+      	padding-right: 2.25em;
+      }*/ }
       #block-superfish-2 .sf-style-none a:focus, #block-superfish-2 .sf-style-none a:hover {
         color: #FFF;
         outline: 0; }
