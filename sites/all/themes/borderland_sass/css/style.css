@@ -6372,6 +6372,9 @@ tr.even.synced-marker-hover > td.active {
 .panels-flexible-region-24-center {
   width: 100%; }
 
+.modal-content {
+  background-color: #175586; }
+
 .modal-header .close {
   font-size: 2em;
   font-weight: normal;
@@ -6381,7 +6384,8 @@ tr.even.synced-marker-hover > td.active {
   color: #ebebeb; }
 
 .modal-footer {
-  text-align: center; }
+  text-align: center;
+  border-top: 0; }
 
 @media (max-width: 1400px) {
   .library, .southwestern {

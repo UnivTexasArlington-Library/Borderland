@@ -469,6 +469,9 @@ tr.even.synced-marker-hover > td.active {
   width: 100%;
 }
 // MODAL
+.modal-content {
+  background-color: $brand-dkblue;
+}
 .modal-header .close {
   font-size: 2em;
   font-weight: normal;
@@ -479,6 +482,7 @@ tr.even.synced-marker-hover > td.active {
 }
 .modal-footer {
   text-align: center;
+  border-top:0;
 }
 // Media Queries
 
