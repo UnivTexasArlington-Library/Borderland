@@ -6341,11 +6341,11 @@ tr.even.synced-marker-hover > td.active {
 
 .map-overlay-nav {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   color: #ebebeb;
   background: #3e3e3e;
-  margin: 10px 30px 10px 10px;
+  margin: 10px 30px 25px 10px;
   font-family: Arial, sans-serif;
   padding: 10px;
   width: 150px; }
