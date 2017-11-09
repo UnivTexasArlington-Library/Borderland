@@ -43,7 +43,7 @@ L.Control.SliderControl = L.Control.extend({
         this.options.map = map;
 
         // control sliderContainer using jquery ui slider
-        var sliderContainer = L.DomUtil.create('div', 'slider', this._container);
+        var sliderContainer = L.DomUtil.create('div', 'slider hidden-xs', this._container);
         $(sliderContainer).append('<div><strong>Timeline</strong></div>')
         $(sliderContainer).append('<div id="leaflet-slider"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
         $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1839</strong></div>');
