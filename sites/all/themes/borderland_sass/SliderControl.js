@@ -170,7 +170,7 @@ L.Control.SliderControl = L.Control.extend({
                                		_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="https://library.uta.edu/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
                                		'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
                                		'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity);
-                               		_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-21]});
+                               		_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
     							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
     							{
@@ -220,7 +220,7 @@ L.Control.SliderControl = L.Control.extend({
     							_options.markers[i].bindPopup('<a href="https://library.uta.edu/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
                                	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="https://library.uta.edu/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
                                	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity);
-                               	_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-21]});
+                               	_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
     							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
     							{
