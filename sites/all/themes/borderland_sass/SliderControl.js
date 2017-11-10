@@ -160,7 +160,7 @@ L.Control.SliderControl = L.Control.extend({
     													   });
     							var republicIcon = L.icon({iconUrl: 'https://library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
     													   iconSize: [24,38],
-    													   iconAnchor: [20, 38],
+    													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
     								var timeString = _options.markers[i].feature.properties.timePeriod.toLowerCase();
