@@ -31,13 +31,13 @@
       <p class="lead"><?php print $site_slogan; ?></p>
     <?php endif; ?>
     <div class="row">
-      <div class="col-md-3 hidden-sm hidden-xs">
+      <div class="col-md-3 col-sm-6 col-xs-9">
         <?php print render($page['search']); ?>
       </div>
-      <div class="col-md-6 col-xs-9">
+      <div class="col-md-3 col-sm-1 col-col-xs-1">
         <?php print render($page['timeline']); ?>
       </div>
-      <div class="col-md-3 col-xs-3">
+      <div class="col-md-6 col-sm-5 col-xs-2">
         <?php print render($page['menu']); ?>
       </div>
     </div>
