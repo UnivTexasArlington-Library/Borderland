@@ -1012,10 +1012,14 @@ function views_field_delete_instance($instance) {
 
 /**
  * Invalidate the views cache, forcing a rebuild on the next grab of table data.
+ *
+ * @param string $cid
+ *   The cache identifier we want to clear. If no given, it will default to '*'
+ *   which will clear the entire cache_views bin.
  */
-function views_invalidate_cache() {
+function views_invalidate_cache($cid = '*') {
   // Clear the views cache.
-  cache_clear_all('*', 'cache_views', TRUE);
+  cache_clear_all($cid, 'cache_views', TRUE);
 
   // Clear the page and block cache.
   cache_clear_all();
@@ -1024,7 +1028,7 @@ function views_invalidate_cache() {
   variable_set('menu_rebuild_needed', TRUE);
 
   // Allow modules to respond to the Views cache being cleared.
-  module_invoke_all('views_invalidate_cache');
+  module_invoke_all('views_invalidate_cache', $cid);
 }
 
 /**
