@@ -397,6 +397,10 @@ tr.even.synced-marker-hover > td.active {
   margin:0;
   min-width:200px;
 }
+#superfish-2 {
+  position:relative;
+  z-index:9999;
+}
 // Basic Page
 .node-page {
   max-width: 1000px;
