@@ -12,7 +12,9 @@
  */
 #block-superfish-2 {
   margin: 15px;
-  float: right; }
+  float: right;
+  z-index: 9999;
+  position: relative; }
   #block-superfish-2 .sf-style-none {
     float: left;
     margin: 0;
@@ -22,7 +24,7 @@
       /* background: $superfish-1-background-color-level-first; */ }
     #block-superfish-2 .sf-style-none ul {
       padding-left: 0;
-      z-index: 9999; }
+      /*z-index: 9999;*/ }
       #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper {
         background: transparent; }
         #block-superfish-2 .sf-style-none ul.sf-megamenu li.sf-megamenu-wrapper li {
