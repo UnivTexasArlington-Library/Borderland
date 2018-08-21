@@ -6389,6 +6389,24 @@ tr.even.synced-marker-hover > td.active {
   text-align: center;
   border-top: 0; }
 
+.death-1 {
+  color: #ffffb2; }
+
+.death-2 {
+  color: #fed976; }
+
+.death-3 {
+  color: #feb24c; }
+
+.death-4 {
+  color: #fd8d3c; }
+
+.death-5 {
+  color: #f03b20; }
+
+.death-6 {
+  color: #bd0026; }
+
 @media (max-width: 1400px) {
   .library, .southwestern {
     font-size: 0.75em; }
