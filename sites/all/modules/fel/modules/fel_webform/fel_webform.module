@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Webform support for Form element layout.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function fel_webform_theme($existing, $type, $theme, $path) {
+  return array(
+    'fel_webform_element' => array(
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
+ * Implements template_preprocess_THEME_HOOK().
+ */
+function template_preprocess_fel_webform_element(&$variables) {
+  // We're not doing anything. Call replaced preprocess hook.
+  template_preprocess_webform_element($variables);
+}
+
+/**
+ * Replacement for theme_webform_element().
+ */
+function theme_fel_webform_element($variables) {
+  $element = $variables['element'];
+
+  $output = '<div ' . drupal_attributes($element['#wrapper_attributes']) . '>' . "\n";
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  // managed_file uses a different id, make sure the label points to the correct
+  // id.
+  if (isset($element['#type']) && $element['#type'] === 'managed_file') {
+    if (!empty($variables['element']['#id'])) {
+      $variables['element']['#id'] .= '-upload';
+    }
+  }
+
+  $element_parts = array('children' => $prefix . $element['#children'] . $suffix);
+  if ($element['#title_display'] != 'none' and $element['#title_display'] != 'attribute') {
+    $element_parts['title'] = theme('fel_form_element_label', $variables);
+  }
+  if (!empty($element['#description'])) {
+    $element_parts['description'] = theme('fel_form_element_description', $variables) . "\n";
+  }
+  fel_order_output($element, $element_parts);
+  $output .= implode(' ', $element_parts);
+
+  $output .= "</div>\n";
+
+  return $output;
+}
+
+/**
+ * Webform components that Form element layout supports and their default value.
+ */
+function _fel_webform_components_defaults() {
+  static $ret = array(
+    'date' => 'after',
+    'email' => 'after',
+    'fieldset' => 'before',
+    'file' => 'after',
+    'grid' => 'after',
+    'number' => 'after',
+    'select' => 'after',
+    'textfield' => 'after',
+    'textarea' => 'after',
+    'time' => 'after',
+  );
+  return $ret;
+}
+
+/**
+ * Implements hook_webform_component_render_alter().
+ *
+ * Replace the #theme_wrapper 'webform_element' with our customized edition.
+ */
+function fel_webform_webform_component_render_alter(&$element, &$component) {
+  $fel_defaults = _fel_webform_components_defaults();
+  if (!empty($fel_defaults[$component['type']])) {
+    fel_wrapper_replace('webform_element', 'fel_webform_element', $element);
+    $element['#description_display'] = empty($component['extra']['description_display']) ? $fel_defaults[$component['type']] : $component['extra']['description_display'];
+  }
+}
+
+/**
+ * Implements hook_webform_component_info_alter().
+ *
+ * Add an additional webform component feature 'description_display'.
+ */
+function fel_webform_component_info_alter(&$components) {
+  $fel_defaults = _fel_webform_components_defaults();
+  foreach ($components as $type => $component) {
+    $components[$type]['features']['description_display'] = !empty($fel_defaults[$type]);
+  }
+}
+
+/**
+ * Implements hook_webform_component_defaults_alter().
+ */
+function fel_webform_webform_component_defaults_alter(&$defaults, $type) {
+  $fel_defaults = _fel_webform_components_defaults();
+  if (!empty($defaults[$type])) {
+    $defaults['extra']['description_display'] = $fel_defaults[$type];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for workflow_component_edit().
+ *
+ * Add the actual UI for tweaking FAPI #description_display for workflow
+ * components.
+ */
+function fel_webform_form_webform_component_edit_form_alter(&$form, &$form_state, $form_id) {
+  $component = $form_state['build_info']['args'][1];
+  if (webform_component_feature($component['type'], 'description_display')) {
+    $form['display']['description_display'] = array(
+      '#type' => 'radios',
+      '#title' => t("Description display"),
+      '#options' => array('before' => t("Before"), 'after' => t("After")),
+      '#description' => t("Determines the placement of the component's description."),
+      '#default_value' => $component['extra']['description_display'],
+      '#parents' => array('extra', 'description_display'),
+      '#weight' => 9,
+    );
+  }
+}

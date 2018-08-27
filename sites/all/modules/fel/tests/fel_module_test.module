@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * @file
+ * Adds tests to fel.module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function fel_module_test_menu() {
+  $items = array();
+
+  $items['fel/test'] = array(
+    'title' => 'Form element layout test',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('fel_module_test_form'),
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/**
+ * For builder for various input types.
+ */
+function fel_module_test_form($form, &$form_state) {
+  // Core types
+  $core_simple = array(
+    'textfield',
+    'machine_name',
+    'password',
+    'password_confirm',
+    'textarea',
+    'radio',
+    'checkbox',
+    'select',
+    'date',
+    'file',
+    'managed_file',
+  );
+  foreach ($core_simple as $element_type) {
+    fel_module_test_add_form_item($form, $element_type);
+  }
+  $form['test_select_before']['#options'] = array('Yes', 'No');
+  $form['test_select_after']['#options'] = array('Yes', 'No');
+
+  $contrib = array(
+    'elements' => array(
+      'emailfield',
+      'numberfield',
+      'rangefield',
+      'searchfield',
+      'select_or_other',
+      'telfield',
+      'urlfield',
+    ),
+  );
+  foreach ($contrib as $module => $element_types) {
+    if (module_exists($module)) {
+      foreach ($element_types as $element_type) {
+        fel_module_test_add_form_item($form, $element_type);
+      }
+    }
+  }
+  if (module_exists('select_or_other')) {
+    $form['test_select_or_other_before']['#options'] = array('Yes', 'No');
+    $form['test_select_or_other_after']['#options'] = array('Yes', 'No');
+  }
+  return $form;
+}
+
+/**
+ * Add a form of type $element_type to $form.
+ */
+function fel_module_test_add_form_item(&$form, $element_type) {
+  $form["test_{$element_type}_after"] = array(
+    '#type' => $element_type,
+    '#title' => $element_type,
+    '#description' => "Dummy description for {$element_type} displayed after.",
+  );
+
+  $form["test_{$element_type}_before"] = array(
+    '#type' => $element_type,
+    '#title' => $element_type,
+    '#description' => "Dummy description for {$element_type} displayed before.",
+    '#description_display' => 'before',
+  );
+}
