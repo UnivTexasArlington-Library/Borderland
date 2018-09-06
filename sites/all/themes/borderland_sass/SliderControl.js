@@ -46,7 +46,7 @@ L.Control.SliderControl = L.Control.extend({
         var sliderContainer = L.DomUtil.create('div', 'slider hidden-xs', this._container);
         $(sliderContainer).append('<div><strong>Timeline</strong></div>')
         $(sliderContainer).append('<div id="leaflet-slider"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1839</strong></div>');
+        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1859</strong></div>');
         
 
         //Prevent map panning/zooming while using the slider
@@ -163,6 +163,11 @@ L.Control.SliderControl = L.Control.extend({
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
+								var statehoodIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1845-Statehood.png',
+    													   iconSize: [24,38],
+    													   iconAnchor: [12, 38],
+    													   popupAnchor: [0,-38]
+    													 });
     								var timeString = _options.markers[i].feature.properties.timePeriod.toLowerCase();
     								timeString = timeString.replace(/ /g,"-");
     							    
@@ -186,6 +191,11 @@ L.Control.SliderControl = L.Control.extend({
         						{
                                		_options.markers[i].setIcon(republicIcon);
                                		$('#event-list').append('<div class="views-row" onclick="focusOn('+_options.markers[i].feature.properties.Nid+')" onmouseover="showTooltip('+_options.markers[i].feature.properties.Nid+')" onmouseout="hideTooltip('+_options.markers[i].feature.properties.Nid+')"><div class="panel-flexible panels-flexible-list_results clearfix"><div class="panel-flexible-inside panels-flexible-list_results-inside"><div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png" width="21" height="33" alt="Republic Era Marker"/></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].feature.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].feature.properties.Date+'</div></div></div></div></div></div></div>');
+        						}
+								else if (_options.markers[i].feature.properties.timePeriod == 'Texas Statehood 1846-')
+        						{
+                               		_options.markers[i].setIcon(statehoodIcon);
+                               		$('#event-list').append('<div class="views-row" onclick="focusOn('+_options.markers[i].feature.properties.Nid+')" onmouseover="showTooltip('+_options.markers[i].feature.properties.Nid+')" onmouseout="hideTooltip('+_options.markers[i].feature.properties.Nid+')"><div class="panel-flexible panels-flexible-list_results clearfix"><div class="panel-flexible-inside panels-flexible-list_results-inside"><div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="/borderland/sites/default/files/styles/marker/public/marker/1845-Statehood.png" width="21" height="33" alt="Statehood Era Marker"/></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].feature.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].feature.properties.Date+'</div></div></div></div></div></div></div>');
         						}
                                map.addLayer(_options.markers[i]);
                                featuregroup.addLayer(_options.markers[i]);
@@ -214,6 +224,11 @@ L.Control.SliderControl = L.Control.extend({
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
+			var statehoodIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1845-Statehood.png',
+    													   iconSize: [24,38],
+    													   iconAnchor: [12, 38],
+    													   popupAnchor: [0,-38]
+    													 });
     							var timeString = _options.markers[i].feature.properties.timePeriod.toLowerCase();
     							timeString = timeString.replace(/ /g,"-");
     							// intially add all the markers and add all the points to the evet list
@@ -238,6 +253,11 @@ L.Control.SliderControl = L.Control.extend({
         						{
                                		_options.markers[i].setIcon(republicIcon);
                                		$('#event-list').append('<div class="views-row" onclick="focusOn('+_options.markers[i].feature.properties.Nid+')" onmouseover="showTooltip('+_options.markers[i].feature.properties.Nid+')" onmouseout="hideTooltip('+_options.markers[i].feature.properties.Nid+')"><div class="panel-flexible panels-flexible-list_results clearfix"><div class="panel-flexible-inside panels-flexible-list_results-inside"><div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="/borderland/sites/default/files/styles/marker/public/marker/1836-Republic.png" width="21" height="33" alt="Republic Era Marker"/></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].feature.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].feature.properties.Date+'</div></div></div></div></div></div></div>');
+        						}
+								else if (_options.markers[i].feature.properties.timePeriod == 'Texas Statehood 1846-')
+        						{
+                               		_options.markers[i].setIcon(statehoodIcon);
+                               		$('#event-list').append('<div class="views-row" onclick="focusOn('+_options.markers[i].feature.properties.Nid+')" onmouseover="showTooltip('+_options.markers[i].feature.properties.Nid+')" onmouseout="hideTooltip('+_options.markers[i].feature.properties.Nid+')"><div class="panel-flexible panels-flexible-list_results clearfix"><div class="panel-flexible-inside panels-flexible-list_results-inside"><div class="panels-flexible-region panels-flexible-region-list_results-marker panels-flexible-region-first col-md-2 col-sm-1 col-lg-2"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-marker-inside panels-flexible-region-inside-first"><div class="views-field views-field-field-marker"><div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="/borderland/sites/default/files/styles/marker/public/marker/1845-Statehood.png" width="21" height="33" alt="Statehood Era Marker"/></div></div></div></div><div class="panels-flexible-region panels-flexible-region-list_results-center panels-flexible-region-last col-md-10 col-sm-11 col-lg-10"><div class="inside panels-flexible-region-inside panels-flexible-region-list_results-center-inside panels-flexible-region-inside-last"><div class="views-field views-field-title"><span class="field-content">'+_options.markers[i].feature.properties.name+'</span></div><div class="views-field views-field-field-display-date"><div class="field-content">'+_options.markers[i].feature.properties.Date+'</div></div></div></div></div></div></div>');
         						}
             _options.map.addLayer(_options.markers[i]);
         }
