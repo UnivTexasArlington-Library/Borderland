@@ -12,16 +12,20 @@ function leaflet_borderland_leaflet_map_info() {
     'dragging'           => TRUE,
     'fadeAnimation'      => TRUE,
     'layerControl'       => TRUE,
-    'maxZoom'            => 14,
+	'maxZoom'            => 16,
     'minZoom'            => 2,
-    'scrollWheelZoom'    => TRUE,
+	'scrollWheelZoom'    => TRUE,
     'touchZoom'          => TRUE,
     'trackResize'        => TRUE,
     'zoomAnimation'      => TRUE,
     'zoomControl'        => TRUE,
   );
 
-  $options = array('attribution' => '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a>');
+  $options = array(
+	'attribution' => 'Â© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a>',
+	'tileSize' => 512,
+	'zoomOffset' => -1,
+	);
 
   $map_info['leaflet-borderland'] = array(
     'label' => "Borderland Mapbox",
@@ -37,7 +41,7 @@ function leaflet_borderland_leaflet_map_info() {
       'Modern Map' => array(
         'urlTemplate' => "//api.mapbox.com/styles/v1/libraryweb/ciusnuc2j00ay2io44aohu44w/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlicmFyeXdlYiIsImEiOiJjaXVweGMzZHgwMjFvMnpwazh6OGF6YmZvIn0.b_cHKB3X2t8W3jGEape0ng",
         'options' => $options,
-        'layer_type' => 'overlay',
+		'layer_type' => 'overlay',
       ),
     ),
   );

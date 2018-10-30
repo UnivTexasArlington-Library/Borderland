@@ -46,7 +46,7 @@ L.Control.SliderControl = L.Control.extend({
         var sliderContainer = L.DomUtil.create('div', 'slider hidden-xs', this._container);
         $(sliderContainer).append('<div><strong>Timeline</strong></div>')
         $(sliderContainer).append('<div id="leaflet-slider"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1859</strong></div>');
+        $(sliderContainer).append('<div id ="time_range"><strong>1820 - 1879</strong></div>');
         
 
         //Prevent map panning/zooming while using the slider
