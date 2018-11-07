@@ -45,7 +45,7 @@ L.Control.SliderControl = L.Control.extend({
         var sliderContainer = L.DomUtil.create('div', 'slider hidden-xs', this._container);
         $(sliderContainer).append('<div id="slider_title" class="left-content"><strong>Slide time-range controls or push play for animation</strong></div>');
         $(sliderContainer).append('<div id="leaflet-slider" class="left-content"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1, 1820 - December 31, 1859</strong></div>');
+        $(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1, 1820 - July 27, 1879</strong></div>');
 		//Chirag//A player and settings time controller added. To change images please update images at folder://library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/
 		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
 		
