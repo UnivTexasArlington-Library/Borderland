@@ -45,9 +45,10 @@ L.Control.SliderControl = L.Control.extend({
         var sliderContainer = L.DomUtil.create('div', 'slider hidden-xs', this._container);
         $(sliderContainer).append('<div id="slider_title" class="left-content"><strong>Slide time-range controls or push play for animation</strong></div>');
         $(sliderContainer).append('<div id="leaflet-slider" class="left-content"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
-        $(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1, 1820 - July 27, 1879</strong></div>');
-		//Chirag//A player and settings time controller added. To change images please update images at folder://library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/
-		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
+        //Edit here to chnage the Time Slider Time Range.
+		$(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1, 1820 - December 31, 1859</strong></div>');
+		//Chirag//Time player and settings controller added. To change images please update images at folder://sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/
+		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
 		
 		//Prevent map panning/zooming while using the slider
         $(sliderContainer).mousedown(function () {
@@ -106,7 +107,6 @@ L.Control.SliderControl = L.Control.extend({
 
                     // clear markers
                     for (i = _options.minValue; i <= _options.maxValue; i++) {
-						//console.log("seeing the bounds"+i);
                         if(_options.markers[i]) map.removeLayer(_options.markers[i]);
                     }
                     
@@ -119,12 +119,11 @@ L.Control.SliderControl = L.Control.extend({
 						//Chirag
 						//$('#time_range').html('<strong>'+_extractTimestamp(_options.markers[ui.values[0]].feature.properties[_options.timeAttribute],_options).substr(0,4)+' - '+_extractTimestamp(_options.markers[ui.values[1]].feature.properties[_options.timeAttribute],_options).substr(0,4)+'</strong>')
 						//Commenting previous time range -- new one is according to long-date format i.e month-date-year.
+						// Edit below line to chnage date format shown on Time Slider
 						$('#time_range').html('<strong>'+months[d.getMonth()] +' '+ d.getDate() +', '+ d.getFullYear() +' - '+months[d1.getMonth()] +' '+d1.getDate() +', '+ d1.getFullYear()+'</strong>');
-                        // console.log("I am getting :"+ ui.values[0] +" and :"+ui.values[1]);
-					   for (i = ui.values[0]; i <= ui.values[1]; i++){
-						   //console.log("Marker id: "+_options.markers[i].feature.properties.Nid + " and marker name: "+_options.markers[i].feature.properties.name);
+                        for (i = ui.values[0]; i <= ui.values[1]; i++){
                            if(_options.markers[i]) {
-							   //console.log("hmm"+tribeFeature)
+							   //adding a filter to show features of only selected tribe if any..
 							   if(tribeFeature!="All") {
 								   for (var ftrs in matchFeatures){
 										   if(_options.markers[i].feature.properties.Tribe.replace(regex,"").includes(matchFeatures[ftrs])){
@@ -182,9 +181,8 @@ L.Control.SliderControl = L.Control.extend({
 											   featuregroup.addLayer(_options.markers[i]);
 											}
 								   }
-								}
+								}// else show all feature if not tribe is selected..
 								else{
-									//console.log("TribeFeature"+tribeFeature);
 									//updating markers and event-list
 									var mexicanIcon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
 															  iconSize: [24,38],
