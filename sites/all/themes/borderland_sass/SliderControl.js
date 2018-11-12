@@ -153,8 +153,7 @@ L.Control.SliderControl = L.Control.extend({
 													
 													_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 													_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-													'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-													'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity);
+													'<strong>Race or Ethnicity: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 													_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 												if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
@@ -209,8 +208,8 @@ L.Control.SliderControl = L.Control.extend({
 										
 										_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 										_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-										'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-										'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity);
+										'<strong>Race or Ethnicity: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+
+										'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 										_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 									if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
@@ -306,8 +305,8 @@ L.Control.SliderControl = L.Control.extend({
     							timeString = timeString.replace(/ /g,"-");
     							// intially add all the markers and add all the points to the evet list
     							_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
-                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
-                               	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity);
+                               	_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+'<strong>Race or Ethnicity: </strong>'+_options.markers[i].feature.properties.EthnicGroup+'<br>'+
+                               	'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
                                	_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
     							if (_options.markers[i].feature.properties.timePeriod == 'Mexican Era 1821-1835')
