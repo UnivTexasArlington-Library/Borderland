@@ -129,22 +129,22 @@ L.Control.SliderControl = L.Control.extend({
 										   if(_options.markers[i].feature.properties.Tribe.replace(regex,"").includes(matchFeatures[ftrs])){
 												//updating markers and event-list
 												var mexicanIcon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
-																		  iconSize: [24,38],
+																		  iconSize: [18,29],
 																		  iconAnchor: [12, 38],
 																		  popupAnchor: [0,-38]
 																		});
 												var revolutionIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1835-Revolution.png',
-																			 iconSize: [24,38],
+																			 iconSize: [18,29],
 																			 iconAnchor: [12, 38],
 																			 popupAnchor: [0,-38]
 																		   });
 												var republicIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
-																		   iconSize: [24,38],
+																		   iconSize: [18,29],
 																		   iconAnchor: [12, 38],
 																		   popupAnchor: [0,-38]
 																		 });
 												var statehoodIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1845-Statehood.png',
-																		   iconSize: [24,38],
+																		   iconSize: [18,29],
 																		   iconAnchor: [12, 38],
 																		   popupAnchor: [0,-38]
 																		 });
@@ -184,22 +184,22 @@ L.Control.SliderControl = L.Control.extend({
 								else{
 									//updating markers and event-list
 									var mexicanIcon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
-															  iconSize: [24,38],
+															  iconSize: [18,29],
 															  iconAnchor: [12, 38],
 															  popupAnchor: [0,-38]
 															});
 									var revolutionIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1835-Revolution.png',
-																 iconSize: [24,38],
+																 iconSize: [18,29],
 																 iconAnchor: [12, 38],
 																 popupAnchor: [0,-38]
 															   });
 									var republicIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
-															   iconSize: [24,38],
+															   iconSize: [18,29],
 															   iconAnchor: [12, 38],
 															   popupAnchor: [0,-38]
 															 });
 									var statehoodIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1845-Statehood.png',
-															   iconSize: [24,38],
+															   iconSize: [18,29],
 															   iconAnchor: [12, 38],
 															   popupAnchor: [0,-38]
 															 });
@@ -282,22 +282,22 @@ L.Control.SliderControl = L.Control.extend({
         }
         for (i = _options.minValue; i <= index_start; i++) {
         	var mexicanIcon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/1821-Mexican.png",
-                                						  iconSize: [24,38],
+                                						  iconSize: [18,29],
                                 						  iconAnchor: [12, 38],
     													  popupAnchor: [0,-38]
                             							});
     		var revolutionIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1835-Revolution.png',
-    													     iconSize: [24,38],
+    													     iconSize: [18,29],
     													     iconAnchor: [12, 38],
     													     popupAnchor: [0,-38]
     													   });
     		var republicIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1836-Republic.png',
-    													   iconSize: [24,38],
+    													   iconSize: [18,29],
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
 			var statehoodIcon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/1845-Statehood.png',
-    													   iconSize: [24,38],
+    													   iconSize: [18,29],
     													   iconAnchor: [12, 38],
     													   popupAnchor: [0,-38]
     													 });
