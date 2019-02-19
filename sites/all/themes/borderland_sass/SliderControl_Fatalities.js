@@ -46,7 +46,7 @@ L.Control.SliderControl = L.Control.extend({
         $(sliderContainer).append('<div id="slider_title" class="left-content"><strong>Slide time-range controls or push play for animation</strong></div>');
         $(sliderContainer).append('<div id="leaflet-slider" class="left-content"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
         //Edit here to chnage the Time Slider Time Range.
-		$(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1820 - December 1859</strong></div>');
+		$(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1820 - July 1879</strong></div>');
 		//Chirag//Time player and settings controller added. To change images please update images at folder://sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/
 		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
 		
@@ -123,32 +123,32 @@ L.Control.SliderControl = L.Control.extend({
 													   if(_options.markers[i].feature.properties.Tribe.replace(regex,"").includes(matchFeatures[ftrs])){
 															//updating markers and event-list
 															var zero_Fatalities_Icon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/fatalities-1.png",
-																					  iconSize: [24,38],
+																					  iconSize: [18,29],
 																					  iconAnchor: [12, 38],
 																					  popupAnchor: [0,-38]
 																					});
 															var one_to_five_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-2.png',
-																						 iconSize: [24,38],
+																						 iconSize: [18,29],
 																						 iconAnchor: [12, 38],
 																						 popupAnchor: [0,-38]
 																					   });
 															var  six_to_ten_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-3.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  eleven_to_twentyfive_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-4.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  twentysix_to_fifty_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-5.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  fiftyone_or_more_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-6.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });							 
@@ -157,8 +157,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-																'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Fatalities: </strong>'+_options.markers[i].feature.properties.Fatalities);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -201,32 +200,32 @@ L.Control.SliderControl = L.Control.extend({
 											   if(_options.markers[i].feature.properties.RaceEthnicity.replace(regex,"").includes(raceFeature)){
 													//updating markers and event-list
 													var zero_Fatalities_Icon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/fatalities-1.png",
-																					  iconSize: [24,38],
+																					  iconSize: [18,29],
 																					  iconAnchor: [12, 38],
 																					  popupAnchor: [0,-38]
 																					});
 															var one_to_five_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-2.png',
-																						 iconSize: [24,38],
+																						 iconSize: [18,29],
 																						 iconAnchor: [12, 38],
 																						 popupAnchor: [0,-38]
 																					   });
 															var  six_to_ten_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-3.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  eleven_to_twentyfive_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-4.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  twentysix_to_fifty_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-5.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  fiftyone_or_more_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-6.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });							 
@@ -235,8 +234,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-																'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Fatalities: </strong>'+_options.markers[i].feature.properties.Fatalities);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -279,32 +277,32 @@ L.Control.SliderControl = L.Control.extend({
 													   if(_options.markers[i].feature.properties.Tribe.replace(regex,"").includes(matchFeatures[ftrs]) && _options.markers[i].feature.properties.RaceEthnicity.replace(regex,"").includes(raceFeature)){
 															//updating markers and event-list
 															var zero_Fatalities_Icon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/fatalities-1.png",
-																					  iconSize: [24,38],
+																					  iconSize: [18,29],
 																					  iconAnchor: [12, 38],
 																					  popupAnchor: [0,-38]
 																					});
 															var one_to_five_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-2.png',
-																						 iconSize: [24,38],
+																						 iconSize: [18,29],
 																						 iconAnchor: [12, 38],
 																						 popupAnchor: [0,-38]
 																					   });
 															var  six_to_ten_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-3.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  eleven_to_twentyfive_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-4.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  twentysix_to_fifty_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-5.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  fiftyone_or_more_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-6.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });							 
@@ -313,8 +311,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-																'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Fatalities: </strong>'+_options.markers[i].feature.properties.Fatalities);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -356,32 +353,32 @@ L.Control.SliderControl = L.Control.extend({
 											if(tribeFeature=="All" && raceFeature=="All") {
 												//updating markers and event-list
 												var zero_Fatalities_Icon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/fatalities-1.png",
-																					  iconSize: [24,38],
+																					  iconSize: [18,29],
 																					  iconAnchor: [12, 38],
 																					  popupAnchor: [0,-38]
 																					});
 															var one_to_five_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-2.png',
-																						 iconSize: [24,38],
+																						 iconSize: [18,29],
 																						 iconAnchor: [12, 38],
 																						 popupAnchor: [0,-38]
 																					   });
 															var  six_to_ten_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-3.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  eleven_to_twentyfive_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-4.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  twentysix_to_fifty_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-5.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });
 															var  fiftyone_or_more_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-6.png',
-																					   iconSize: [24,38],
+																					   iconSize: [18,29],
 																					   iconAnchor: [12, 38],
 																					   popupAnchor: [0,-38]
 																					 });							 
@@ -390,8 +387,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-																'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Fatalities: </strong>'+_options.markers[i].feature.properties.Fatalities);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -482,32 +478,32 @@ L.Control.SliderControl = L.Control.extend({
 			if (marker_date >= filterStart && marker_date <=filterEnd)
 			{
         	var zero_Fatalities_Icon = L.icon({iconUrl: "//library.uta.edu/borderland/sites/default/files/marker/fatalities-1.png",
-									  iconSize: [24,38],
+									  iconSize: [18,29],
 									  iconAnchor: [12, 38],
 									  popupAnchor: [0,-38]
 									});
 			var one_to_five_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-2.png',
-										 iconSize: [24,38],
+										 iconSize: [18,29],
 										 iconAnchor: [12, 38],
 										 popupAnchor: [0,-38]
 									   });
 			var  six_to_ten_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-3.png',
-									   iconSize: [24,38],
+									   iconSize: [18,29],
 									   iconAnchor: [12, 38],
 									   popupAnchor: [0,-38]
 									 });
 			var  eleven_to_twentyfive_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-4.png',
-									   iconSize: [24,38],
+									   iconSize: [18,29],
 									   iconAnchor: [12, 38],
 									   popupAnchor: [0,-38]
 									 });
 			var  twentysix_to_fifty_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-5.png',
-									   iconSize: [24,38],
+									   iconSize: [18,29],
 									   iconAnchor: [12, 38],
 									   popupAnchor: [0,-38]
 									 });
 			var  fiftyone_or_more_Fatalities_Icon = L.icon({iconUrl: '//library.uta.edu/borderland/sites/default/files/marker/fatalities-6.png',
-									   iconSize: [24,38],
+									   iconSize: [18,29],
 									   iconAnchor: [12, 38],
 									   popupAnchor: [0,-38]
 									 });							 
@@ -516,8 +512,7 @@ L.Control.SliderControl = L.Control.extend({
 				
 				_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 				_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-				'<strong>Ethnic Group: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Gender: </strong>'+_options.markers[i].feature.properties.Gender+
-				'<br>'+'<strong>Activity: </strong>'+_options.markers[i].feature.properties.Activity+'<br>'+'<strong>Fatalities: </strong>'+_options.markers[i].feature.properties.Fatalities);
+				'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
 				_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 			if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
