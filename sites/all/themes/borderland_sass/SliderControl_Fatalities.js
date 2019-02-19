@@ -47,8 +47,8 @@ L.Control.SliderControl = L.Control.extend({
         $(sliderContainer).append('<div id="leaflet-slider" class="left-content"><div class="ui-slider-handle"></div><div id="slider-timestamp" style="display: none;"></div></div>');
         //Edit here to chnage the Time Slider Time Range.
 		$(sliderContainer).append('<div id ="time_range" class="left-content"><strong>January 1820 - July 1879</strong></div>');
-		//Chirag//Time player and settings controller added. To change images please update images at folder://sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/
-		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//sandbox-dev.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
+		//Chirag//Time player and settings controller added. To change images please update images at folder://library.uta.edu/borderland/sites/all/themes/borderland_sass/images/
+		$(sliderContainer).append('<div id ="slider-control" class="right-content"><img id="playPause" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/play_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click play for animation"><img id="customSettings" src="//library-test.uta.edu/borderland/sites/all/themes/borderland_sass/images/settings_slider.png" alt="" data-toggle="tooltip" data-placement="left" title="Click settings to change animation"></div>');
 		
 		//Prevent map panning/zooming while using the slider
         $(sliderContainer).mousedown(function () {
