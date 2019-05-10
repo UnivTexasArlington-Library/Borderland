@@ -5,7 +5,7 @@ L.Control.SliderControl = L.Control.extend({
         timeAttribute: 'time',
         startTimeIdx: 0,    // start looking for timestring at index[0]
         timeStrLength: 19,  // the size of yyyy-mm-dd hh:mm:ss i.e. 19
-        maxValue: 487,     //for months implementation//15000,
+        maxValue: 0,     //for months implementation//15000,
         minValue: 0,
         showAllOnStart: true,
         markers: null,
@@ -68,6 +68,7 @@ L.Control.SliderControl = L.Control.extend({
                 ++index_temp;
             });
             this.options = options;
+			this.options.maxValue = index_temp;
         } else {
             console.log("Error");
         }
@@ -157,7 +158,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType+'<p style="text-align:center;margin:auto;">'+_options.markers[i].feature.properties.EventImage+'</p>');
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -234,7 +235,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType+'<p style="text-align:center;margin:auto;">'+_options.markers[i].feature.properties.EventImage+'</p>');
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -311,7 +312,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType+'<p style="text-align:center;margin:auto;">'+_options.markers[i].feature.properties.EventImage+'</p>');
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -387,7 +388,7 @@ L.Control.SliderControl = L.Control.extend({
 																
 																_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 																_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
+																'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType+'<p style="text-align:center;margin:auto;">'+_options.markers[i].feature.properties.EventImage+'</p>');
 																_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 															if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
@@ -512,7 +513,7 @@ L.Control.SliderControl = L.Control.extend({
 				
 				_options.markers[i].bindPopup('<a href="/borderland/event/'+_options.markers[i].feature.properties.Nid+'">'+_options.markers[i].feature.properties.name+'</a>'+'<br><br>'+_options.markers[i].feature.properties.Date+'<br>'+
 				_options.markers[i].feature.properties.description+'<br><br>'+'<strong>Time Period: </strong>'+'<a href="/borderland/period/'+timeString+'">'+_options.markers[i].feature.properties.timePeriod+'</a>'+'<br>'+
-				'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType);
+				'<strong>Race/Ethnicity: </strong>'+_options.markers[i].feature.properties.RaceEthnicity+'<br>'+'<strong>Tribe: </strong>'+_options.markers[i].feature.properties.Tribe+'<br>'+'<strong>Event Type: </strong>'+_options.markers[i].feature.properties.EventType+'<p style="text-align:center;margin:auto;">'+_options.markers[i].feature.properties.EventImage+'</p>');
 				_options.markers[i].bindTooltip(_options.markers[i].feature.properties.name,{offset: [0,-25]});
 
 			if (_options.markers[i].feature.properties.Fatalities == 0 || _options.markers[i].feature.properties.Fatalities == 'Unknown')
