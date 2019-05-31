@@ -78,7 +78,7 @@ L.Control.SliderControl = L.Control.extend({
 	 slide: function (e, ui) {
                 var map = _options.map;
                 var featuregroup = L.featureGroup();
-				filterStart = new Date((ui.values[0]*86400000*30)-4733662164000); //Calculate the Start and End date w.r.t. UTC time clock.. in our case its 1820 to any event end..
+				filterStart = new Date((ui.values[0]*86400000*30)-5270075999000); //Calculate the Start and End date w.r.t. UTC time clock.. in our case its 1820 to any event end..
 				filterEnd = new Date((ui.values[1]*86400000*30)-4733662164000);
 				
 				_timeRange = ui.values[1] - ui.values[0];
@@ -468,7 +468,7 @@ L.Control.SliderControl = L.Control.extend({
 		//console.log("Markers length: "+layers_length);
 		var ui_c = {"values":[$('#leaflet-slider').slider("values",0),$('#leaflet-slider').slider("values",1)]};
 		
-		filterStart = new Date((ui_c.values[0]*86400000*30)-4733662164000);//Calculate the Start and End date w.r.t. UTC time clock.. in our case its 1820 to any event end..
+		filterStart = new Date((ui_c.values[0]*86400000*30)-5270075999000);//Calculate the Start and End date w.r.t. UTC time clock.. in our case its 1820 to any event end..
 		filterEnd = new Date((ui_c.values[1]*86400000*30)-4733662164000);
         if (!_options.range && _options.alwaysShowDate) {
             $('#slider-timestamp').html(_extractTimeStamp(_options.markers[index_start].feature.properties[_options.timeAttribute], _options));
