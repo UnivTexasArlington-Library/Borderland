@@ -381,7 +381,7 @@ L.Control.SliderControl = L.Control.extend({
              value: _options.value,
              values: _options.values,
              min: _options.minValue,
-             max: _options.maxValue,
+             max: 730,
              step: 1,
 			slide: this.slide
          });
