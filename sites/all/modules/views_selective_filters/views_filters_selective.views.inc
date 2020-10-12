@@ -1,34 +1,21 @@
 <?php
+
 /**
  * @file
  * Integration with Views.
  */
 
 /**
- * Helper function startsWith.
- */
-function _views_filters_selective_startsWith($haystack, $needle) {
-  return $needle === "" || strpos($haystack, $needle) === 0;
-}
-
-/**
- * Helper function endsWith.
- */
-function _views_filters_selective_endsWith($haystack, $needle) {
-  return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
-}
-
-/**
  * Implements hook_views_data_alter().
  */
 function views_filters_selective_views_data_alter(&$data) {
   foreach ($data as $table_name => $table_info) {
-    foreach ($table_info as $field_name => $field_info) {
+    // Ignore translated, format and delta.
+    unset($table_info['delta']);
+    $valid_keys = preg_grep('/(_format|_i18n)$/', array_keys($table_info), PREG_GREP_INVERT);
+    foreach ($valid_keys as $field_name) {
+      $field_info = $table_info[$field_name];
       if (!empty($field_info['filter']['handler']) && $field_info['filter']['handler'] != 'views_handler_filter_selective') {
-        // Ignore translated, format and delta.
-        if (_views_filters_selective_endsWith($field_name, '_i18n') || _views_filters_selective_endsWith($field_name, '_format') || $field_name == 'delta') {
-          continue;
-        }
         // Compute underlying field name ($real_Field).
         $_field_name = isset($field_info['filter']['field_name']) ? $field_info['filter']['field_name'] : NULL;
         $_field_real_field = isset($field_info['filter']['real field']) ? $field_info['filter']['real field'] : NULL;

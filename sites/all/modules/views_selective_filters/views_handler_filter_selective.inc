@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Views Filter Selective Handler Overrides.
@@ -16,10 +17,15 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
    */
   protected $originalOptions;
 
+  /**
+   * Static results set.
+   *
+   * @var array
+   */
   protected static $results;
 
   /**
-   * Override set_default_options.
+   * {@inheritdoc}
    */
   public function set_default_options() {
     parent::set_default_options();
@@ -30,7 +36,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
   }
 
   /**
-   * Override get_value_options: retrieve available values.
+   * {@inheritdoc}
    */
   public function get_value_options() {
     $this->value_options = array();
@@ -63,7 +69,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
   }
 
   /**
-   * Override value_form.
+   * {@inheritdoc}
    */
   public function value_form(&$form, &$form_state) {
     $this->get_value_options();
@@ -85,24 +91,26 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
   /**
    * Tell if two base fields are compatible.
    */
-  private function BaseFieldCompatible($base_field1, $base_field2) {
+  protected function baseFieldCompatible($base_field1, $base_field2) {
     // Extended condition see https://www.drupal.org/node/2295707
     return preg_match('/^' . $base_field1 . '/', $base_field2);
   }
 
   /**
-   * Override options_form.
+   * {@inheritdoc}
    */
   public function options_form(&$form, &$form_state) {
     $base_field = $this->definition['field_base'];
-
     parent::options_form($form, $form_state);
+
     // Filter should always be exposed, show warning.
     array_unshift($form['expose_button'], array(
       'warning' => array(
         '#type' => 'markup',
         '#markup' => '<div class="messages warning">' . t('This filter is always exposed to users.') . '</div>',
-      )));
+      ),
+    ));
+
     // Remove option to unexpose filter. Tried to disable, but did not work.
     $form['expose_button']['checkbox']['checkbox']['#type'] = 'hidden';
     unset($form['expose_button']['button']);
@@ -121,7 +129,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
     // Add combo to pick display field for filter.
     $options = array();
     foreach ($this->view->display_handler->handlers['field'] as $key => $handler) {
-      if ($this->BaseFieldCompatible($base_field, $handler->field)) {
+      if ($this->baseFieldCompatible($base_field, $handler->field)) {
         $options[$handler->options['id']] = $handler->definition['group'] . ': ' . $handler->definition['title'] . '(' . $handler->label() . ')';
       }
     }
@@ -154,7 +162,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       '#type' => 'select',
       '#description' => t('Choose wich field to use for display'),
       '#options' => $options,
-      '#default_value' => 'ASC',
+      '#default_value' => $this->options['selective_display_sort'],
     );
     $form['selective_items_limit'] = array(
       '#title' => t('Limit number of select items'),
@@ -164,10 +172,17 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       '#size' => 10,
       '#element_validate' => array('element_validate_integer_positive'),
     );
+    $form['selective_options_ignore_exposed_data'] = array(
+      '#title' => t('Always show default set of options, even after exposed filters have been applied'),
+      '#type' => 'checkbox',
+      '#description' => t("If you don't want the filter options to continue to be filtered as additional exposed filters are applied, check this box"),
+      '#default_value' => $this->options['selective_options_ignore_exposed_data'],
+    );
+
   }
 
   /**
-   * Override expose_form.
+   * {@inheritdoc}
    */
   public function expose_form(&$form, &$form_state) {
     parent::expose_form($form, $form_state);
@@ -187,38 +202,41 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
   }
 
   /**
-   * Override query.
+   * {@inheritdoc}
    */
   public function query() {
     // If this view was constructed to obtain the selective values for this
     // handler, the handler should not add any constraints itself.
-    if (isset($this->view->selective_handler_signature) && $this->GetSignature() == $this->view->selective_handler_signature) {
+    if (isset($this->view->selective_handler_signature) && $this->getSignature() == $this->view->selective_handler_signature) {
       return;
     }
     // Decode the values to restore special chars.
     if (is_array($this->value)) {
       $this->value = array_map('urldecode', $this->value);
     }
-    elseif (is_string($this->value)){
+    elseif (is_string($this->value)) {
       $this->value = urldecode($this->value);
     }
     parent::query();
   }
 
   /**
-   * Override option_definition
+   * {@inheritdoc}
    */
-  function option_definition() {
+  public function option_definition() {
     $options = parent::option_definition();
 
     // Storage for field used to display values.
     $options['selective_display_field']['default'] = '';
     // Storage for sort used to sort display values.
     $options['selective_display_sort']['default'] = 'ASC';
-    // Storage for aggregated fields
+    // Storage for aggregated fields.
     $options['selective_aggregated_fields']['default'] = '';
     // Limit aggregated items to prevent a huge number of options in select.
     $options['selective_items_limit']['default'] = 100;
+    // Toggle to not continue to filter options after exposed filters are
+    // applied.
+    $options['selective_options_ignore_exposed_data']['default'] = 0;
 
     return $options;
   }
@@ -226,7 +244,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
   /**
    * Get a signature for current filter handler.
    */
-  protected function GetSignature() {
+  protected function getSignature() {
     $signature = md5(serialize(array(
       'name' => $this->view->name,
       'args' => $this->view->args,
@@ -237,6 +255,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       'table' => $this->table,
       'ui_name' => $this->options['ui_name'],
     )));
+
     return $signature;
   }
 
@@ -247,7 +266,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
     // Parameters that we will be using during the process.
     $base_field = $this->definition['field_base'];
     $ui_name = $this->options['ui_name'];
-    $signature = $this->GetSignature();
+    $signature = $this->getSignature();
 
     // Prevent same filters from being recalculated.
     if (empty(self::$results[$signature])) {
@@ -265,8 +284,24 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       $view_copy->selective_oids = TRUE;
       // Store information about what filter is this view being used for.
       $view_copy->selective_handler_signature = $signature;
+
+      // If this filter is configured to *not* continue to filter the options
+      // list as new exposed values are applied, make sure to explicitly set any
+      // exposed input values to null and remove contextual filters (args).
+      if (isset($this->options['selective_options_ignore_exposed_data']) && $this->options['selective_options_ignore_exposed_data'] === 1) {
+        if (!empty($this->view->exposed_input) && is_array($this->view->exposed_input)) {
+          $new_exposed_input = array();
+          foreach ($this->view->exposed_input as $key => $val) {
+            $new_exposed_input[$key] = NULL;
+          }
+          $view_copy->set_exposed_input($new_exposed_input);
+        }
+      }
+      else {
+        $view_copy->set_exposed_input($this->view->exposed_input);
+      }
+
       // Transfer contextual information to cloned view.
-      $view_copy->set_exposed_input($this->view->exposed_input);
       $view_copy->set_arguments($this->view->args);
 
       // Mess up with the field used for distinct have thousands of elements.
@@ -286,6 +321,10 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       // Manipulate display + default: don't know if fields are overriden.
       $display = $view_copy->display[$this->view->current_display];
       $display_default = $view_copy->display['default'];
+
+      // Initialize the current display handler.
+      $display->handler = views_get_plugin('display', $view_copy->display[$this->view->current_display]->display_plugin);
+      $display_default->handler = &$display->handler;
 
       // Remove any exposed form configuration. This showed up with BEF module!
       unset($display->display_options['exposed_form']);
@@ -321,7 +360,8 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
           unset($display_options_fields[$key]);
         }
         else {
-          // If there is a group column on the field, remove it so Field Collections will work.
+          // If there is a group column on the field, remove it so
+          // Field Collections will work.
           // https://www.drupal.org/node/2333065
           unset($display_options_fields[$key]['group_column']);
         }
@@ -332,7 +372,8 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
         drupal_set_message(t('Selective query filter must have corresponding field added to view with Administrative Name set to "@name" and Base Type "@type"',
           array(
             '@name' => $ui_name,
-            '@type' => $base_field)),
+            '@type' => $base_field,
+          )),
             'error');
         return array();
       }
@@ -354,7 +395,8 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
         drupal_set_message(t('Selective filter "@name": relationship of field and filter must match.',
           array(
             '@name' => $ui_name,
-            '@type' => $base_field)),
+            '@type' => $base_field,
+          )),
             'error');
         return array();
       }
@@ -383,7 +425,8 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       unset($display->display_options['query']['options']['distinct']);
       unset($display->display_options['query']['options']['pure_distinct']);
 
-      // Make sure we are not using a pager to prevent unnecessary count(*) queries.
+      // Make sure we are not using a pager to prevent unnecessary count(*)
+      // queries.
       $display->display_options['pager'] = unserialize('a:2:{s:4:"type";s:4:"none";s:7:"options";a:1:{s:6:"offset";s:1:"0";}}');
       $display_default->display_options['pager'] = unserialize('a:2:{s:4:"type";s:4:"none";s:7:"options";a:1:{s:6:"offset";s:1:"0";}}');
 
@@ -415,13 +458,16 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
 
       // Create array of objects for selector.
       $oids = array();
-      $field_alias = isset($display_field_handler->aliases[$display_field_handler->real_field]) ? $display_field_handler->aliases[$display_field_handler->real_field] : $display_field_handler->table_alias . '_' . $display_field_handler->real_field;
+      $field_alias_original = isset($display_field_handler->aliases[$display_field_handler->real_field]) ? $display_field_handler->aliases[$display_field_handler->real_field] : $display_field_handler->table_alias . '_' . $display_field_handler->real_field;
+      // views_plugin_query_default::add_field() truncates aliases to 60
+      // characters.
+      $field_alias = substr($field_alias_original, 0, 60);
       foreach ($view_copy->result as $index => $row) {
-        // $key = $display_field_handler->get_value($row) should be more robust.
-        // But values are sometimes nested arrays, and we need single values.
-        // For the filters.
+        // $key = $display_field_handler->get_value($row) should be more robust
+        // but values are sometimes nested arrays, and we need scalar values
+        // for the filters.
         $key = $display_field_handler->get_value($row);
-        if (is_array($key)) {
+        if (!is_scalar($key)) {
           $key = $row->{$field_alias};
         }
         $value = strip_tags($view_copy->render_field($display_field_id, $index));
@@ -430,27 +476,34 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
 
       // Sort values.
       $sort_option = $this->options['selective_display_sort'];
-      switch($sort_option) {
+      switch ($sort_option) {
         case 'ASC':
           asort($oids);
           break;
+
         case 'DESC':
           arsort($oids);
           break;
+
         case 'KASC':
           ksort($oids);
           break;
+
         case 'KDESC':
           krsort($oids);
           break;
+
         case 'ORIG':
           $oids = self::filterOriginalOptions($this->getOriginalOptions(), array_keys($oids));
           break;
+
         case 'NONE':
           break;
+
         default:
           asort($oids);
       }
+      drupal_alter('views_filters_selective_sort', $oids, $this);
 
       // If limit exceeded this field is not good for being "selective".
       if (!empty($max_items) && count($oids) == $max_items) {
@@ -460,6 +513,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
       self::$results[$signature] = $oids;
       $view_copy->destroy();
     }
+
     return self::$results[$signature];
   }
 
@@ -474,7 +528,7 @@ class views_handler_filter_selective extends views_handler_filter_in_operator {
    * @return array
    *   The original filter options list narrowed to the cloned query results.
    */
-  static protected function filterOriginalOptions($options, $set) {
+  protected static function filterOriginalOptions(array $options, array $set) {
     $filtered = array();
 
     foreach ($options as $key => $value) {
