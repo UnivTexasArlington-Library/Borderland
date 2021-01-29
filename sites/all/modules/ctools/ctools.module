@@ -852,7 +852,7 @@ function ctools_page_token_processing($children, $elements) {
  * Add and remove CSS classes from the variables array. We use process so that
  * we alter anything added in the preprocess hooks.
  */
-function ctools_process(&$variables, $hook) {
+function discardKeyCodectools_process(&$variables, $hook) {
   if (!isset($variables['classes'])) {
     return;
   }
