@@ -220,7 +220,7 @@ function _search_api_views_add_handlers($id, array $field, EntityMetadataWrapper
       $table[$id]['filter']['vocabulary'] = $vocabulary;
     }
   }
-  elseif (in_array($inner_type, array('integer', 'decimal', 'duration', 'string', 'uri'))) {
+  elseif (in_array($inner_type, array('integer', 'decimal', 'duration', 'string'))) {
     $table[$id]['filter']['handler'] = 'SearchApiViewsHandlerFilterNumeric';
   }
   else {

@@ -22,9 +22,6 @@ class SearchApiAlterNodeStatus extends SearchApiAbstractAlterCallback {
    *   TRUE if the callback can run on the given index; FALSE otherwise.
    */
   public function supportsIndex(SearchApiIndex $index) {
-    if ($this->isMultiEntityIndex($index)) {
-      return in_array('node', $index->options['datasource']['types']);
-    }
     return $index->getEntityType() === 'node';
   }
 
@@ -38,17 +35,9 @@ class SearchApiAlterNodeStatus extends SearchApiAbstractAlterCallback {
    *   An array of items to be altered, keyed by item IDs.
    */
   public function alterItems(array &$items) {
-    $multi_types = $this->isMultiEntityIndex($this->index);
-    foreach ($items as $id => $item) {
-      $node = $item;
-      if ($multi_types) {
-        if ($item->item_type !== 'node') {
-          continue;
-        }
-        $node = $item->node;
-      }
-      if (empty($node->status)) {
-        unset($items[$id]);
+    foreach ($items as $nid => &$item) {
+      if (empty($item->status)) {
+        unset($items[$nid]);
       }
     }
   }
