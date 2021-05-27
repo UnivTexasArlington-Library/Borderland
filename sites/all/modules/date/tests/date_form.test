@@ -5,14 +5,8 @@
  * Contains form specific date element test cases.
  */
 
-/**
- * Contains form specific date element test cases.
- */
 class DateFormTestCase extends DrupalWebTestCase {
 
-  /**
-   * {@inheritdoc}
-   */
   public static function getInfo() {
     return array(
       'name' => t('Date Form test'),
@@ -21,12 +15,9 @@ class DateFormTestCase extends DrupalWebTestCase {
     );
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'date_test';
-    parent::setUp($modules);
+  public function setUp() {
+    // Load the date_api module.
+    parent::setUp('date_test');
   }
 
   /**
