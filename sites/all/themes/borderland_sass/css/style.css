@@ -6116,7 +6116,7 @@ h1.page-header {
 .field-label {
   padding-right: 1em; }
 
-.field-name-field-geocoords {
+.field-name-field-geocoords, .field-name-field-county {
   font-size: 13px; }
 
 #views-exposed-form-leaflet-panel-pane-1 .views-widget {
