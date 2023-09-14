@@ -79,16 +79,9 @@
       <div class="owners">
         <?php if ($logo): ?>
           <div>
-          <a class="logo navbar-btn" href="http://uta.edu" title="<?php print t('University of Texas at Arlington'); ?>">
-            <img src="<?php print $logo; ?>" alt="<?php print t('University of Texas at Arlington'); ?>" />
+          <a class="logo navbar-btn" href="https://libraries.uta.edu" title="<?php print t('UTA Libraries'); ?>">
+            <img src="<?php print $logo; ?>" alt="<?php print t('UTA Libraries'); ?>" />
           </a></div>
-          <div class="clear">
-          <p class="hidden-sm hidden-xs">
-            <a class="southwestern" href="http://www.uta.edu/southwesternstudies/" title="<?php print t('UTA Center for Greater Southwestern Studies'); ?>">CENTER FOR GREATER SOUTHWESTERN STUDIES</a>
-            
-            <a class="library" href="http://library.uta.edu" title="<?php print t('UTA Libraries'); ?>">UTA LIBRARIES</a>
-          </p>
-        </div>
         <?php endif; ?>
       </div>
 
