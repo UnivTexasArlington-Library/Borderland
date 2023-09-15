@@ -6078,8 +6078,10 @@ input[type="radio"], input[type="checkbox"] {
 
 .footer {
   background-color: #a8bbca;
-  padding: 15px;
+  padding: 10px;
   font-size: 13px;  }
+  
+.footer p {margin-bottom:0;}
 
 #block-block-1,
 #block-block-3 {
