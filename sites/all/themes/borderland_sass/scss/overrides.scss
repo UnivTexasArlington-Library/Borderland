@@ -322,6 +322,10 @@ tr.even.synced-marker-hover > td.active {
   z-index: 0;
 }
 
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 20px;
+	}
+
 .leaflet-container a.leaflet-popup-close-button {
   color:$link-color;
   &:hover, &:focus {
