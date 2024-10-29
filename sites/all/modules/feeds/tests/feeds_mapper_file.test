@@ -10,8 +10,6 @@
  */
 class FeedsMapperFileTestCase extends FeedsMapperTestCase {
 
-  protected $profile = 'standard';
-
   /**
    * {@inheritdoc}
    */
@@ -915,7 +913,7 @@ class FeedsMapperFileTestCase extends FeedsMapperTestCase {
    */
   protected function requireSimplePie() {
     if (!feeds_simplepie_exists()) {
-      $this->downloadExtractSimplePieRecommendedVersion();
+      $this->downloadExtractSimplePie('1.5.6');
       $this->assertTrue(feeds_simplepie_exists());
       // Reset all the caches!
       $this->resetAll();

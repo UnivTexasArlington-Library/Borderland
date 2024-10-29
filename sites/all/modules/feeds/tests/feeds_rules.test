@@ -26,12 +26,7 @@ class FeedsRulesTest extends FeedsWebTestCase {
    * Set up test.
    */
   public function setUp() {
-    parent::setUp();
-
-    // Take control the order the modules are loaded to ensure they load in the
-    // correct order.
-    module_enable(array('rules'), FALSE);
-    $this->resetAll();
+    parent::setUp(array('rules'));
 
     // Create an importer configuration.
     $this->createImporterConfiguration('Node import', 'node');

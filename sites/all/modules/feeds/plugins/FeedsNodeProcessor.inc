@@ -477,7 +477,8 @@ class FeedsNodeProcessor extends FeedsProcessor {
       return parent::clean($state);
     }
 
-    if ($state->removeList !== NULL && count($state->removeList)) {
+    $total = count($state->removeList);
+    if ($total) {
       $nodes = node_load_multiple($state->removeList);
       foreach ($nodes as &$node) {
         $this->loadItemInfo($node);
