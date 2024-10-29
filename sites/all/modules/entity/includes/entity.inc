@@ -188,7 +188,6 @@ interface EntityInterface {
  *   public $count = 0;
  * @endcode
  */
-#[\AllowDynamicProperties]
 class Entity implements EntityInterface {
 
   protected $entityType;

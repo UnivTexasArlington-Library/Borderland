@@ -30,9 +30,6 @@ function entity_features_get_controller($type) {
 class EntityDefaultFeaturesController {
 
   protected $type, $info;
-  protected $statusKey;
-  protected $moduleKey;
-  protected $bundleKey;
 
   public function __construct($type) {
     $this->type = $type;
