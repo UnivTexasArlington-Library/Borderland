@@ -8,7 +8,7 @@
 /**
  * The current system version.
  */
-define('VERSION', '7.101');
+define('VERSION', '7.100');
 
 /**
  * Core API compatibility.
@@ -2285,8 +2285,7 @@ function drupal_block_denied($ip) {
  *   The number of random bytes to fetch and base64 encode.
  *
  * @return string
- *   A base-64 encoded string, with + replaced with -, / with _ and any =
- *   padding characters removed.
+ *   The base64 encoded result will have a length of up to 4 * $byte_count.
  */
 function drupal_random_key($byte_count = 32) {
   return drupal_base64_encode(drupal_random_bytes($byte_count));
