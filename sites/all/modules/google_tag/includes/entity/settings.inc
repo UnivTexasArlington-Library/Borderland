@@ -13,6 +13,160 @@ class GTMSettings {
   private static $instance;
 
   /**
+   * The machine name for the configuration entity.
+   *
+   * @var string
+   */
+  public $name;
+
+  /**
+   * The human-readable name of the configuration entity.
+   *
+   * @var string
+   */
+  public $label;
+
+  /**
+   * XXX
+   *
+   * @var string
+   */
+  public $status;
+
+  /**
+   * Snippet parent URI.
+   *
+   * @var string
+   */
+  public $uri;
+
+  /**
+   * Whether to compact the JavaScript snippet.
+   *
+   * @var bool
+   */
+  public $compact_snippet;
+
+  /**
+   * Whether to include the snippet as a file.
+   *
+   * @var bool
+   */
+  public $include_file;
+
+  /**
+   * Whether to recreate snippets on cache rebuild.
+   *
+   * @var bool
+   */
+  public $rebuild_snippets;
+
+  /**
+   * Whether to flush snippet directory on cache rebuild.
+   *
+   * @var bool
+   */
+  public $flush_snippets;
+
+  /**
+   * Whether to show debug output.
+   *
+   * @var bool
+   */
+  public $debug_output;
+
+  /**
+   * The name of the data layer.
+   *
+   * @var string
+   */
+  public $data_layer;
+
+  /**
+   * Whether to add the listed classes to the data layer.
+   *
+   * @var bool
+   */
+  public $include_classes;
+
+  /**
+   * The white-listed classes.
+   *
+   * @var string
+   */
+  public $whitelist_classes;
+
+  /**
+   * The black-listed classes.
+   *
+   * @var string
+   */
+  public $blacklist_classes;
+
+  /**
+   * Whether to include the environment items in the applicable snippets.
+   *
+   * @var bool
+   */
+  public $include_environment;
+
+  /**
+   * Teh environment ID.
+   *
+   * @var string
+   */
+  public $environment_id;
+
+  /**
+   * The environment token.
+   *
+   * @var string
+   */
+  public $environment_token;
+
+  /**
+   * Whether to include or exclude the listed paths.
+   *
+   * @var string
+   */
+  public $path_toggle;
+
+  /**
+   * The listed paths.
+   *
+   * @var array
+   */
+  public $path_list;
+
+  /**
+   * Whether to include or exclude the listed roles.
+   *
+   * @var string
+   */
+  public $role_toggle;
+
+  /**
+   * The listed roles.
+   *
+   * @var array
+   */
+  public $role_list;
+
+  /**
+   * Whether to include or exclude the listed statuses.
+   *
+   * @var string
+   */
+  public $status_toggle;
+
+  /**
+   * The listed statuses.
+   *
+   * @var array
+   */
+  public $status_list;
+
+  /**
    * Constructs a module settings object.
    */
   public function __construct() {
@@ -20,7 +174,9 @@ class GTMSettings {
     // $values = (array) ctools_export_crud_load('gtag_config', 'google_tag.settings');
     $values = (array) gtag_export_crud_load('gtag_config', 'google_tag.settings');
     foreach ($values as $key => $value) {
-      $this->$key = $value;
+      if (property_exists($this, $key)) {
+        $this->$key = $value;
+      }
     }
   }
 

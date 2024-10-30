@@ -19,6 +19,7 @@ class GTMBaseTestCase extends DrupalWebTestCase {
   protected $group = 'Google Tag module';
   protected $basePath = 'public:/';
   protected $types = array('script', 'noscript');
+  protected $variables = array();
 
   /**
    * Modules to enable.

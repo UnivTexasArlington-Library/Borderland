@@ -162,7 +162,9 @@ class GTMContainer {
     }
     // @todo Always append default container values to mimic variable_get()?
     foreach ($values as $key => $value) {
-      $this->$key = $value;
+      if (property_exists($this, $key)) {
+        $this->$key = $value;
+      }
     }
 
 /*
@@ -399,24 +401,24 @@ EOS;
    *   TRUE if the conditions are met; FALSE otherwise.
    */
   public function genericCheck($type) {
-    $this->toggle = "{$type}_toggle";
-    $this->list = "{$type}_list";
-    $this->context = "{$type}Context";
-    $this->singular = $type;
+    $toggle = "{$type}_toggle";
+    $list = "{$type}_list";
+    $context = "{$type}Context";
+    $singular = $type;
 
-    $toggle = $this->get($this->toggle);
+    $toggle = $this->get($toggle);
     if (empty($toggle)) {
       // Condition is not configured.
       return TRUE;
     }
-    $values = $this->get($this->list);
+    $values = $this->get($list);
     $values = $values && is_array($values) ? array_filter($values) : $values;
 
     if (empty($values)) {
       $satisfied = ($toggle == GOOGLE_TAG_EXCLUDE_LISTED);
     }
     else {
-      $value = $this->{$this->context}($values);
+      $value = $this->{$context}($values);
       if (is_string($values)) {
         // Examples: status and path.
         $satisfied = $value;
@@ -429,7 +431,7 @@ EOS;
       }
       $satisfied = ($toggle == GOOGLE_TAG_EXCLUDE_LISTED) ? !$satisfied : $satisfied;
     }
-    $this->displayMessage('@singular check @satisfied', array('@singular' => $this->singular, '@satisfied' => $satisfied));
+    $this->displayMessage('@singular check @satisfied', array('@singular' => $singular, '@satisfied' => $satisfied));
     return $satisfied;
   }
 
@@ -574,7 +576,7 @@ EOS;
   public function inlineTag($type, $weight) {
     $uri = $this->snippetURI($type);
     $url = drupal_realpath($uri);
-    $contents = @file_get_contents($url);
+    $contents = $url ? @file_get_contents($url) : FALSE;
     drupal_add_js($contents, array('type' => 'inline', 'group' => JS_LIBRARY * 2, 'requires_jquery' => FALSE));
 
     // This approach uses weight only but does not group the script tags so
@@ -616,7 +618,7 @@ EOS;
     // TRUE outputs as aria-hidden="1"
     $uri = $this->snippetURI($type);
     $url = drupal_realpath($uri);
-    $contents = @file_get_contents($url);
+    $contents = $url ? @file_get_contents($url) : FALSE;
     $attachment = $contents ? array(
       "google_tag_{$type}_tag__{$this->id()}" => array(
         '#type' => 'html_tag',

@@ -8,8 +8,8 @@ test_dependencies[] = ctools:ctools
 test_dependencies[] = google_tag:google_tag
 test_dependencies[] = variable:variable_realm
 
-; Information added by Drupal.org packaging script on 2019-12-20
-version = "7.x-2.1"
+; Information added by Drupal.org packaging script on 2024-07-26
+version = "7.x-2.2"
 core = "7.x"
 project = "google_tag"
-datestamp = "1576858705"
+datestamp = "1722023280"

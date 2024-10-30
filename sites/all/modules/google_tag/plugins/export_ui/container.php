@@ -16,6 +16,13 @@
 class GTMContainerExport extends ctools_export_ui {
 
   /**
+   * Whether the configuration entity is being cloned.
+   *
+   * @var bool
+   */
+  protected $is_cloning;
+
+  /**
    * {@inheritdoc}
    */
   public function get_page_title($op, $item = NULL) {
